@@ -1,4 +1,7 @@
-﻿namespace sayHello.DataAccess;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
+namespace sayHello.DataAccess;
 
 public class AppDbContext: DbContext
 {
