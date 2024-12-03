@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "wgT4X8klk7bg6okBKsvdjy4cBg73pb0guutvXfRqKzI=",
+  "Source": "sayHello.api",
+  "BasePath": "_content/sayHello.api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
