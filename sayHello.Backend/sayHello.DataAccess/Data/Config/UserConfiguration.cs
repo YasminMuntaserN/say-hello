@@ -6,7 +6,6 @@ namespace sayHello.DataAccess.Data.Config;
 
 public class UserConfiguration : IEntityTypeConfiguration<User>
 {
-    public DbSet<User> Users { get; set; }
     public void Configure(EntityTypeBuilder<User> builder)
     {
         builder.HasKey(e => e.UserId);

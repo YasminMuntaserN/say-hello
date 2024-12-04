@@ -16,4 +16,7 @@ public class User
     public ICollection<Message> SentMessages { get; set; } = new List<Message>();
     public ICollection<Message> ReceivedMessages { get; set; } = new List<Message>();
 
+ 
+    public ICollection<BlockedUser> BlockedUsers { get; set; } = new List<BlockedUser>();
+    public ICollection<BlockedUser> BlockedByUsers { get; set; } = new List<BlockedUser>();
 }
