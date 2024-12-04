@@ -12,10 +12,6 @@ public class MessageConfiguration : IEntityTypeConfiguration<Message>
         builder.Property(e => e.Content)
             .IsRequired()
             .HasMaxLength(1000); 
-
-        builder.Property(e => e.MessageType)
-            .IsRequired()
-            .HasMaxLength(100); 
         
         builder.Property(e => e.SendDT)
             .IsRequired()
