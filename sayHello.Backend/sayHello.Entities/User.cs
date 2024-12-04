@@ -12,4 +12,8 @@ public class User
     public DateTime DateJoined { get; set; }
     public bool IsDeleted { get; set; }
     public DateTime? LastLogin { get; set; }
+
+    public ICollection<Message> SentMessages { get; set; } = new List<Message>();
+    public ICollection<Message> ReceivedMessages { get; set; } = new List<Message>();
+
 }
