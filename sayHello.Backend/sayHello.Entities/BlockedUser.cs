@@ -9,4 +9,7 @@ public class BlockedUser
     
     public int BlockedUserId { get; set; }
     public User Blocked_User { get; set; }
+    
+    public DateTime DateBlocked { get; set; }
+    public string? Reason { get; set; } 
 }

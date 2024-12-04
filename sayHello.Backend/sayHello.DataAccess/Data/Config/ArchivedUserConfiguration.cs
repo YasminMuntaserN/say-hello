@@ -10,6 +10,10 @@ public class ArchivedUserConfiguration : IEntityTypeConfiguration<ArchivedUser>
     {
         builder.HasKey(b => b.Id);
 
+        builder.Property(e => e.DateArchived)
+            .IsRequired()
+            .HasDefaultValueSql("GETDATE()"); 
+        
         builder.HasOne(b => b.User)
             .WithMany(u => u.ArchivedUsers) 
             .HasForeignKey(b => b.UserId)

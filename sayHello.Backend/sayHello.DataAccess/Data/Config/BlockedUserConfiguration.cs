@@ -10,6 +10,14 @@ public class BlockedUserConfiguration : IEntityTypeConfiguration<BlockedUser>
     {
         builder.HasKey(b => b.Id);
 
+        builder.Property(e => e.DateBlocked)
+            .IsRequired()
+            .HasDefaultValueSql("GETDATE()"); 
+
+        builder.Property(e => e.Reason)
+            .HasMaxLength(200) 
+            .HasDefaultValue(false);
+        
         builder.HasOne(b => b.User)
             .WithMany(u => u.BlockedUsers) 
             .HasForeignKey(b => b.UserId)
