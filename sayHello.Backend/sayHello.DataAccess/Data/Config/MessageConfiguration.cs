@@ -19,7 +19,7 @@ public class MessageConfiguration : IEntityTypeConfiguration<Message>
 
         
         builder.Property(e => e.ReadDT)
-            .HasColumnType("datetime2")
+            .HasColumnType("datetime")
             .IsRequired(false); 
 
         builder.Property(e => e.ReadStatus)

@@ -1,0 +1,133 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A6A79BDC-846D-4C8E-B100-3D06289B5E6C}|sayHello.DataAccess\\sayHello.DataAccess.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.dataaccess\\data\\config\\blockeduserconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6A79BDC-846D-4C8E-B100-3D06289B5E6C}|sayHello.DataAccess\\sayHello.DataAccess.csproj|solutionrelative:sayhello.dataaccess\\data\\config\\blockeduserconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F6719EE-DC09-4F69-AD36-78744632365D}|sayHello.Entities\\sayHello.Entities.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.entities\\blockeduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F6719EE-DC09-4F69-AD36-78744632365D}|sayHello.Entities\\sayHello.Entities.csproj|solutionrelative:sayhello.entities\\blockeduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6A79BDC-846D-4C8E-B100-3D06289B5E6C}|sayHello.DataAccess\\sayHello.DataAccess.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.dataaccess\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6A79BDC-846D-4C8E-B100-3D06289B5E6C}|sayHello.DataAccess\\sayHello.DataAccess.csproj|solutionrelative:sayhello.dataaccess\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6A79BDC-846D-4C8E-B100-3D06289B5E6C}|sayHello.DataAccess\\sayHello.DataAccess.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.dataaccess\\data\\config\\messageconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6A79BDC-846D-4C8E-B100-3D06289B5E6C}|sayHello.DataAccess\\sayHello.DataAccess.csproj|solutionrelative:sayhello.dataaccess\\data\\config\\messageconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F6719EE-DC09-4F69-AD36-78744632365D}|sayHello.Entities\\sayHello.Entities.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F6719EE-DC09-4F69-AD36-78744632365D}|sayHello.Entities\\sayHello.Entities.csproj|solutionrelative:sayhello.entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\User.cs",
+              "RelativeDocumentMoniker": "sayHello.Entities\\User.cs",
+              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\User.cs",
+              "RelativeToolTip": "sayHello.Entities\\User.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T14:04:01.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BlockedUserConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\Data\\Config\\BlockedUserConfiguration.cs",
+              "RelativeDocumentMoniker": "sayHello.DataAccess\\Data\\Config\\BlockedUserConfiguration.cs",
+              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\Data\\Config\\BlockedUserConfiguration.cs*",
+              "RelativeToolTip": "sayHello.DataAccess\\Data\\Config\\BlockedUserConfiguration.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T14:03:34.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BlockedUser.cs",
+              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\BlockedUser.cs",
+              "RelativeDocumentMoniker": "sayHello.Entities\\BlockedUser.cs",
+              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\BlockedUser.cs",
+              "RelativeToolTip": "sayHello.Entities\\BlockedUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T14:00:08.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MessageConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\Data\\Config\\MessageConfiguration.cs",
+              "RelativeDocumentMoniker": "sayHello.DataAccess\\Data\\Config\\MessageConfiguration.cs",
+              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\Data\\Config\\MessageConfiguration.cs",
+              "RelativeToolTip": "sayHello.DataAccess\\Data\\Config\\MessageConfiguration.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T13:58:40.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "sayHello.DataAccess\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\AppDbContext.cs",
+              "RelativeToolTip": "sayHello.DataAccess\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T13:53:01.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

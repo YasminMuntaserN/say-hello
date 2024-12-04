@@ -8,29 +8,27 @@ public class BlockedUserConfiguration : IEntityTypeConfiguration<BlockedUser>
 {
     public void Configure(EntityTypeBuilder<BlockedUser> builder)
     {
-        builder.HasKey(b => b.Id);
+        builder.HasKey(b => b.BlockedUserId);
 
         builder.Property(e => e.DateBlocked)
             .IsRequired()
-            .HasDefaultValueSql("GETDATE()"); 
+            .HasDefaultValueSql("GETDATE()");
 
         builder.Property(e => e.Reason)
-            .HasMaxLength(200) 
-            .HasDefaultValue(false);
-        
+            .HasMaxLength(200);
+
         builder.HasOne(b => b.User)
-            .WithMany(u => u.BlockedUsers) 
+            .WithMany(u => u.BlockedUsers)
             .HasForeignKey(b => b.UserId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasOne(b => b.Blocked_User)
-            .WithMany(u => u.BlockedByUsers) 
-            .HasForeignKey(b => b.BlockedUserId)
+        builder.HasOne(b => b.BlockedByUser)
+            .WithMany(u => u.BlockedByUsers)
+            .HasForeignKey(b => b.BlockedByUserId)
             .OnDelete(DeleteBehavior.Restrict);
-        
-        builder.HasIndex(a => new { a.UserId, a.Blocked_User }) 
-            .IsUnique()
-            .HasDatabaseName("IX_BlockedUser_User_BlockedUser");
 
+        builder.HasIndex(a => new { a.UserId, a.BlockedByUserId })
+            .IsUnique()
+            .HasDatabaseName("IX_BlockedUser_User_BlockingUser");
     }
 }
