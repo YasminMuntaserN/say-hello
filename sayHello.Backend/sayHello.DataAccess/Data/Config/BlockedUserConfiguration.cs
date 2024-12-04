@@ -19,5 +19,10 @@ public class BlockedUserConfiguration : IEntityTypeConfiguration<BlockedUser>
             .WithMany(u => u.BlockedByUsers) 
             .HasForeignKey(b => b.BlockedUserId)
             .OnDelete(DeleteBehavior.Restrict);
+        
+        builder.HasIndex(a => new { a.UserId, a.Blocked_User }) 
+            .IsUnique()
+            .HasDatabaseName("IX_BlockedUser_User_BlockedUser");
+
     }
 }

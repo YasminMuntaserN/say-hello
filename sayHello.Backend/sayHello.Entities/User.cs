@@ -19,4 +19,8 @@ public class User
  
     public ICollection<BlockedUser> BlockedUsers { get; set; } = new List<BlockedUser>();
     public ICollection<BlockedUser> BlockedByUsers { get; set; } = new List<BlockedUser>();
+   
+    public ICollection<ArchivedUser> ArchivedUsers { get; set; } = new List<ArchivedUser>();
+    public ICollection<ArchivedUser> ArchivedByUsers { get; set; } = new List<ArchivedUser>();
+    
 }
