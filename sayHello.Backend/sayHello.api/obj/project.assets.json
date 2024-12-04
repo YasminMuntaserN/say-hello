@@ -1751,6 +1751,33 @@
             "rid": "win"
           }
         }
+      },
+      "sayHello.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
+          "Microsoft.Extensions.Configuration": "9.0.0",
+          "Microsoft.Extensions.Configuration.Json": "9.0.0",
+          "sayHello.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/sayHello.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/sayHello.DataAccess.dll": {}
+        }
+      },
+      "sayHello.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/sayHello.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/sayHello.Entities.dll": {}
+        }
       }
     }
   },
@@ -5055,6 +5082,16 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "sayHello.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../sayHello.DataAccess/sayHello.DataAccess.csproj",
+      "msbuildProject": "../sayHello.DataAccess/sayHello.DataAccess.csproj"
+    },
+    "sayHello.Entities/1.0.0": {
+      "type": "project",
+      "path": "../sayHello.Entities/sayHello.Entities.csproj",
+      "msbuildProject": "../sayHello.Entities/sayHello.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5064,7 +5101,9 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.0",
       "Microsoft.Extensions.Configuration >= 9.0.0",
-      "Microsoft.Extensions.Configuration.Json >= 9.0.0"
+      "Microsoft.Extensions.Configuration.Json >= 9.0.0",
+      "sayHello.DataAccess >= 1.0.0",
+      "sayHello.Entities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5095,7 +5134,14 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj"
+            },
+            "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
+              "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
