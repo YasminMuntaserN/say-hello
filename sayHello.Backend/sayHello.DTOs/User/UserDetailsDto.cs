@@ -1,11 +1,11 @@
 namespace sayHello.DTOs.User;
 
 public record UserDetailsDto(
-    int Id,
+    int UserId,
     string Username,
     string Email,
     string Password,
     string ProfilePictureUrl,
-    string Bio,
+    string? Bio,
     string Status,
     DateTime DateJoined = default);

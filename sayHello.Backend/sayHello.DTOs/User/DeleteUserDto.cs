@@ -1,3 +1,3 @@
 namespace sayHello.DTOs.User;
 
-public record DeleteUserDto (int Id);
+public record DeleteUserDto (int UserId);
