@@ -10,3 +10,4 @@ C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net9.0\sa
 C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net9.0\refint\sayHello.Entities.dll
 C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net9.0\sayHello.Entities.pdb
 C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net9.0\ref\sayHello.Entities.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net9.0\sayHello.Entities.csproj.AssemblyReference.cache

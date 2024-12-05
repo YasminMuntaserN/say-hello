@@ -17,6 +17,8 @@
       </PackageReference>
       <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="7.1.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="7.1.0" />
     </ItemGroup>
 
     <ItemGroup>

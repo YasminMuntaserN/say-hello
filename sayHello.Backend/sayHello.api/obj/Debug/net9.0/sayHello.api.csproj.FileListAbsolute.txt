@@ -157,3 +157,15 @@ C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\bin\Debug\net9.0\sayHell
 C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\bin\Debug\net9.0\sayHello.api.pdb
 C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\obj\Debug\net9.0\sayHello.api.genruntimeconfig.cache
 C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\obj\Debug\net9.0\ref\sayHello.api.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\bin\Debug\net9.0\AutoMapper.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\bin\Debug\net9.0\FluentValidation.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\bin\Debug\net9.0\sayHello.Business.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\bin\Debug\net9.0\sayHello.DTOs.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\bin\Debug\net9.0\sayHello.Validation.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\bin\Debug\net9.0\sayHello.Business.pdb
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\bin\Debug\net9.0\sayHello.DTOs.pdb
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\bin\Debug\net9.0\sayHello.Validation.pdb
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
