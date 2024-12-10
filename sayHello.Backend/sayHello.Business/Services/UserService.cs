@@ -12,142 +12,62 @@ namespace sayHello.Business
 {
     public class UserService : BaseService<User, UserDetailsDto>
     {
-        private readonly UserValidator _validator;
+        private readonly IMapper _mapper;
 
         public UserService(
             AppDbContext context,
             ILogger<UserService> logger,
             IMapper mapper,
             UserValidator validator)
-            : base(context, logger, mapper)
+            : base(context, logger, mapper, validator)
         {
-            _validator = validator;
+            _mapper = mapper;
         }
 
         public async Task<UserDetailsDto> AddUserAsync(CreateUserDto createUserDto)
-        {
-            try
-            {
-                var userEntity = _mapper.Map<User>(createUserDto);
+            => await AddAsync(createUserDto, "User");
 
-                var validationResult = await _validator.ValidateAsync(userEntity);
-                if (!validationResult.IsValid)
-                {
-                    _logger.LogError("Validation failed: {Errors}",
-                        string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage)));
-                    throw new ValidationException(validationResult.Errors);
-                }
-
-                return await CreateAsync(_mapper.Map<UserDetailsDto>(userEntity));
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error adding new user");
-                throw;
-            }
-        }
-
-        public override async Task UpdateAsync(UserDetailsDto userDetailsDto)
-        {
-            try
-            {
-                var existingUser = await _dbSet.FindAsync(userDetailsDto.UserId);
-                if (existingUser == null)
-                {
-                    _logger.LogWarning("User not found: {UserId}", userDetailsDto.UserId);
-                    throw new KeyNotFoundException($"User with ID {userDetailsDto.UserId} not found.");
-                }
-
-                _mapper.Map(userDetailsDto, existingUser);
-
-                var validationResult = await _validator.ValidateAsync(existingUser);
-                if (!validationResult.IsValid)
-                {
-                    _logger.LogError("Validation failed during update: {Errors}",
-                        string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage)));
-                    throw new ValidationException(validationResult.Errors);
-                }
-
-                _dbSet.Update(existingUser);
-                await _context.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error updating user: {UserId}", userDetailsDto.UserId);
-                throw;
-            }
-        }
+        public async Task<UserDetailsDto?> UpdateUserAsync(int id, UserDetailsDto userDetailsDto)
+            => await UpdateAsync(id, userDetailsDto, "User");
 
         public async Task<UserDetailsDto?> GetUserByIdAsync(int id)
-        {
-            return await GetByIdAsync(id);
-        }
+            => await FindBy(e => EF.Property<int>(e, "UserId") == id);
 
+        public async Task<UserDetailsDto?> GetUserByEmailAndPasswordAsync(string Email , string Password)
+            => await FindBy(e => EF.Property<string>(e, "Email") == Email && EF.Property<string>(e, "Password") == Password);
+        
+        public async Task<UserDetailsDto?> GetUserByUserNameAsync(string Username)
+            => await FindBy(e => EF.Property<string>(e, "Username") == Username);
+        
+        
         public async Task<IEnumerable<UserDetailsDto>> GetAllUsersAsync()
-        {
-            return await GetAllAsync();
-        }
+            => await GetAllAsync();
 
-        public async Task SoftDeleteUserAsync(int userId)
-        {
-            try
-            {
-                var user = await _dbSet.FindAsync(userId);
-                if (user == null)
-                {
-                    _logger.LogWarning("User not found for soft delete: {UserId}", userId);
-                    throw new KeyNotFoundException($"User with ID {userId} not found.");
-                }
+        public async Task<bool> SoftDeleteUserAsync(int userId)
+            => await SoftDeleteAsync(userId, "IsDeleted");
 
-                await SoftDeleteAsync(userId, "IsDeleted");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error soft deleting user: {UserId}", userId);
-                throw;
-            }
-        }
-
-        public async Task HardDeleteUserAsync(int userId)
-        {
-            try
-            {
-                var user = await _dbSet.FindAsync(userId);
-                if (user == null)
-                {
-                    _logger.LogWarning("User not found for hard delete: {UserId}", userId);
-                    throw new KeyNotFoundException($"User with ID {userId} not found.");
-                }
-
-                await HardDeleteAsync(userId);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error hard deleting user: {UserId}", userId);
-                throw;
-            }
-        }
+        public async Task<bool> HardDeleteUserAsync(int userId)
+            => await HardDeleteAsync(userId, "UserId");
 
         public async Task<bool> UserExistsAsync(int userId)
-        {
-            return await ExistsAsync(userId);
-        }
+            => await ExistsAsync(userId);
 
-        public async Task<IEnumerable<UserDetailsDto>> GetActiveUsersAsync()
-        {
-            try
-            {
-                var activeUsers = await _dbSet
-                    .Where(u => !u.IsDeleted)
-                    .ToListAsync();
+      
+        /*     public async Task<IEnumerable<UserDetailsDto>> GetActiveUsersAsync()
+             {
+                 try
+                 {
+                     var activeUsers = await _dbSet
+                         .Where(u => !u.IsDeleted)
+                         .ToListAsync();
 
-                return _mapper.Map<IEnumerable<UserDetailsDto>>(activeUsers);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error retrieving active users");
-                throw;
-            }
-        }
+                     return _mapper.Map<IEnumerable<UserDetailsDto>>(activeUsers);
+                 }
+                 catch (Exception ex)
+                 {
+                     _logger.LogError(ex, "Error retrieving active users");
+                     throw;
+                 }
+             }*/
     }
 }

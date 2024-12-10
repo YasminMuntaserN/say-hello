@@ -10,86 +10,93 @@ namespace sayHello.api.Controllers;
 
 [Route("Users")]
 [ApiController]
-public class UsersController :BaseController
+public class UsersController : BaseController
 {
     private readonly UserService _userService;
-    private readonly ILogger<UsersController> _logger;
 
-    public UsersController(
-        UserService userService,
-        ILogger<UsersController> logger)
+    public UsersController(UserService userService, ILogger<UsersController> logger)
+        : base(logger)
     {
         _userService = userService;
-        _logger = logger;
     }
 
     [HttpGet("all", Name = "GetAllUsers")]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> GetAllUsers()
-    {
-        try
-        {
-            var users = await _userService.GetAllUsersAsync();
-            return HandleResponse(users, "Users retrieved successfully");
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error retrieving users");
-            return HandleError("Error retrieving users", HttpStatusCode.InternalServerError);
-        }
-    }
+    public async Task<ActionResult<IEnumerable<UserDetailsDto>>> GetAllUsers()
+        => await HandleResponse(()=>_userService.GetAllUsersAsync(), "Users retrieved successfully");
 
-    [HttpGet("findByPersonId/{id:int}", Name = "FindUserByPersonId")]
+
+
+    [HttpGet("findUserByUserId/{id:int}", Name = "FindUserByUserId")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> FindUserByPersonId(int id)
-    {
-        try
-        {
-            var user = await _userService.GetUserByIdAsync(id);
-            if (user == null)
-            {
-                return HandleError("User not found", HttpStatusCode.NotFound);
-            }
+    public async Task<ActionResult<UserDetailsDto?>> FindUserByUserId(int id)
+        => await HandleResponse(()=>_userService.GetUserByIdAsync(id), "User retrieved successfully");
+    
+  
+    [HttpGet("findByUserName/{UserName}", Name = "FindUserByUserName")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<UserDetailsDto?>> FindUserByUserName(string UserName)
+        => await HandleResponse(() => _userService.GetUserByUserNameAsync(UserName), "User retrieved successfully");
 
-            return HandleResponse(user, "User retrieved successfully");
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error retrieving user with ID: {UserId}", id);
-            return HandleError("Error retrieving user", HttpStatusCode.InternalServerError);
-        }
-    }
-
+    [HttpGet("findByEmailAndPassword/{Email}/{Password}", Name = "FindUserByEmailAndPassword")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<UserDetailsDto?>> FindUserByEmailAndPassword(string Email, string Password)
+        => await HandleResponse(() => _userService.GetUserByEmailAndPasswordAsync(Email, Password), "User retrieved successfully");
+    
+    
     [HttpPost("", Name = "CreateUser")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<UserDetailsDto?>> Add([FromBody] CreateUserDto newUserDto)
-    {
-        try
-        {
-            var user = await _userService.AddUserAsync(newUserDto);
+        => await HandleResponse(()=>_userService.AddUserAsync(newUserDto), "User creating  successfully");
+    
+    
+    [HttpPut("updateUser/{id:int}", Name = "UpdateUser")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<UserDetailsDto?>> Update([FromRoute] int id, [FromBody] UserDetailsDto updatedUserDto) 
+        => await HandleResponse(()=>_userService.UpdateUserAsync(id,updatedUserDto), "User Updating  successfully");
+   
 
-            return Ok(user);
-        }
-        catch (ValidationException ex)
-        {
-            _logger.LogWarning("Validation failed: {Errors}",
-                string.Join(", ", ex.Errors.Select(e => e.ErrorMessage)));
-
-            return BadRequest(new { message = "Validation failed", errors = ex.Errors.Select(e => e.ErrorMessage) });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Unexpected error occurred while creating user");
-
-            return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An unexpected error occurred.", details = ex.Message });
-        }
-    }
-
+    [HttpDelete("{id:int}", Name = "SoftDeleteUser")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<bool>> SoftDeleteUser([FromRoute] int id)
+        => await HandleResponse(()=>_userService.SoftDeleteUserAsync(id), "User deleting  successfully");
+    
+    
+    [HttpDelete("deleteUser/{id:int}", Name = "HardDeleteUser")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<bool>> HardDeleteUser([FromRoute] int id)
+        => await HandleResponse(()=>_userService.HardDeleteUserAsync(id), "User deleting  successfully");
+ 
+    
+    [HttpGet("userExists/{id:int}", Name = "UserExists")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<bool>> UserExistsAsync([FromRoute] int id)
+        => await HandleResponse(()=>_userService.UserExistsAsync(id), "User Founded  successfully");
+    
+    
 }
