@@ -16,6 +16,9 @@ public class BlockedUserConfiguration : IEntityTypeConfiguration<BlockedUser>
 
         builder.Property(e => e.Reason)
             .HasMaxLength(200);
+        
+        builder.Property(e => e.IsBlocked)
+               .HasColumnType("bit").IsRequired();
 
         builder.HasOne(b => b.User)
             .WithMany(u => u.BlockedUsers)

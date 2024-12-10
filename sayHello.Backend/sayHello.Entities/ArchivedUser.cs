@@ -10,4 +10,6 @@ public class ArchivedUser
    
     public int ArchivedUserId { get; set; }
     public User Archived_User { get; set; }
+    
+    public bool IsArchived { get; set; } = false;
 }

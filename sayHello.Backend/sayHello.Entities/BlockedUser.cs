@@ -12,4 +12,6 @@ public class BlockedUser
 
     public DateTime DateBlocked { get; set; }
     public string? Reason { get; set; }
+    
+    public bool IsBlocked { get; set; } = false;
 }

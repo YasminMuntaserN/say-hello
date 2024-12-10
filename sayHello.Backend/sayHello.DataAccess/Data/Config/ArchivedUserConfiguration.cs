@@ -14,6 +14,9 @@ public class ArchivedUserConfiguration : IEntityTypeConfiguration<ArchivedUser>
             .IsRequired()
             .HasDefaultValueSql("GETDATE()"); 
         
+        builder.Property(e => e.IsArchived)
+            .HasColumnType("bit").IsRequired();
+        
         builder.HasOne(b => b.User)
             .WithMany(u => u.ArchivedUsers) 
             .HasForeignKey(b => b.UserId)
