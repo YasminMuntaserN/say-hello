@@ -4,7 +4,5 @@ public record ArchivedUserDetailsDto(
     int Id,
     DateTime DateArchived,
     int UserId,
-    string UserUsername, 
-    int ArchivedUserId,
-    string ArchivedUserUsername 
+    int ArchivedUserId
 );
