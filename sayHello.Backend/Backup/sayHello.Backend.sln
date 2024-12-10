@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sayHello.DataAccess", "sayHello.DataAccess\sayHello.DataAccess.csproj", "{A6A79BDC-846D-4C8E-B100-3D06289B5E6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sayHello.Entities", "sayHello.Entities\sayHello.Entities.csproj", "{2F6719EE-DC09-4F69-AD36-78744632365D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sayHello.Business", "sayHello.Business\sayHello.Business.csproj", "{9E2178D2-28B0-404F-99AA-A19CF5A6DEF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sayHello.DTOs", "sayHello.DTOs\sayHello.DTOs.csproj", "{7D441D50-530E-44D6-8710-322884B10D77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sayHello.Validation", "sayHello.Validation\sayHello.Validation.csproj", "{675B6B8C-EB54-412C-8742-AA8D7E713D93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sayHello.Mappers", "sayHello.Mappers\sayHello.Mappers.csproj", "{14F91087-BE2C-4BBB-9405-FBCF5949D866}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sayHello.api", "sayHello.api\sayHello.api.csproj", "{8DD29C27-E616-47B0-B992-C3D08B4C661E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6A79BDC-846D-4C8E-B100-3D06289B5E6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6A79BDC-846D-4C8E-B100-3D06289B5E6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6A79BDC-846D-4C8E-B100-3D06289B5E6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6A79BDC-846D-4C8E-B100-3D06289B5E6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F6719EE-DC09-4F69-AD36-78744632365D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F6719EE-DC09-4F69-AD36-78744632365D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F6719EE-DC09-4F69-AD36-78744632365D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F6719EE-DC09-4F69-AD36-78744632365D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E2178D2-28B0-404F-99AA-A19CF5A6DEF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E2178D2-28B0-404F-99AA-A19CF5A6DEF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E2178D2-28B0-404F-99AA-A19CF5A6DEF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E2178D2-28B0-404F-99AA-A19CF5A6DEF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D441D50-530E-44D6-8710-322884B10D77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D441D50-530E-44D6-8710-322884B10D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D441D50-530E-44D6-8710-322884B10D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D441D50-530E-44D6-8710-322884B10D77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{675B6B8C-EB54-412C-8742-AA8D7E713D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{675B6B8C-EB54-412C-8742-AA8D7E713D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{675B6B8C-EB54-412C-8742-AA8D7E713D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{675B6B8C-EB54-412C-8742-AA8D7E713D93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14F91087-BE2C-4BBB-9405-FBCF5949D866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14F91087-BE2C-4BBB-9405-FBCF5949D866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14F91087-BE2C-4BBB-9405-FBCF5949D866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14F91087-BE2C-4BBB-9405-FBCF5949D866}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD29C27-E616-47B0-B992-C3D08B4C661E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD29C27-E616-47B0-B992-C3D08B4C661E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD29C27-E616-47B0-B992-C3D08B4C661E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD29C27-E616-47B0-B992-C3D08B4C661E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
