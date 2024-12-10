@@ -1,5 +1,6 @@
 using AutoMapper;
 using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using sayHello.Business.Base;
 using sayHello.DataAccess;
@@ -13,130 +14,36 @@ namespace sayHello.Business
     {
         private readonly ArchivedUserValidator _validator;
 
+        private readonly IMapper _mapper; 
         public ArchivedUserService(
             AppDbContext context,
             ILogger<ArchivedUserService> logger,
             IMapper mapper,
             ArchivedUserValidator validator)
-            : base(context, logger, mapper)
+            : base(context, logger, mapper ,validator)
         {
-            _validator = validator;
+            _mapper = mapper;
         }
 
-     
         public async Task<ArchivedUserDetailsDto> AddArchivedUserAsync(CreateArchivedUserDto createArchivedUserDto)
-        {
-            try
-            {
-                var ArchivedUserEntity = _mapper.Map<ArchivedUser>(createArchivedUserDto);
+            => await AddAsync(createArchivedUserDto, "ArchivedUser");
 
-                var validationResult = await _validator.ValidateAsync(ArchivedUserEntity);
-                if (!validationResult.IsValid)
-                {
-                    _logger.LogError("Validation failed: {Errors}",
-                        string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage)));
-                    throw new ValidationException(validationResult.Errors);
-                }
-
-                return await CreateAsync(_mapper.Map<ArchivedUserDetailsDto>(ArchivedUserEntity));
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error adding new ArchivedUser");
-                throw;
-            }
-        }
-
-       
-        public override async Task UpdateAsync(ArchivedUserDetailsDto ArchivedUserDetailsDto)
-        {
-            try
-            {
-                var existingArchivedUser = await _dbSet.FindAsync(ArchivedUserDetailsDto.ArchivedUserId);
-                if (existingArchivedUser == null)
-                {
-                    _logger.LogWarning("ArchivedUser not found: {ArchivedUserId}", ArchivedUserDetailsDto.ArchivedUserId);
-                    throw new KeyNotFoundException($"ArchivedUser with ID {ArchivedUserDetailsDto.ArchivedUserId} not found.");
-                }
-
-                _mapper.Map(ArchivedUserDetailsDto, existingArchivedUser);
-
-                var validationResult = await _validator.ValidateAsync(existingArchivedUser);
-                if (!validationResult.IsValid)
-                {
-                    _logger.LogError("Validation failed during update: {Errors}",
-                        string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage)));
-                    throw new ValidationException(validationResult.Errors);
-                }
-
-                _dbSet.Update(existingArchivedUser);
-                await _context.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error updating ArchivedUser: {ArchivedUserId}", ArchivedUserDetailsDto.ArchivedUserId);
-                throw;
-            }
-        }
+        public async Task<ArchivedUserDetailsDto?> UpdateArchivedUserAsync(int id, ArchivedUserDetailsDto ArchivedUserDetailsDto)
+            => await UpdateAsync(id, ArchivedUserDetailsDto, "ArchivedUser");
 
         public async Task<ArchivedUserDetailsDto?> GetArchivedUserByIdAsync(int id)
-        {
-            return await GetByIdAsync(id);
-        }
-
-    
+            => await FindBy(e => EF.Property<int>(e, "Id") == id);
+   
         public async Task<IEnumerable<ArchivedUserDetailsDto>> GetAllArchivedUsersAsync()
-        {
-            return await GetAllAsync();
-        }
+            => await GetAllAsync();
 
-  
-        /*public async Task SoftDeleteArchivedUserAsync(int ArchivedUserId)
-        {
-            try
-            {
-                var ArchivedUser = await _dbSet.FindAsync(ArchivedUserId);
-                if (ArchivedUser == null)
-                {
-                    _logger.LogWarning("ArchivedUser not found for soft delete: {ArchivedUserId}", ArchivedUserId);
-                    throw new KeyNotFoundException($"ArchivedUser with ID {ArchivedUserId} not found.");
-                }
+        public async Task<bool> SoftDeleteArchivedUserAsync(int ArchivedUserId)
+            => await SoftDeleteAsync(ArchivedUserId, "IsArchived");
 
-                await SoftDeleteAsync(ArchivedUserId, "IsDeleted");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error soft deleting ArchivedUser: {ArchivedUserId}", ArchivedUserId);
-                throw;
-            }
-        }*/
+        public async Task<bool> HardDeleteArchivedUserAsync(int ArchivedUserId)
+            => await HardDeleteAsync(ArchivedUserId, "Id");
 
-  
-        public async Task HardDeleteArchivedUserAsync(int ArchivedUserId)
-        {
-            try
-            {
-                var ArchivedUser = await _dbSet.FindAsync(ArchivedUserId);
-                if (ArchivedUser == null)
-                {
-                    _logger.LogWarning("ArchivedUser not found for hard delete: {ArchivedUserId}", ArchivedUserId);
-                    throw new KeyNotFoundException($"ArchivedUser with ID {ArchivedUserId} not found.");
-                }
-
-                await HardDeleteAsync(ArchivedUserId);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error hard deleting ArchivedUser: {ArchivedUserId}", ArchivedUserId);
-                throw;
-            }
-        }
-
-    
         public async Task<bool> ArchivedUserExistsAsync(int ArchivedUserId)
-        {
-            return await ExistsAsync(ArchivedUserId);
-        }
-
+            => await ExistsAsync(ArchivedUserId);
     }
 }
