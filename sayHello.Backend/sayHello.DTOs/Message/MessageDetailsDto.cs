@@ -1,5 +1,5 @@
 namespace sayHello.DTOs.Message;
-
+  
 public record MessageDetailsDto(
     int MessageId,
     string Content,
@@ -7,8 +7,5 @@ public record MessageDetailsDto(
     DateTime? ReadDT,
     string ReadStatus,
     int SenderId,
-    string SenderUsername,
-    int? ReceiverId,
-    string ReceiverUsername,
-    List<string> MediaUrls
+    int? ReceiverId
 );
