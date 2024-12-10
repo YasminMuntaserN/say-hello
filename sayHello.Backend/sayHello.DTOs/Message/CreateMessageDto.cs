@@ -3,6 +3,8 @@ namespace sayHello.DTOs.Message;
 public record CreateMessageDto(
     string Content,
     int SenderId,
+    string ReadStatus,
     int? ReceiverId,
-    DateTime SendDT = default
+    IEnumerable<string> MediaUrls,
+    DateTime? SendDT = null
 );
