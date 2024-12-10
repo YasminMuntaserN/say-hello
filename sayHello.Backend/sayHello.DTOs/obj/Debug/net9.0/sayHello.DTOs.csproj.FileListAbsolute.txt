@@ -1,0 +1,13 @@
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.DTOs\bin\Debug\net9.0\sayHello.DTOs.deps.json
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.DTOs\bin\Debug\net9.0\sayHello.DTOs.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.DTOs\bin\Debug\net9.0\sayHello.DTOs.pdb
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.DTOs\obj\Debug\net9.0\sayHello.DTOs.csproj.AssemblyReference.cache
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.DTOs\obj\Debug\net9.0\sayHello.DTOs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.DTOs\obj\Debug\net9.0\sayHello.DTOs.AssemblyInfoInputs.cache
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.DTOs\obj\Debug\net9.0\sayHello.DTOs.AssemblyInfo.cs
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.DTOs\obj\Debug\net9.0\sayHello.DTOs.csproj.CoreCompileInputs.cache
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.DTOs\obj\Debug\net9.0\sayHello.DTOs.sourcelink.json
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.DTOs\obj\Debug\net9.0\sayHello.DTOs.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.DTOs\obj\Debug\net9.0\refint\sayHello.DTOs.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.DTOs\obj\Debug\net9.0\sayHello.DTOs.pdb
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.DTOs\obj\Debug\net9.0\ref\sayHello.DTOs.dll

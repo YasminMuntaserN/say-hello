@@ -1,0 +1,13 @@
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\bin\Debug\net8.0\sayHello.Entities.deps.json
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\bin\Debug\net8.0\sayHello.Entities.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\bin\Debug\net8.0\sayHello.Entities.pdb
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net8.0\sayHello.Entities.csproj.AssemblyReference.cache
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net8.0\sayHello.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net8.0\sayHello.Entities.AssemblyInfoInputs.cache
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net8.0\sayHello.Entities.AssemblyInfo.cs
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net8.0\sayHello.Entities.csproj.CoreCompileInputs.cache
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net8.0\sayHello.Entities.sourcelink.json
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net8.0\sayHello.Entities.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net8.0\refint\sayHello.Entities.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net8.0\sayHello.Entities.pdb
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Entities\obj\Debug\net8.0\ref\sayHello.Entities.dll

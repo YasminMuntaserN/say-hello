@@ -1,0 +1,16 @@
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\bin\Debug\net9.0\sayHello.Validation.deps.json
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\bin\Debug\net9.0\sayHello.Validation.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\bin\Debug\net9.0\sayHello.Validation.pdb
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\bin\Debug\net9.0\sayHello.Entities.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\bin\Debug\net9.0\sayHello.Entities.pdb
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net9.0\sayHello.Validation.csproj.AssemblyReference.cache
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net9.0\sayHello.Validation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net9.0\sayHello.Validation.AssemblyInfoInputs.cache
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net9.0\sayHello.Validation.AssemblyInfo.cs
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net9.0\sayHello.Validation.csproj.CoreCompileInputs.cache
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net9.0\sayHello.Validation.sourcelink.json
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net9.0\sayHello.5C2DE3CA.Up2Date
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net9.0\sayHello.Validation.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net9.0\refint\sayHello.Validation.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net9.0\sayHello.Validation.pdb
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net9.0\ref\sayHello.Validation.dll
