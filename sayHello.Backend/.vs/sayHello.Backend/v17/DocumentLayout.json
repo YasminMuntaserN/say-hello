@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{11CE448C-FA74-4014-9821-62F400E62988}|sayHello.api\\sayHello.api.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11CE448C-FA74-4014-9821-62F400E62988}|sayHello.api\\sayHello.api.csproj|solutionrelative:sayhello.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11CE448C-FA74-4014-9821-62F400E62988}|sayHello.api\\sayHello.api.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11CE448C-FA74-4014-9821-62F400E62988}|sayHello.api\\sayHello.api.csproj|solutionrelative:sayhello.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11CE448C-FA74-4014-9821-62F400E62988}|sayHello.api\\sayHello.api.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.api\\sayhello.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{11CE448C-FA74-4014-9821-62F400E62988}|sayHello.api\\sayHello.api.csproj|solutionrelative:sayhello.api\\sayhello.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{9E2178D2-28B0-404F-99AA-A19CF5A6DEF1}|sayHello.Business\\sayHello.Business.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.business\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E2178D2-28B0-404F-99AA-A19CF5A6DEF1}|sayHello.Business\\sayHello.Business.csproj|solutionrelative:sayhello.business\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F6719EE-DC09-4F69-AD36-78744632365D}|sayHello.Entities\\sayHello.Entities.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F6719EE-DC09-4F69-AD36-78744632365D}|sayHello.Entities\\sayHello.Entities.csproj|solutionrelative:sayhello.entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11CE448C-FA74-4014-9821-62F400E62988}|sayHello.api\\sayHello.api.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11CE448C-FA74-4014-9821-62F400E62988}|sayHello.api\\sayHello.api.csproj|solutionrelative:sayhello.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -33,35 +41,6 @@
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "sayHello.api.csproj",
-              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\sayHello.api.csproj",
-              "RelativeDocumentMoniker": "sayHello.api\\sayHello.api.csproj",
-              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\sayHello.api.csproj",
-              "RelativeToolTip": "sayHello.api\\sayHello.api.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-09T17:45:28.568Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\Program.cs",
-              "RelativeDocumentMoniker": "sayHello.api\\Program.cs",
-              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\Program.cs",
-              "RelativeToolTip": "sayHello.api\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-08T17:02:58.199Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
@@ -71,11 +50,59 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "sayHello.api\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "sayHello.api\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAADYAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T17:17:53.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "sayHello.Business\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\Services\\UserService.cs",
+              "RelativeToolTip": "sayHello.Business\\Services\\UserService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACQAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T17:11:31.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\User.cs",
+              "RelativeDocumentMoniker": "sayHello.Entities\\User.cs",
+              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\User.cs",
+              "RelativeToolTip": "sayHello.Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T17:10:55.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\Program.cs",
+              "RelativeDocumentMoniker": "sayHello.api\\Program.cs",
+              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\Program.cs",
+              "RelativeToolTip": "sayHello.api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T17:02:58.199Z",
+              "EditorCaption": ""
             }
           ]
         }

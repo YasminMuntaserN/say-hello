@@ -19,11 +19,7 @@ public class UserValidator : AbstractValidator<User>
 
         RuleFor(user => user.Password)
             .NotEmpty().WithMessage("Password is required.")
-            .Length(8, 255).WithMessage("Password must be at least 8 characters long.")
-            .Matches(@"[A-Z]").WithMessage("Password must contain at least one uppercase letter.")
-            .Matches(@"[a-z]").WithMessage("Password must contain at least one lowercase letter.")
-            .Matches(@"[0-9]").WithMessage("Password must contain at least one digit.")
-            .Matches(@"[\@\!\?\*\.]").WithMessage("Password must contain at least one special character (@!?.*).");
+            .Length(8, 255).WithMessage("Password must be at least 8 characters long.");
 
         RuleFor(user => user.ProfilePictureUrl)
             .Must(url => Uri.TryCreate(url, UriKind.Absolute, out _)).When(user => !string.IsNullOrEmpty(user.ProfilePictureUrl))
