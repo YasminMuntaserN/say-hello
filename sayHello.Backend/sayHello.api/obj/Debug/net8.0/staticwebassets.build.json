@@ -1,12 +1,331 @@
 {
   "Version": 1,
-  "Hash": "wgT4X8klk7bg6okBKsvdjy4cBg73pb0guutvXfRqKzI=",
+  "Hash": "VlGzOGMVBtb8rp6qCJESSywSPn4EAMSKUBMF/ib/k4E=",
   "Source": "sayHello.api",
   "BasePath": "_content/sayHello.api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "sayHello.api\\wwwroot",
+      "Source": "sayHello.api",
+      "ContentRoot": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\",
+      "BasePath": "_content/sayHello.api",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\23794182-1e5e-44da-a4ea-310d6b108b3a_doctor (3).png",
+      "SourceId": "sayHello.api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\",
+      "BasePath": "_content/sayHello.api",
+      "RelativePath": "uploads/users/23794182-1e5e-44da-a4ea-310d6b108b3a_doctor (3)#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nigxsg5yig",
+      "Integrity": "IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\users\\23794182-1e5e-44da-a4ea-310d6b108b3a_doctor (3).png"
+    },
+    {
+      "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\48d69c7a-95c3-468c-a41d-c7dcaaaf64c1_doctor (3).png",
+      "SourceId": "sayHello.api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\",
+      "BasePath": "_content/sayHello.api",
+      "RelativePath": "uploads/users/48d69c7a-95c3-468c-a41d-c7dcaaaf64c1_doctor (3)#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nigxsg5yig",
+      "Integrity": "IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\users\\48d69c7a-95c3-468c-a41d-c7dcaaaf64c1_doctor (3).png"
+    },
+    {
+      "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\782f0b16-c830-4228-ac2d-a12b23fd3a92_doctor (3).png",
+      "SourceId": "sayHello.api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\",
+      "BasePath": "_content/sayHello.api",
+      "RelativePath": "uploads/users/782f0b16-c830-4228-ac2d-a12b23fd3a92_doctor (3)#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nigxsg5yig",
+      "Integrity": "IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\users\\782f0b16-c830-4228-ac2d-a12b23fd3a92_doctor (3).png"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "uploads/users/23794182-1e5e-44da-a4ea-310d6b108b3a_doctor (3).nigxsg5yig.png",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\23794182-1e5e-44da-a4ea-310d6b108b3a_doctor (3).png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "51219"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 11 Dec 2024 17:09:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nigxsg5yig"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/users/23794182-1e5e-44da-a4ea-310d6b108b3a_doctor (3).png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/23794182-1e5e-44da-a4ea-310d6b108b3a_doctor (3).png",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\23794182-1e5e-44da-a4ea-310d6b108b3a_doctor (3).png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "51219"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 11 Dec 2024 17:09:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/48d69c7a-95c3-468c-a41d-c7dcaaaf64c1_doctor (3).nigxsg5yig.png",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\48d69c7a-95c3-468c-a41d-c7dcaaaf64c1_doctor (3).png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "51219"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 11 Dec 2024 17:08:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nigxsg5yig"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/users/48d69c7a-95c3-468c-a41d-c7dcaaaf64c1_doctor (3).png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/48d69c7a-95c3-468c-a41d-c7dcaaaf64c1_doctor (3).png",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\48d69c7a-95c3-468c-a41d-c7dcaaaf64c1_doctor (3).png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "51219"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 11 Dec 2024 17:08:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/782f0b16-c830-4228-ac2d-a12b23fd3a92_doctor (3).nigxsg5yig.png",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\782f0b16-c830-4228-ac2d-a12b23fd3a92_doctor (3).png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "51219"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 11 Dec 2024 17:07:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nigxsg5yig"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/users/782f0b16-c830-4228-ac2d-a12b23fd3a92_doctor (3).png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/782f0b16-c830-4228-ac2d-a12b23fd3a92_doctor (3).png",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\782f0b16-c830-4228-ac2d-a12b23fd3a92_doctor (3).png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "51219"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 11 Dec 2024 17:07:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IYKebdhWJoTA8Ojhw3Ofr9xwCHe2m/tcbOqbygutZZM="
+        }
+      ]
+    }
+  ]
 }

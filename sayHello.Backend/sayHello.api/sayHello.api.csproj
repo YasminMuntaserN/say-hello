@@ -23,4 +23,8 @@
     <ProjectReference Include="..\sayHello.Validation\sayHello.Validation.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\users\" />
+  </ItemGroup>
+
 </Project>
