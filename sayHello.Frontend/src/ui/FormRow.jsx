@@ -1,11 +1,15 @@
-function FormRow({type, errors, register, FieldName}) {
+function FormRow({ type, errors, register, FieldName, requiredField = true }) {
+ 
+  const validationRules = requiredField
+    ? { required: `${FieldName} is required` }
+    : {};
 
   return (
     <div className={StyledRow}>
-     <input
+      <input
         placeholder={FieldName}
-        type={type} 
-        {...register(FieldName, { required: `${FieldName} is required` })} 
+        type={type}
+        {...register(FieldName, validationRules)}
         className={StyledInput}
       />
       {errors[FieldName] && (
