@@ -19,12 +19,12 @@ export function useExistUser() {
         queryClient.invalidateQueries({ queryKey: ["Users"] });
       } else {
         console.log("No user found with the provided credentials.");
-        toast.error(`user found 🥲`);
+        toast.error(`user not found 🥲`);
       }
     },
     onError: (err) => {
       console.error("An error occurred:", err);
-      toast.error(`user found 🥲`);
+      toast.error(`user not found 🥲`);
     },
   });
 
