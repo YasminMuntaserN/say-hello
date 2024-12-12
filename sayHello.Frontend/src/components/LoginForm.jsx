@@ -13,6 +13,7 @@ function LoginForm() {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
   const {mutate, User, isLoading } =useExistUser();
@@ -23,9 +24,15 @@ function LoginForm() {
     const {Email ,Password} =data;
     mutate({Email, Password},
       {
-        onSuccess: () =>navigate('/dashboard'),
-      }
-    );
+        onSuccess: () => {
+          reset();
+          navigate('/dashboard');
+        },
+        onError: (error) => {
+          console.error("Submission failed:", error);
+          reset(); 
+        },
+      });
   };
 
   console.log(User);
