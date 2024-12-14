@@ -1,10 +1,15 @@
 import { FaUserLock } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+
 import Button from "../ui/Button"
 import FormRow from "../ui/FormRow"
 import FormContainer from "../ui/FormContainer";
-import useAddUser from "../hooks/useAddUser";
+import {useAddUser} from "../hooks/useAddUser";
 import SpinnerMini from "../ui/SpinnerMini";
+import { useConfirmationEmail } from "../hooks/useConfirmationEmail";
+import { useUser } from "../context/UserContext";
+
 
 function SignupForm() {
   const {
@@ -13,8 +18,10 @@ function SignupForm() {
     formState: { errors },
     reset,
   } = useForm();
-
+  const navigate =useNavigate();
   const { mutate, User, isLoading } = useAddUser();
+  const { mutate :conformingEmail } = useConfirmationEmail();
+  const { login }=useUser();
 
   function onSubmit(data) {
     console.log(data);
@@ -27,7 +34,6 @@ function SignupForm() {
       formData.append("Bio", data.Bio?data.Bio:"");
       formData.append("Status", "Online");
       formData.append("ProfilePictureUrl", "test");
-
       if (data.ProfilePicture && data.ProfilePicture.length > 0) {
         formData.append("photo", data.ProfilePicture[0]);
       } else {
@@ -39,11 +45,15 @@ function SignupForm() {
         onSuccess: (data) => {
           console.log(`{SignupForm ${data}`);
           reset(); 
+          navigate('/verify-email');
+          conformingEmail(data.email);
+          login(data);
         }
       });
     }
   }
 
+  console.log(isLoading);
   console.log(User);
 
   return (

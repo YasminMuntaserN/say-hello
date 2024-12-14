@@ -24,9 +24,11 @@ function LoginForm() {
     const {Email ,Password} =data;
     mutate({Email, Password},
       {
-        onSuccess: () => {
+        onSuccess: (data) => {
+          if(data){
           reset();
           navigate('/dashboard');
+          }
         },
         onError: (error) => {
           console.error("Submission failed:", error);
