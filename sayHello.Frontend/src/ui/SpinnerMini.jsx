@@ -1,4 +1,4 @@
-import { BiLoaderAlt } from "react-icons/bi"; // Import the icon from react-icons
+import { BiLoaderAlt } from "react-icons/bi"; 
 
 function SpinnerMini() {
   return (
