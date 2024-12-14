@@ -1275,16 +1275,51 @@
   },
   {
     "ContainingType": "sayHello.api.Controllers.UsersController",
-    "Method": "Add",
+    "Method": "CreateUser",
     "RelativePath": "Users",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newUserDto",
-        "Type": "sayHello.DTOs.User.CreateUserDto",
-        "IsRequired": true
+        "Name": "Username",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProfilePictureUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Bio",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DateJoined",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "photo",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -1298,7 +1333,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "sayHello.DTOs.User.UserDetailsDto",
+        "Type": "sayHello.DTOs.User.CreateUserDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

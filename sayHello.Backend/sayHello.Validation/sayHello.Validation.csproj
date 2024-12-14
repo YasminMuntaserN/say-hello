@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\sayHello.DataAccess\sayHello.DataAccess.csproj" />
       <ProjectReference Include="..\sayHello.Entities\sayHello.Entities.csproj" />
     </ItemGroup>
 

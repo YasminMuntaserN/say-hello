@@ -14,3 +14,5 @@ C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net8.0\
 C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net8.0\refint\sayHello.Validation.dll
 C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net8.0\sayHello.Validation.pdb
 C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\obj\Debug\net8.0\ref\sayHello.Validation.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\bin\Debug\net8.0\sayHello.DataAccess.dll
+C:\Users\TOP\Desktop\chat\sayHello.Backend\sayHello.Validation\bin\Debug\net8.0\sayHello.DataAccess.pdb

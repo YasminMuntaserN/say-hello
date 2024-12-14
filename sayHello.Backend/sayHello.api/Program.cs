@@ -1,6 +1,7 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using sayHello.Business;
 using sayHello.DataAccess;
 using sayHello.Mappers;
@@ -38,6 +39,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<ArchivedUserValidator>();
 
 
 // Register the Services and Validator
+builder.Services.AddScoped<UniqueValidatorService>();
 builder.Services.AddScoped<UserService>();   
 builder.Services.AddScoped<UserValidator>(); 
 builder.Services.AddScoped<MessageService>();   
@@ -47,14 +49,18 @@ builder.Services.AddScoped<MediaValidator>();
 builder.Services.AddScoped<BlockedUserService>();   
 builder.Services.AddScoped<BlockedUserValidator>(); 
 builder.Services.AddScoped<ArchivedUserService>();   
-builder.Services.AddScoped<ArchivedUserValidator>(); 
+builder.Services.AddScoped<ArchivedUserValidator>();
+builder.Services.AddScoped<EmailService>();
+
 // Register CORS policy
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins",
-        policy => policy.AllowAnyOrigin()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod());
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
 });
 
 var app = builder.Build();
@@ -66,7 +72,16 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseCors("AllowAllOrigins");
+app.UseCors("AllowReactApp");
+
+app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(app.Environment.WebRootPath, "uploads")),
+    RequestPath = "/uploads"
+});
+
 app.UseAuthorization();
 app.MapControllers();
 

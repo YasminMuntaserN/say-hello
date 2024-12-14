@@ -53,14 +53,77 @@ public class UsersController : BaseController
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<UserDetailsDto?>> FindUserByEmailAndPassword(string Email, string Password)
         => await HandleResponse(() => _userService.GetUserByEmailAndPasswordAsync(Email, Password), "User retrieved successfully");
-    
-    
+
     [HttpPost("", Name = "CreateUser")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<UserDetailsDto?>> Add([FromBody] CreateUserDto newUserDto)
-        => await HandleResponse(()=>_userService.AddUserAsync(newUserDto), "User creating  successfully");
+    public async Task<ActionResult<CreateUserDto>> CreateUser([FromForm] CreateUserDto newUserDto, IFormFile? photo)
+    {
+        try
+        {
+            string ImageUrl = "/uploads/users/78edb029-8743-4ca2-8195-5e49ee419cf3_User.png"; 
+
+            if (photo != null && photo.Length > 0)
+            {
+                ImageUrl = await HelperClass.SaveImageAsync(photo, "users");
+
+                if (ImageUrl == null)
+                    return BadRequest("Failed to save the image.");
+            }
+
+            newUserDto.ProfilePictureUrl = ImageUrl;
+
+            Console.WriteLine(newUserDto.ProfilePictureUrl);
+            var result = await _userService.AddUserAsync(newUserDto);
+
+            if (result == null)
+            {
+                _logger.LogWarning("HandleResponse: No data found.");
+                return NotFound(new { message = "No data found." });
+            }
+
+            _logger.LogInformation("User created successfully");
+            return Ok(result);
+        }
+        catch (ValidationException ex)
+        {
+            _logger.LogWarning("Validation failed: {Errors}",
+                string.Join(", ", ex.Errors.Select(e => e.ErrorMessage)));
+
+            return BadRequest(new
+            {
+                message = "Validation failed.",
+                errors = ex.Errors.Select(e => e.ErrorMessage)
+            });
+        }
+    }
+
+    /*  [HttpPost("", Name = "CreateUser")]
+      [ProducesResponseType(StatusCodes.Status400BadRequest)]
+      [ProducesResponseType(StatusCodes.Status200OK)]
+      [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+      public async Task<ActionResult<UserDetailsDto?>> Add([FromBody] CreateUserDto newUserDto)
+          => await HandleResponse(()=>_userService.AddUserAsync(newUserDto), "User creating  successfully");*/
+
+    [HttpPost("send-confirmation")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult> SendConfirmationEmail(string email)
+    {
+        EmailService _emailSender = new EmailService();
+        string token = Guid.NewGuid().ToString(); 
+        string confirmationLink = $"http://localhost:5173/dashboard";
+
+        if (string.IsNullOrEmpty(token))
+        {
+            return BadRequest("Invalid confirmation link.");
+        }
+
+        _emailSender.SendConfirmationEmail(email, confirmationLink);
+
+        return Ok("Confirmation email sent!");
+    }
     
     
     [HttpPut("updateUser/{id:int}", Name = "UpdateUser")]

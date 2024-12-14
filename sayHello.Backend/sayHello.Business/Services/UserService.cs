@@ -13,6 +13,8 @@ namespace sayHello.Business
     public class UserService : BaseService<User, UserDetailsDto>
     {
         private readonly IMapper _mapper;
+        private readonly AppDbContext _context;
+
 
         public UserService(
             AppDbContext context,
@@ -21,6 +23,7 @@ namespace sayHello.Business
             UserValidator validator)
             : base(context, logger, mapper, validator)
         {
+            context = _context;
             _mapper = mapper;
         }
 
@@ -33,13 +36,13 @@ namespace sayHello.Business
         public async Task<UserDetailsDto?> GetUserByIdAsync(int id)
             => await FindBy(e => EF.Property<int>(e, "UserId") == id);
 
-        public async Task<UserDetailsDto?> GetUserByEmailAndPasswordAsync(string Email , string Password)
+        public async Task<UserDetailsDto?> GetUserByEmailAndPasswordAsync(string Email, string Password)
             => await FindBy(e => EF.Property<string>(e, "Email") == Email && EF.Property<string>(e, "Password") == Password);
-        
+
         public async Task<UserDetailsDto?> GetUserByUserNameAsync(string Username)
             => await FindBy(e => EF.Property<string>(e, "Username") == Username);
-        
-        
+
+
         public async Task<IEnumerable<UserDetailsDto>> GetAllUsersAsync()
             => await GetAllAsync();
 
@@ -52,7 +55,10 @@ namespace sayHello.Business
         public async Task<bool> UserExistsAsync(int userId)
             => await ExistsAsync(userId);
 
-      
+
+        public async Task<bool> IsUserNameUniqueAsync(string UserName)
+            => await _context.Users.AnyAsync(u => u.Username == UserName) == false;
+
         /*     public async Task<IEnumerable<UserDetailsDto>> GetActiveUsersAsync()
              {
                  try
