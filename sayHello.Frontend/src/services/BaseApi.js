@@ -1,15 +1,13 @@
 const API_URL = import.meta.env.VITE_API_URL;
 
 export async function addEntity(entityData, entityName) {
-  console.log(entityData);
   try {
     let response;
     if (entityName === "Users") {
+      console.log(`Adding user with data:`, entityData);
       response = await fetch("https://localhost:7201/Users", {
         method: "POST",
-        headers: {
-          Accept: "text/plain",
-        },
+        headers: { Accept: "text/plain" },
         body: entityData,
       });
     } else {
@@ -23,25 +21,19 @@ export async function addEntity(entityData, entityName) {
       });
     }
 
-    if (response.ok) {
-      const contentType = response.headers.get("content-type");
-      if (contentType && contentType.includes("application/json")) {
-        const data = await response.json();
-        return data;
-      } else if (contentType && contentType.includes("text/plain")) {
-        const data = await response.text();
-        return data.split("/").pop();
-      }
-    } else {
+    if (!response.ok) {
       const errorText = await response.text();
-      console.log("Errors:", errorText);
-      return errorText.errors;
+      throw new Error(`${errorText}`);
+    }
+
+    const contentType = response.headers.get("content-type");
+    if (contentType && contentType.includes("application/json")) {
+      return await response.json();
+    } else if (contentType && contentType.includes("text/plain")) {
+      return await response.text();
     }
   } catch (error) {
-    console.error(`Error adding ${entityName}:`, error);
-    if (error.errors) {
-      console.log("Errors:", error.errors);
-    }
+    console.error(`Error in addEntity for ${entityName}:`, error);
     throw error;
   }
 }

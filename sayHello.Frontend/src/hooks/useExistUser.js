@@ -18,8 +18,7 @@ export function useExistUser() {
         toast.success(`Welcome ${User.username}`);
         queryClient.invalidateQueries({ queryKey: ["Users"] });
       } else {
-        console.log("No user found with the provided credentials.");
-        toast.error(`user not found 🥲`);
+        toast.error(`There is no user found for the given email and password.`);
       }
     },
     onError: (err) => {
