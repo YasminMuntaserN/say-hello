@@ -12,9 +12,13 @@ export default {
         basic: "#091d2f",
         secondary: "#513c5a",
         lightText: "#818388",
+        purple: "#560D49",
+        gray: "#e5e7eb",
+        blue: "#083869",
       },
       backgroundImage: {
         "gradient-bg": "linear-gradient(to right, #280B31, #04213D)",
+        "gradient-btn": "linear-gradient(to top, #632969,#9D38D2, #2E8DEC)",
       },
     },
   },
