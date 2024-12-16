@@ -1,4 +1,4 @@
-import { addEntity } from "./BaseApi";
+import { addEntity, getBy } from "./BaseApi";
 
 //const API_URL = import.meta.env.API_URL;
 export async function handleCheckUserByEmailAndPassword(Email, Password) {
@@ -25,21 +25,18 @@ export async function handleCheckUserByEmailAndPassword(Email, Password) {
   }
 }
 
-export const addUser = async (user) => {
-  console.log("Calling addUser with:", user);
-  return await addEntity(user, "Users");
-};
+export const addUser = async (user) => await addEntity(user, "Users");
 
 export async function handleConfirmationEmail(email) {
   try {
     const res = await fetch(
       `https://localhost:7201/Users/send-confirmation?email=${encodeURIComponent(
         email
-      )}`, // Ensure the email is part of the URL query
+      )}`,
       {
-        method: "POST", // Send as POST request
+        method: "POST",
         headers: {
-          Accept: "*/*", // Accept all response types (can be adjusted)
+          Accept: "*/*",
         },
       }
     );
@@ -50,7 +47,7 @@ export async function handleConfirmationEmail(email) {
     }
 
     if (res.ok) {
-      const data = await res.text(); // Since the server sends plain text, not JSON
+      const data = await res.text();
       return data === "Confirmation email sent!";
     }
 
@@ -60,3 +57,7 @@ export async function handleConfirmationEmail(email) {
     throw error;
   }
 }
+
+//https://localhost:7201/Messages/allBySenderId/2
+export const getAllBySenderId = async (senderId) =>
+  await getBy("Messages", "allBySenderId", senderId);

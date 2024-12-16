@@ -37,3 +37,21 @@ export async function addEntity(entityData, entityName) {
     throw error;
   }
 }
+
+//https://localhost:7201/Messages/allBySenderId/2
+export async function getBy(entityName, type, value) {
+  try {
+    const res = await fetch(`${API_URL}/${entityName}/${type}/${value}`);
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch ${entityName}`);
+    }
+
+    const data = await res.json();
+
+    return data;
+  } catch (error) {
+    console.error(`Error fetching ${entityName}:`, error);
+    throw error;
+  }
+}

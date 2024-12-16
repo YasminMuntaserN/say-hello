@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useExistUser } from "../hooks/useExistUser";
 import SpinnerMini from "../ui/SpinnerMini";
 import FormContainer from "../ui/FormContainer";
+import { useUser } from "../context/UserContext";
 
 function LoginForm() {
   const {
@@ -18,6 +19,7 @@ function LoginForm() {
 
   const {mutate, User, isLoading } =useExistUser();
   const navigate = useNavigate(); 
+  const {login}=useUser();
 
   function onSubmit(data) {
     console.log(data);
@@ -25,9 +27,11 @@ function LoginForm() {
     mutate({Email, Password},
       {
         onSuccess: (data) => {
+          console.log(data);
           if(data){
           reset();
           navigate('/dashboard');
+          login(data);
           }
         },
         onError: (error) => {
