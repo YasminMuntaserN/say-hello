@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
+using sayHello.DTOs.Message;
 using sayHello.Entities;
 
 namespace sayHello.DataAccess;
@@ -16,6 +17,7 @@ public class AppDbContext: DbContext
     public DbSet<ArchivedUser> ArchivedUsers { get; set; }
     public DbSet<Message> Messages { get; set; }
     public DbSet<Media> Medias { get; set; }
+    public DbSet<ConversationDetailsDto> ConversationDetails { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

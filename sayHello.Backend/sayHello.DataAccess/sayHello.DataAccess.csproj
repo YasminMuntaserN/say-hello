@@ -27,6 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\sayHello.DTOs\sayHello.DTOs.csproj" />
       <ProjectReference Include="..\sayHello.Entities\sayHello.Entities.csproj" />
     </ItemGroup>
 

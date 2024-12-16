@@ -16,13 +16,14 @@ namespace sayHello.Business
         private readonly MessageValidator _validator;
         private readonly AppDbContext _context;
         private readonly ILogger<MessageService> _logger;
-        private readonly IMapper _mapper; 
+        private readonly IMapper _mapper;
+
         public MessageService(
             AppDbContext context,
             ILogger<MessageService> logger,
             IMapper mapper,
             MessageValidator validator)
-            : base(context, logger, mapper ,validator)
+            : base(context, logger, mapper, validator)
         {
             _mapper = mapper;
             _context = context;
@@ -37,7 +38,7 @@ namespace sayHello.Business
 
         public async Task<MessageDetailsDto?> GetMessageByIdAsync(int id)
             => await FindBy(e => EF.Property<int>(e, "MessageId") == id);
-        
+
         public async Task<IEnumerable<MessageDetailsDto>> GetAllMessagesAsync()
             => await GetAllAsync();
 
@@ -55,7 +56,8 @@ namespace sayHello.Business
                 _logger.LogWarning($"Message with ID {id} not found.");
                 return false;
             }
-            _context.Entry(message).State = EntityState.Modified; 
+
+            _context.Entry(message).State = EntityState.Modified;
             _logger.LogInformation($"Marking message with ID {id} as read.");
             message.ReadStatus = "Read";
             message.ReadDT = DateTime.Now;
@@ -73,6 +75,40 @@ namespace sayHello.Business
             }
         }
 
+        public async Task<IEnumerable<ConversationDetailsDto>> GetAllMessagesBySenderIdAsync(int senderId)
+        {
+            try
+            {
+                //this the user received them so here the user will be the sender 
+                var conversations = _context.ConversationDetails
+                    .FromSqlInterpolated($"SELECT * FROM GetConversationDetails({senderId})")
+                    .ToList();
+                
+                //this the user sent them so here the user will be the receiver
+                var ReceivedConversation=_context.ConversationDetails
+                    .FromSqlInterpolated($"SELECT * FROM GetReceivedConversationDetails({senderId})")
+                    .ToList();
+                
+                foreach (var conversation in ReceivedConversation)
+                {
+                    var PreviousChat = conversations.Find(x => x.ReceiverId == conversation.SenderId);
 
+                    if (PreviousChat != null)
+                    {
+                        if (PreviousChat.LastMessageTime < conversation.LastMessageTime)
+                        {
+                            conversations.Remove(PreviousChat);
+                            conversations.Add(conversation);
+                        };
+                    }
+                }
+                return conversations;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving all Messages by Sender ID.");
+                throw;
+            }
+        }
     }
 }

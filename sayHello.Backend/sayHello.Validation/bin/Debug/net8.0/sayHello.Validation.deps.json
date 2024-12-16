@@ -775,10 +775,27 @@
           "Microsoft.Extensions.Configuration.Json": "9.0.0",
           "Scalar.AspNetCore": "1.2.49",
           "Swashbuckle.AspNetCore.Swagger": "7.1.0",
+          "sayHello.DTOs": "1.0.0",
           "sayHello.Entities": "1.0.0"
         },
         "runtime": {
           "sayHello.DataAccess.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "sayHello.DTOs/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "13.0.1",
+          "FluentValidation": "11.11.0",
+          "FluentValidation.AspNetCore": "11.3.0",
+          "Scalar.AspNetCore": "1.2.49",
+          "Swashbuckle.AspNetCore.Swagger": "7.1.0",
+          "sayHello.Entities": "1.0.0"
+        },
+        "runtime": {
+          "sayHello.DTOs.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1291,6 +1308,11 @@
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
     "sayHello.DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "sayHello.DTOs/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

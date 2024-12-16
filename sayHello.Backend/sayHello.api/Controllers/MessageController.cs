@@ -20,6 +20,13 @@ public class MessagesController : BaseController
         _MessageService = messageService;
     }
 
+    [HttpGet("allBySenderId/{senderId:int}", Name = "GetAllMessagesBySenderId")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<IEnumerable<ConversationDetailsDto>>> GetAllMessagesBySenderId(int senderId)
+        => await HandleResponse(()=>_MessageService.GetAllMessagesBySenderIdAsync(senderId), "Messages retrieved successfully");
+
     [HttpGet("all", Name = "GetAllMessages")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -27,8 +34,7 @@ public class MessagesController : BaseController
     public async Task<ActionResult<IEnumerable<MessageDetailsDto>>> GetAllMessages()
         => await HandleResponse(()=>_MessageService.GetAllMessagesAsync(), "Messages retrieved successfully");
 
-
-
+    
     [HttpGet("findMessageByMessageId/{id:int}", Name = "FindMessageByMessageId")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

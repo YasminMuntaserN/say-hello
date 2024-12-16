@@ -17,7 +17,6 @@ public class EmailService
         
         try
         {
-            // Compose the email content
             string emailBody = $@"
                 <html>
                 <body>
@@ -37,7 +36,6 @@ public class EmailService
                 </body>
                 </html>";
 
-            // Create the mail message
             MailMessage mail = new MailMessage
             {
                 From = new MailAddress(emailFrom),

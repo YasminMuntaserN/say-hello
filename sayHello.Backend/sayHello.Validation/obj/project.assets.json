@@ -1260,6 +1260,7 @@
           "Microsoft.Extensions.Configuration.Json": "9.0.0",
           "Scalar.AspNetCore": "1.2.49",
           "Swashbuckle.AspNetCore.Swagger": "7.1.0",
+          "sayHello.DTOs": "1.0.0",
           "sayHello.Entities": "1.0.0"
         },
         "compile": {
@@ -1267,6 +1268,24 @@
         },
         "runtime": {
           "bin/placeholder/sayHello.DataAccess.dll": {}
+        }
+      },
+      "sayHello.DTOs/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AutoMapper": "13.0.1",
+          "FluentValidation": "11.11.0",
+          "FluentValidation.AspNetCore": "11.3.0",
+          "Scalar.AspNetCore": "1.2.49",
+          "Swashbuckle.AspNetCore.Swagger": "7.1.0",
+          "sayHello.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/sayHello.DTOs.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/sayHello.DTOs.dll": {}
         }
       },
       "sayHello.Entities/1.0.0": {
@@ -3382,6 +3401,11 @@
       "type": "project",
       "path": "../sayHello.DataAccess/sayHello.DataAccess.csproj",
       "msbuildProject": "../sayHello.DataAccess/sayHello.DataAccess.csproj"
+    },
+    "sayHello.DTOs/1.0.0": {
+      "type": "project",
+      "path": "../sayHello.DTOs/sayHello.DTOs.csproj",
+      "msbuildProject": "../sayHello.DTOs/sayHello.DTOs.csproj"
     },
     "sayHello.Entities/1.0.0": {
       "type": "project",

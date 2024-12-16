@@ -776,6 +776,7 @@
           "Microsoft.Extensions.Configuration.Json": "9.0.0",
           "Scalar.AspNetCore": "1.2.49",
           "Swashbuckle.AspNetCore.Swagger": "7.1.0",
+          "sayHello.DTOs": "1.0.0",
           "sayHello.Entities": "1.0.0"
         },
         "runtime": {

@@ -1845,6 +1845,24 @@
           }
         }
       },
+      "sayHello.DTOs/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AutoMapper": "13.0.1",
+          "FluentValidation": "11.11.0",
+          "FluentValidation.AspNetCore": "11.3.0",
+          "Scalar.AspNetCore": "1.2.49",
+          "Swashbuckle.AspNetCore.Swagger": "7.1.0",
+          "sayHello.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/sayHello.DTOs.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/sayHello.DTOs.dll": {}
+        }
+      },
       "sayHello.Entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -5280,6 +5298,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "sayHello.DTOs/1.0.0": {
+      "type": "project",
+      "path": "../sayHello.DTOs/sayHello.DTOs.csproj",
+      "msbuildProject": "../sayHello.DTOs/sayHello.DTOs.csproj"
+    },
     "sayHello.Entities/1.0.0": {
       "type": "project",
       "path": "../sayHello.Entities/sayHello.Entities.csproj",
@@ -5299,6 +5322,7 @@
       "Microsoft.Extensions.Configuration.Json >= 9.0.0",
       "Scalar.AspNetCore >= 1.2.49",
       "Swashbuckle.AspNetCore.Swagger >= 7.1.0",
+      "sayHello.DTOs >= 1.0.0",
       "sayHello.Entities >= 1.0.0"
     ]
   },
@@ -5335,6 +5359,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
+              "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj"
+            },
             "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
               "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
             }
