@@ -13,7 +13,6 @@ public class MessageValidator : AbstractValidator<Message>
             .MaximumLength(1000).WithMessage("Message content cannot exceed 1000 characters.");
 
         RuleFor(message => message.SendDT)
-            .NotEmpty().WithMessage("Send Date/Time is required.")
             .LessThanOrEqualTo(DateTime.Now).WithMessage("Send Date/Time cannot be in the future.");
 
         RuleFor(message => message.ReadDT)

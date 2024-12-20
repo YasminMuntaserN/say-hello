@@ -16,7 +16,7 @@ public class MediaValidator : AbstractValidator<Media>
 
         RuleFor(media => media.MediaType)
             .NotEmpty().WithMessage("Media type is required.")
-            .Must(mediaType => new[] { "image", "video", "audio" }.Contains(mediaType.ToLower()))
+            .Must(mediaType => new[] {"Message", "image", "video", "audio" }.Contains(mediaType.ToLower()))
             .WithMessage("Media type must be 'image', 'video', or 'audio'.");
 
         RuleFor(media => media.MessageId)
