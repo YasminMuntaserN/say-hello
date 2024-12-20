@@ -75,6 +75,7 @@ namespace sayHello.Business
             }
         }
 
+        // this method will return the latest chats 
         public async Task<IEnumerable<ConversationDetailsDto>> GetAllMessagesBySenderIdAsync(int senderId)
         {
             try
@@ -88,6 +89,7 @@ namespace sayHello.Business
                 var ReceivedConversation=_context.ConversationDetails
                     .FromSqlInterpolated($"SELECT * FROM GetReceivedConversationDetails({senderId})")
                     .ToList();
+
                 
                 foreach (var conversation in ReceivedConversation)
                 {
@@ -109,6 +111,19 @@ namespace sayHello.Business
                 _logger.LogError(ex, "Error retrieving all Messages by Sender ID.");
                 throw;
             }
+        }
+
+        // this method will  retrieving conversations between a sender and a receiver.
+        public async Task<IEnumerable<MessageDetailsDto>> GetMessagesInChatRoomAsync(int senderId, int receiverId)
+        {
+            var messages = await _context.Messages
+                .Where(m => 
+                    (m.SenderId == senderId && m.ReceiverId == receiverId) || 
+                    (m.SenderId == receiverId && m.ReceiverId == senderId))
+                .OrderBy(m => m.SendDT) 
+                .ToListAsync();
+            
+            return _mapper.Map<IEnumerable<MessageDetailsDto>>(messages);
         }
     }
 }
