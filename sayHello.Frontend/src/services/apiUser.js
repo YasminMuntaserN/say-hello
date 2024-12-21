@@ -1,4 +1,4 @@
-import { addEntity, getBy } from "./BaseApi";
+import { addEntity, getAll, getBy } from "./BaseApi";
 
 //const API_URL = import.meta.env.API_URL;
 export async function handleCheckUserByEmailAndPassword(Email, Password) {
@@ -58,6 +58,7 @@ export async function handleConfirmationEmail(email) {
   }
 }
 
-//https://localhost:7201/Messages/allBySenderId/2
 export const getAllBySenderId = async (senderId) =>
   await getBy("Messages", "allBySenderId", senderId);
+
+export const getAllUsers = async () => await getAll("Users");
