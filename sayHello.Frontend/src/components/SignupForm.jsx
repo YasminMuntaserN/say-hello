@@ -5,9 +5,9 @@ import { useForm } from "react-hook-form";
 import Button from "../ui/Button"
 import FormRow from "../ui/FormRow"
 import FormContainer from "../ui/FormContainer";
-import {useAddUser} from "../hooks/useAddUser";
+import {useAddUser} from "../hooks/Users/useAddUser";
 import SpinnerMini from "../ui/SpinnerMini";
-import { useConfirmationEmail } from "../hooks/useConfirmationEmail";
+import { useConfirmationEmail } from "../hooks/Users/useConfirmationEmail";
 import { useUser } from "../context/UserContext";
 
 
@@ -24,7 +24,6 @@ function SignupForm() {
   const { login }=useUser();
 
   function onSubmit(data) {
-    console.log(data);
 
     if (data) {
       const formData = new FormData();
@@ -52,9 +51,6 @@ function SignupForm() {
       });
     }
   }
-
-  console.log(isLoading);
-  console.log(User);
 
   return (
     <FormContainer header ="Sign Up to Start Chatting!">

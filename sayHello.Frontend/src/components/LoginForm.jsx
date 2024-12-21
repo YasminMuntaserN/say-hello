@@ -4,7 +4,7 @@ import { GoPasskeyFill } from "react-icons/go";
 import Button from "../ui/Button";
 import FormRow from "../ui/FormRow";
 import { Link, useNavigate } from "react-router-dom";
-import { useExistUser } from "../hooks/useExistUser";
+import { useExistUser } from "../hooks/Users/useExistUser";
 import SpinnerMini from "../ui/SpinnerMini";
 import FormContainer from "../ui/FormContainer";
 import { useUser } from "../context/UserContext";
@@ -17,7 +17,7 @@ function LoginForm() {
     reset
   } = useForm();
 
-  const {mutate, User, isLoading } =useExistUser();
+  const {mutate,isLoading } =useExistUser();
   const navigate = useNavigate(); 
   const {login}=useUser();
 
@@ -40,8 +40,6 @@ function LoginForm() {
         },
       });
   };
-
-  console.log(User);
 
   return (
     <FormContainer header ="Welcome Back...">
