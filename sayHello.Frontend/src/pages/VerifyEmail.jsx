@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "../ui/Logo";
 import Button from "../ui/Button";
-import { useConfirmationEmail } from "../hooks/useConfirmationEmail";
+import { useConfirmationEmail } from "../hooks/Users/useConfirmationEmail";
 import { useUser } from "../context/UserContext";
 
 function VerifyEmail() {
