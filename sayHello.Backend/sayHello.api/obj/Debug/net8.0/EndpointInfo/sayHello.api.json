@@ -3250,23 +3250,15 @@
       "ConversationDetailsDto": {
         "type": "object",
         "properties": {
-          "senderId": {
+          "chatPartnerId": {
             "type": "integer",
             "format": "int32"
           },
-          "senderName": {
+          "chatPartnerName": {
             "type": "string",
             "nullable": true
           },
-          "receiverId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "receiverName": {
-            "type": "string",
-            "nullable": true
-          },
-          "receiverImage": {
+          "chatPartnerImage": {
             "type": "string",
             "nullable": true
           },
@@ -3281,6 +3273,10 @@
           "lastMessageStatus": {
             "type": "string",
             "nullable": true
+          },
+          "isReceiver": {
+            "type": "integer",
+            "format": "int32"
           },
           "lastMessageTime": {
             "type": "string",

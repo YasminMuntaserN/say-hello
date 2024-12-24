@@ -131,9 +131,44 @@ public class UsersController : BaseController
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<UserDetailsDto?>> Update([FromRoute] int id, [FromBody] UserDetailsDto updatedUserDto) 
-        => await HandleResponse(()=>_userService.UpdateUserAsync(id,updatedUserDto), "User Updating  successfully");
-   
+    public async Task<ActionResult<UserDetailsDto?>> Update(
+        [FromRoute] int id,
+        [FromForm] UserDetailsDto updatedUserDto,
+        IFormFile? photo)
+    {
+        if (id < 1 || updatedUserDto == null)
+            return BadRequest("Invalid User Data");
+
+        var existingUser = await _userService.GetUserByIdAsync(id);
+        if (existingUser == null)
+            return NotFound($"User with ID {id} not found.");
+
+        if (photo != null)
+        {
+            var imageUrl = await HelperClass.SaveImageAsync(photo, "users");
+            if (imageUrl == null)
+            {
+                _logger.LogError("Failed to save image for user {Id}", id);
+                return BadRequest(new { message = "Failed to save the image." });
+            }
+            updatedUserDto.ProfilePictureUrl = imageUrl;
+        }
+        else
+        {
+            updatedUserDto.ProfilePictureUrl = existingUser.ProfilePictureUrl;
+        }
+
+        var result = await _userService.UpdateUserAsync(id, updatedUserDto);
+        if (result == null)
+        {
+            _logger.LogWarning("Update failed for User ID: {Id}", id);
+            return NotFound(new { message = "No data found." });
+        }
+
+        _logger.LogInformation("User {Id} updated successfully.", id);
+        return Ok(result);
+    }
+
 
     [HttpDelete("{id:int}", Name = "SoftDeleteUser")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

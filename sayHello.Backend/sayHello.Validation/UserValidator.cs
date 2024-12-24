@@ -14,8 +14,7 @@ public class UserValidator : AbstractValidator<User>
 
         RuleFor(user => user.Username)
             .NotEmpty().WithMessage("Username is required.")
-            .Length(3, 50).WithMessage("Username must be between 3 and 50 characters.")
-            .MustAsync(async (userName, cancellation) => await _uniqueValidatorService.IsUserNameUniqueAsync(userName)).WithMessage("user Name is already in use.");
+            .Length(3, 50).WithMessage("Username must be between 3 and 50 characters.");
 
 
         RuleFor(user => user.Email)

@@ -3437,6 +3437,7 @@
       "packagesPath": "C:\\Users\\TOP\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Validation\\obj\\",
       "projectStyle": "PackageReference",
+      "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
@@ -3474,8 +3475,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
       "net8.0": {

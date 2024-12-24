@@ -14,6 +14,8 @@ namespace sayHello.Business
     {
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
+        private readonly DbSet<User> _dbSet;
+        private readonly  ILogger<UserService> _logger;
 
 
         public UserService(
@@ -23,15 +25,46 @@ namespace sayHello.Business
             UserValidator validator)
             : base(context, logger, mapper, validator)
         {
-            context = _context;
+            _context = context;
+            _dbSet = context.Set<User>();
             _mapper = mapper;
+            _logger= logger;
         }
 
         public async Task<UserDetailsDto> AddUserAsync(CreateUserDto createUserDto)
             => await AddAsync(createUserDto, "User");
 
-        public async Task<UserDetailsDto?> UpdateUserAsync(int id, UserDetailsDto userDetailsDto)
-            => await UpdateAsync(id, userDetailsDto, "User");
+        public async Task<UserDetailsDto?> UpdateUserAsync(int id, UserDetailsDto updatedUserDto)
+        {
+            try
+            {
+                var affectedRows = await _context.Database.ExecuteSqlRawAsync(
+                    "UPDATE Users SET Username = {0}, ProfilePictureUrl = {1}, Password = {2}, Bio = {3} WHERE UserId = {4}",
+                    updatedUserDto.Username, updatedUserDto.ProfilePictureUrl, updatedUserDto.Password, updatedUserDto.Bio, id);
+
+                if (affectedRows > 0)
+                {
+                    var updatedUser = await _dbSet.FindAsync(id);
+                    if (updatedUser == null)
+                    {
+                        _logger.LogWarning("User not found: {Id}", id);
+                        throw new KeyNotFoundException($"User with ID {id} not found.");
+                    }
+
+                    return _mapper.Map<UserDetailsDto>(updatedUser);
+                }
+                else
+                {
+                    _logger.LogError("Error updating User: {Id}", id);
+                    throw new InvalidOperationException("Update operation failed.");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating User: {Id}", id);
+                throw;
+            }
+        }
 
         public async Task<UserDetailsDto?> GetUserByIdAsync(int id)
             => await FindBy(e => EF.Property<int>(e, "UserId") == id);

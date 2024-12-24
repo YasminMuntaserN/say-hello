@@ -20,6 +20,14 @@ public class ArchivedUsersController : BaseController
         _ArchivedUserService = ArchivedUserService;
     }
 
+    [HttpGet("count", Name = "GetArchivedUsersCount")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<int>> GetArchivedUsersCount(int id)
+        => await HandleResponse(()=>_ArchivedUserService.ArchivedUsersCountAsync(id), "Archived Users count retrieved successfully");
+    
+    
     [HttpGet("all", Name = "GetAllArchivedArchivedUsers")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

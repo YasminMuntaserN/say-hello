@@ -89,22 +89,8 @@ namespace sayHello.Business
                 var ReceivedConversation=_context.ConversationDetails
                     .FromSqlInterpolated($"SELECT * FROM GetReceivedConversationDetails({senderId})")
                     .ToList();
-
                 
-                foreach (var conversation in ReceivedConversation)
-                {
-                    var PreviousChat = conversations.Find(x => x.ReceiverId == conversation.SenderId);
-
-                    if (PreviousChat != null)
-                    {
-                        if (PreviousChat.LastMessageTime < conversation.LastMessageTime)
-                        {
-                            conversations.Remove(PreviousChat);
-                            conversations.Add(conversation);
-                        };
-                    }
-                }
-                return conversations;
+                return conversations.Concat(ReceivedConversation).OrderByDescending(x=>x.LastMessageTime).DistinctBy(x=>x.ChatPartnerId);
             }
             catch (Exception ex)
             {

@@ -23,9 +23,5 @@ namespace sayHello.Validation
             return await _context.Users.AnyAsync(u => u.Email == email) == false;
         }
 
-        public async Task<bool> IsUserNameUniqueAsync(string userName)
-        {
-            return await _context.Users.AnyAsync(u => u.Username == userName) == false;
-        }
     }
 }

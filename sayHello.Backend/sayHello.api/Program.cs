@@ -67,8 +67,8 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger(); // Enable Swagger middleware
-    app.UseSwaggerUI(); // Enable Swagger UI middleware
+    app.UseSwagger(); 
+    app.UseSwaggerUI(); 
 }
 
 app.UseHttpsRedirection();

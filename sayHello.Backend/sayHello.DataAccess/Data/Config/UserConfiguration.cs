@@ -10,7 +10,6 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
     {
         builder.HasKey(e => e.UserId);
 
-        builder.HasIndex(e => e.Username).IsUnique().HasDatabaseName("IX_Users_Username");
         builder.HasIndex(e => e.Email).IsUnique().HasDatabaseName("IX_Users_Email");
 
         builder.Property(e => e.Username)

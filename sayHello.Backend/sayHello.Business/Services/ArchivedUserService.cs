@@ -14,17 +14,34 @@ namespace sayHello.Business
     {
         private readonly ArchivedUserValidator _validator;
 
-        private readonly IMapper _mapper; 
+        private readonly IMapper _mapper;
+        private readonly AppDbContext _context;
+        private readonly DbSet<User> _dbSet;
+
+
         public ArchivedUserService(
             AppDbContext context,
             ILogger<ArchivedUserService> logger,
             IMapper mapper,
             ArchivedUserValidator validator)
-            : base(context, logger, mapper ,validator)
+            : base(context, logger, mapper, validator)
         {
+            _context = context;
+            _dbSet = context.Set<User>();
             _mapper = mapper;
         }
 
+        public async Task<int> ArchivedUsersCountAsync(int userId)
+        {
+            var user = await _dbSet
+                .Include(u => u.ArchivedUsers)
+                .FirstOrDefaultAsync(u => u.UserId == userId);
+
+            if (user == null) throw new KeyNotFoundException($"User with ID {userId} not found.");
+
+            return user.ArchivedUsers.Count;
+        }
+        
         public async Task<ArchivedUserDetailsDto> AddArchivedUserAsync(CreateArchivedUserDto createArchivedUserDto)
             => await AddAsync(createArchivedUserDto, "ArchivedUser");
 

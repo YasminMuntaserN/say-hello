@@ -12,17 +12,33 @@ namespace sayHello.Business
 {
     public class BlockedUserService : BaseService<BlockedUser,BlockedUserDetailsDto>
     {
-        private readonly IMapper _mapper; 
-        
+        private readonly IMapper _mapper;
+        private readonly AppDbContext _context;
+        private readonly DbSet<User> _dbSet;
+
+
         public BlockedUserService(
             AppDbContext context,
             ILogger<BlockedUserService> logger,
-            IMapper mapper, BlockedUserValidator validator)
-            : base(context, logger, mapper ,validator)
+            IMapper mapper,
+            BlockedUserValidator validator)
+            : base(context, logger, mapper, validator)
         {
+            _context = context;
+            _dbSet = context.Set<User>();
             _mapper = mapper;
         }
 
+        public async Task<int> BlockedUsersCountAsync(int userId)
+        {
+            var user = await _dbSet
+                .Include(u => u.BlockedUsers)
+                .FirstOrDefaultAsync(u => u.UserId == userId);
+
+            if (user == null) throw new KeyNotFoundException($"User with ID {userId} not found.");
+
+            return user.BlockedUsers.Count;
+        }
         public async Task<BlockedUserDetailsDto> AddBlockedUserAsync(CreateBlockedUserDto createBlockedUserDto)
             => await AddAsync(createBlockedUserDto, "BlockedUser");
 

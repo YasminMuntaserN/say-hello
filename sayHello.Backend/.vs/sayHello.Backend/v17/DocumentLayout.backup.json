@@ -66,8 +66,7 @@
               "RelativeToolTip": "sayHello.api\\Controllers\\MessageController.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T16:12:39.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-20T16:12:39.727Z"
             },
             {
               "$type": "Document",
@@ -79,8 +78,7 @@
               "RelativeToolTip": "sayHello.Entities\\UserConnection.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T11:46:03.468Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-19T11:46:03.468Z"
             },
             {
               "$type": "Document",
@@ -90,7 +88,7 @@
               "RelativeDocumentMoniker": "sayHello.Business\\Services\\ChatHub.cs",
               "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\Services\\ChatHub.cs",
               "RelativeToolTip": "sayHello.Business\\Services\\ChatHub.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAACAAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-18T17:28:16.642Z",
               "EditorCaption": ""
@@ -105,8 +103,7 @@
               "RelativeToolTip": "sayHello.api\\Program.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAnwCwAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T11:37:36.511Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-19T11:37:36.511Z"
             }
           ]
         }

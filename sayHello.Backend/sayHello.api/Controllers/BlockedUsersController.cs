@@ -20,6 +20,14 @@ public class BlockedUsersController : BaseController
         _BlockedUserService = BlockedUserService;
     }
 
+    [HttpGet("count", Name = "GetBlockedUsersCount")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<int>> GetBlockedUsersCount(int id)
+        => await HandleResponse(()=>_BlockedUserService.BlockedUsersCountAsync(id), "Blocked Users count retrieved successfully");
+    
+    
     [HttpGet("all", Name = "GetAllBlockedBlockedUsers")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

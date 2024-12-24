@@ -83,7 +83,7 @@ public abstract class BaseService<TEntity, TDto> : IBaseService<TEntity, TDto> w
         }
     }
 
-    public virtual async Task<TDto?> UpdateAsync(int id, TDto dto, string entityName)
+    public virtual async Task<TDto?> UpdateAsync(int id, TDto dto, string entityName ,bool isUpdate=false)
     {
         try
         {
@@ -96,12 +96,15 @@ public abstract class BaseService<TEntity, TDto> : IBaseService<TEntity, TDto> w
 
             _mapper.Map(dto, existingEntity);
 
-            var validationResult = await _validator.ValidateAsync(existingEntity);
-            if (!validationResult.IsValid)
+            if (!isUpdate)
             {
-                _logger.LogError("Validation failed during update of {EntityName}: {Errors}",
-                    entityName, string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage)));
-                throw new ValidationException(validationResult.Errors);
+                var validationResult = await _validator.ValidateAsync(existingEntity);
+                if (!validationResult.IsValid)
+                {
+                    _logger.LogError("Validation failed during update of {EntityName}: {Errors}",
+                        entityName, string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage)));
+                    throw new ValidationException(validationResult.Errors);
+                }
             }
 
             _dbSet.Update(existingEntity);
