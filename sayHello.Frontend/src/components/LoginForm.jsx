@@ -1,10 +1,10 @@
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { IoMdLogIn } from "react-icons/io";
 import { GoPasskeyFill } from "react-icons/go";
 import Button from "../ui/Button";
 import FormRow from "../ui/FormRow";
-import { Link, useNavigate } from "react-router-dom";
-import { useExistUser } from "../hooks/Users/useExistUser";
+import { useExistUser } from "../components/User/hooks/useExistUser";
 import SpinnerMini from "../ui/SpinnerMini";
 import FormContainer from "../ui/FormContainer";
 import { useUser } from "../context/UserContext";
@@ -48,7 +48,7 @@ function LoginForm() {
         <FormRow type="email" errors={errors} register={register} FieldName="Email" />
         <FormRow type="password" errors={errors} register={register} FieldName="Password" />
         <div className={StyledButtons}>
-          <Button type="submit">
+        <Button variant="submit" type="submit">
           {isLoading ?  <SpinnerMini/> :<>Login... <IoMdLogIn className="text-white text-3xl"  /></>}
           </Button>
           <Button>
