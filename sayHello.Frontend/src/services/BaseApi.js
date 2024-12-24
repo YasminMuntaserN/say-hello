@@ -93,3 +93,55 @@ export async function getAllBy(entityName, value) {
     throw error;
   }
 }
+
+export async function EditEntity(entityName, entityData, id) {
+  console.log(
+    `EditEntity ${entityName} with ${id} ${JSON.stringify(entityData)}`
+  );
+  try {
+    let response;
+    if (entityName === "Users/updateUser") {
+      response = await fetch(`${API_URL}/${entityName}/${id}`, {
+        method: "PUT",
+        body: entityData,
+      });
+    } else {
+      response = await fetch(`${API_URL}/${entityName}/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(entityData),
+      });
+    }
+    if (response.ok) {
+      const data = await response.json();
+
+      return data;
+    } else {
+      const errorText = await response.text();
+      throw new Error(`Error Updating : ${errorText}`);
+    }
+  } catch (error) {
+    console.error(`Error Updating ${entityName}:`, error);
+    throw error;
+  }
+}
+
+export async function getCount(entityName, value) {
+  console.log(`${API_URL}/${entityName}/count?id=${value}`);
+  try {
+    const res = await fetch(`${API_URL}/${entityName}/count?id=${value}`);
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch count of ${entityName}`);
+    }
+
+    const data = await res.text();
+    return parseInt(data, 10);
+  } catch (error) {
+    console.error(`Error fetching count of ${entityName}:`, error);
+    throw error;
+  }
+}
