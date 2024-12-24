@@ -1,7 +1,6 @@
 import { format } from "date-fns";
 
 export function formatTime(isoDateString) {
-  console.log(isoDateString);
   if (!isoDateString) return "Invalid Date";
 
   let normalizedDate = isoDateString;
