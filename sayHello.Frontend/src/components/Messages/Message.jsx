@@ -1,11 +1,16 @@
+import React from "react";
 import { useSignalR } from "./hooks/useSignalR";
 import MessageHeader from "./MessageHeader";
+import OptionsMessages from "./OptionsMessages";
 import SendMessage from "./SendMessage";
-import React from "react";
+import { useUser } from "../../context/UserContext";
+import ChatPartnerOperation from "../User/ChatPartnerOperation";
+
 
 function Message({ user, chatRoom, receiverId }) {
   const { messages, error, sendMessage } = useSignalR(user.userId, chatRoom, receiverId);
-  console.log(`Message received: ${JSON.stringify(messages)}`);
+  const {showChatPartnerOperations}=useUser();
+  console.log(showChatPartnerOperations);
   if (error) {
     console.error("Error in Message component:", error);
     return <div className="text-red-500">Error: {error.message}</div>;
@@ -14,6 +19,9 @@ function Message({ user, chatRoom, receiverId }) {
   return (
     <div>
       <MessageHeader receiver={user} />
+      {
+        !showChatPartnerOperations ?
+          <>
       <div className="flex-grow overflow-y-auto h-[520px] relative">
         {messages.length > 0
           ? messages.map((msg) => (
@@ -23,9 +31,16 @@ function Message({ user, chatRoom, receiverId }) {
                 </div>
               </div>
             ))
-          : "No messages"}
+          :
+          <OptionsMessages />
+        }
       </div>
+
       <SendMessage receiver={user} addMessage={sendMessage} />
+      </>  
+      :
+      <ChatPartnerOperation />
+      }     
     </div>
   );
 }
