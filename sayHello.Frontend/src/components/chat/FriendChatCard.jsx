@@ -5,12 +5,17 @@ import Box from "../../ui/Box";
 import { useUser } from "../../context/UserContext";
 
 function FriendChatCard({chatInfo}) {
-    const {setUserInChat}=useUser();
+    const {setUserInChat ,setShowChatPartnerOperations}=useUser();
     const {chatPartnerName ,chatPartnerImage, lastMessage, lastMessageStatus, lastMessageTime, unReadMessagesCount,isReceiver } = chatInfo;
     const IfRead = lastMessageStatus !== "Read";
   
+    const OnClick =()=>{
+      setUserInChat(chatInfo);
+      setShowChatPartnerOperations(false);
+    };
+
     return (
-      <Box colsNum={3} HandleOnClick={()=>setUserInChat(chatInfo)}>
+      <Box colsNum={3} HandleOnClick={()=>OnClick()}>
         <div className="mt-3">
           <Image src={chatPartnerImage} alt={`${chatPartnerName}'s profile`} />
         </div>
