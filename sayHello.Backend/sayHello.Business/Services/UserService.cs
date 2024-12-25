@@ -89,24 +89,5 @@ namespace sayHello.Business
             => await ExistsAsync(userId);
 
 
-        public async Task<bool> IsUserNameUniqueAsync(string UserName)
-            => await _context.Users.AnyAsync(u => u.Username == UserName) == false;
-
-        /*     public async Task<IEnumerable<UserDetailsDto>> GetActiveUsersAsync()
-             {
-                 try
-                 {
-                     var activeUsers = await _dbSet
-                         .Where(u => !u.IsDeleted)
-                         .ToListAsync();
-
-                     return _mapper.Map<IEnumerable<UserDetailsDto>>(activeUsers);
-                 }
-                 catch (Exception ex)
-                 {
-                     _logger.LogError(ex, "Error retrieving active users");
-                     throw;
-                 }
-             }*/
     }
 }

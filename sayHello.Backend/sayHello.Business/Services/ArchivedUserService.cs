@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using sayHello.Business.Base;
 using sayHello.DataAccess;
 using sayHello.DTOs.ArchivedUser;
+using sayHello.DTOs.User;
 using sayHello.Entities;
 using sayHello.Validation;
 
@@ -62,5 +63,25 @@ namespace sayHello.Business
 
         public async Task<bool> ArchivedUserExistsAsync(int ArchivedUserId)
             => await ExistsAsync(ArchivedUserId);
+        
+        public async Task<bool> ArchivedUserExistsAsync(int archivedUserId, int archivedByUserId)
+            => await ExistsByAsync(e => e.ArchivedUserId == archivedUserId && e.UserId == archivedByUserId);
+        
+        public async Task<bool> HardDeleteArchivedUserAsync(int archivedUserId, int archivedByUserId)
+            => await HardDeleteAsync("Archived User",e => e.ArchivedUserId == archivedUserId && e.UserId == archivedByUserId);
+
+        public async Task<IEnumerable<UserDetailsDto>> GetAllArchivedUsersByUserIdAsync(int userId)
+        {
+            var archivedUsers = await _dbSet
+                .Where(u => u.UserId == userId)
+                .SelectMany(u => u.ArchivedByUsers.Select(a => a.User))
+                .ToListAsync();
+
+            if (!archivedUsers.Any())
+                return null;
+
+            return _mapper.Map<IEnumerable<UserDetailsDto>>(archivedUsers);
+        }
+            
     }
 }

@@ -83,7 +83,7 @@ public abstract class BaseService<TEntity, TDto> : IBaseService<TEntity, TDto> w
         }
     }
 
-    public virtual async Task<TDto?> UpdateAsync(int id, TDto dto, string entityName ,bool isUpdate=false)
+    public virtual async Task<TDto?> UpdateAsync(int id, TDto dto, string entityName)
     {
         try
         {
@@ -96,8 +96,6 @@ public abstract class BaseService<TEntity, TDto> : IBaseService<TEntity, TDto> w
 
             _mapper.Map(dto, existingEntity);
 
-            if (!isUpdate)
-            {
                 var validationResult = await _validator.ValidateAsync(existingEntity);
                 if (!validationResult.IsValid)
                 {
@@ -105,7 +103,6 @@ public abstract class BaseService<TEntity, TDto> : IBaseService<TEntity, TDto> w
                         entityName, string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage)));
                     throw new ValidationException(validationResult.Errors);
                 }
-            }
 
             _dbSet.Update(existingEntity);
             await _context.SaveChangesAsync();
@@ -165,6 +162,31 @@ public abstract class BaseService<TEntity, TDto> : IBaseService<TEntity, TDto> w
             throw;
         }
     }
+    
+    public virtual async Task<bool> HardDeleteAsync(string propertyName,Expression<Func<TEntity, bool>> predicate)
+    {
+        try
+        {
+            var rowsDeleted = await _dbSet
+                .Where(predicate)
+                .ExecuteDeleteAsync();
+
+            if (rowsDeleted == 0)
+            {
+                _logger.LogWarning("{propertyName} not found for hard delete", propertyName);
+                throw new KeyNotFoundException($"{propertyName}  not found.");
+            }
+
+            _logger.LogInformation("Successfully hard deleted {propertyName} ", propertyName);
+            return rowsDeleted > 0;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error hard deleting {propertyName}", propertyName);
+            throw;
+        }
+    }
+    
 
     public virtual async Task<bool> ExistsAsync(int id)
     {
@@ -175,6 +197,19 @@ public abstract class BaseService<TEntity, TDto> : IBaseService<TEntity, TDto> w
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error checking existence of entity with id: {Id}", id);
+            throw;
+        }
+    }
+    
+    public virtual async Task<bool> ExistsByAsync(Expression<Func<TEntity, bool>> predicate)
+    {
+        try
+        {
+            return await _dbSet.AnyAsync(predicate);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error checking existence of entity ");
             throw;
         }
     }

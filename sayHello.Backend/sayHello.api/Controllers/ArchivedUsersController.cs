@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using sayHello.api.Controllers.Base;
 using sayHello.Business;
 using sayHello.DTOs.ArchivedUser;
+using sayHello.DTOs.User;
+using sayHello.Entities;
 
 namespace sayHello.api.Controllers;
 
@@ -28,7 +30,7 @@ public class ArchivedUsersController : BaseController
         => await HandleResponse(()=>_ArchivedUserService.ArchivedUsersCountAsync(id), "Archived Users count retrieved successfully");
     
     
-    [HttpGet("all", Name = "GetAllArchivedArchivedUsers")]
+    [HttpGet("all", Name = "GetAllArchivedUsers")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -37,13 +39,13 @@ public class ArchivedUsersController : BaseController
 
 
 
-    [HttpGet("findArchivedId/{id:int}", Name = "FindArchivedUserById")]
+    [HttpGet("all/{id:int}", Name = "getAllArchivedUserById")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<ArchivedUserDetailsDto?>> FindArchivedUserByArchivedUserId(int id)
-        => await HandleResponse(()=>_ArchivedUserService.GetArchivedUserByIdAsync(id), "ArchivedUser retrieved successfully");
+    public async Task<ActionResult<IEnumerable<UserDetailsDto>>> FindArchivedUserByArchivedUserId(int id)
+        => await HandleResponse(()=>_ArchivedUserService.GetAllArchivedUsersByUserIdAsync(id), "ArchivedUser retrieved successfully");
     
   
     [HttpPost("", Name = "CreateArchivedUser")]
@@ -80,14 +82,31 @@ public class ArchivedUsersController : BaseController
     public async Task<ActionResult<bool>> HardDeleteArchivedUser([FromRoute] int id)
         => await HandleResponse(()=>_ArchivedUserService.HardDeleteArchivedUserAsync(id), "ArchivedUser deleting  successfully");
  
+   
+    [HttpDelete("deleteArchivedUser/{archivedUserId:int}/{archivedByUserId:int}", Name = "DeleteArchivedUserByArchivedUserIdArchivedByUserId")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<bool>> HardDeleteArchivedUser([FromRoute] int archivedUserId, int archivedByUserId)
+        => await HandleResponse(()=>_ArchivedUserService.HardDeleteArchivedUserAsync(archivedUserId,archivedByUserId), "ArchivedUser deleting  successfully");
+    
     
     [HttpGet("ArchivedUserExists/{id:int}", Name = "ArchivedUserExists")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<bool>> ArchivedUserExistsAsync([FromRoute] int id)
+    public async Task<ActionResult<bool>> ArchivedUserExists([FromRoute] int id)
         => await HandleResponse(()=>_ArchivedUserService.ArchivedUserExistsAsync(id), "ArchivedUser Founded  successfully");
+    
+    [HttpGet("ArchivedUserExists/{archivedUserId:int}/{archivedByUserId:int}", Name = "ExistsByArchivedUserIdAndArchivedByUserId")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<bool>> ArchivedUserExists([FromRoute] int archivedUserId, int archivedByUserId)
+        => await HandleResponse(()=>_ArchivedUserService.ArchivedUserExistsAsync(archivedUserId ,archivedByUserId), "ArchivedUser Founded  successfully");
     
     
 }

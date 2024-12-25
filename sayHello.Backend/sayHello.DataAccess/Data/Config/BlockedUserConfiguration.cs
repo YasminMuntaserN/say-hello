@@ -8,7 +8,7 @@ public class BlockedUserConfiguration : IEntityTypeConfiguration<BlockedUser>
 {
     public void Configure(EntityTypeBuilder<BlockedUser> builder)
     {
-        builder.HasKey(b => b.BlockedUserId);
+        builder.HasKey(b => b.Id);
 
         builder.Property(e => e.DateBlocked)
             .IsRequired()

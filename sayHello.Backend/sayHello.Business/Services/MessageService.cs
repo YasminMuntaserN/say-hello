@@ -75,6 +75,7 @@ namespace sayHello.Business
             }
         }
 
+        
         // this method will return the latest chats 
         public async Task<IEnumerable<ConversationDetailsDto>> GetAllMessagesBySenderIdAsync(int senderId)
         {
@@ -99,6 +100,7 @@ namespace sayHello.Business
             }
         }
 
+       
         // this method will  retrieving conversations between a sender and a receiver.
         public async Task<IEnumerable<MessageDetailsDto>> GetMessagesInChatRoomAsync(int senderId, int receiverId)
         {

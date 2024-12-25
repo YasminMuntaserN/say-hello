@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using sayHello.api.Controllers.Base;
 using sayHello.Business;
 using sayHello.DTOs.BlockedUser;
+using sayHello.DTOs.User;
+using sayHello.Entities;
 
 namespace sayHello.api.Controllers;
 
@@ -28,24 +30,21 @@ public class BlockedUsersController : BaseController
         => await HandleResponse(()=>_BlockedUserService.BlockedUsersCountAsync(id), "Blocked Users count retrieved successfully");
     
     
-    [HttpGet("all", Name = "GetAllBlockedBlockedUsers")]
+    [HttpGet("all", Name = "GetAllBlockedUsers")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<IEnumerable<BlockedUserDetailsDto>>> GetAllBlockedBlockedUsers()
         => await HandleResponse(()=>_BlockedUserService.GetAllBlockedUsersAsync(), "BlockedBlockedUsers retrieved successfully");
 
-
-
-    [HttpGet("findBlockedUserByBlockedUserId/{id:int}", Name = "FindBlockedUserByBlockedUserId")]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [HttpGet("all/{id:int}", Name = "GetAllBlockedUsersByUserId")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<BlockedUserDetailsDto?>> FindBlockedUserByBlockedUserId(int id)
-        => await HandleResponse(()=>_BlockedUserService.GetBlockedUserByIdAsync(id), "BlockedUser retrieved successfully");
+    public async Task<ActionResult<IEnumerable<UserDetailsDto>>> GetAllBlockedUsersByUserId(int id)
+        => await HandleResponse(()=>_BlockedUserService.GetAllBlockedByUsersByUserIdAsync(id), "BlockedBlockedUsers retrieved successfully");
+
     
-  
     [HttpPost("", Name = "CreateBlockedUser")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -81,6 +80,15 @@ public class BlockedUsersController : BaseController
         => await HandleResponse(()=>_BlockedUserService.HardDeleteBlockedUserAsync(id), "BlockedUser deleting  successfully");
  
     
+    [HttpDelete("deleteBlockedUser/{BlockedUserId:int}/{BlockedByUserId:int}", Name = "DeleteBlockedUserByBlockedUserIdAndBlockedByUserId")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<bool>> HardDeleteBlockedUser([FromRoute] int BlockedUserId, int BlockedByUserId)
+        => await HandleResponse(()=>_BlockedUserService.HardDeleteBlockedUserAsync(BlockedUserId,BlockedByUserId), "BlockedUser deleting  successfully");
+    
+    
     [HttpGet("BlockedUserExists/{id:int}", Name = "BlockedUserExists")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -89,5 +97,11 @@ public class BlockedUsersController : BaseController
     public async Task<ActionResult<bool>> BlockedUserExistsAsync([FromRoute] int id)
         => await HandleResponse(()=>_BlockedUserService.BlockedUserExistsAsync(id), "BlockedUser Founded  successfully");
     
-    
+    [HttpGet("BlockedUserExists/{BlockedUserId:int}/{BlockedByUserId:int}", Name = "ExistsByBlockedUserIdAndBlockedByUserId")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<bool>> BlockedUserExists([FromRoute] int BlockedUserId, int BlockedByUserId)
+        => await HandleResponse(()=>_BlockedUserService.BlockedUserExistsAsync(BlockedUserId ,BlockedByUserId), "BlockedUser Founded  successfully");
 }
