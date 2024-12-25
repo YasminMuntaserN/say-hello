@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 import { useAllMessagesInChatRoom } from "./useAllMessagesInChatRoom";
+import { useUser } from "../../../context/UserContext";
 
 function addUniqueMessages(existingMessages, newMessages) {
   const existingIds = new Set(existingMessages.map((msg) => msg.messageId));
@@ -21,6 +22,7 @@ export function useSignalR(senderId, chatRoom, receiverId) {
   const [error, setError] = useState(null);
   const [connecting, setConnecting] = useState(false);
   const connectionRef = useRef(null);
+  const { setRefetchChats } = useUser();
 
   // Clear messages when chatRoom or receiverId changes
   useEffect(() => {
@@ -61,6 +63,7 @@ export function useSignalR(senderId, chatRoom, receiverId) {
           setMessages((prevMessages) =>
             addUniqueMessages(prevMessages, [message])
           );
+          setRefetchChats((e) => !e);
         });
 
         conn.on("UserJoinedRoom", (joinedSenderId) => {
@@ -81,7 +84,6 @@ export function useSignalR(senderId, chatRoom, receiverId) {
     };
 
     connect();
-
     return () => {
       if (connectionRef.current) {
         connectionRef.current.off("ReceiveMessage");
@@ -89,7 +91,7 @@ export function useSignalR(senderId, chatRoom, receiverId) {
         setConnecting(false);
       }
     };
-  }, [RefetchMessages, chatRoom, receiverId, senderId]);
+  }, [RefetchMessages, setRefetchChats, chatRoom, receiverId, senderId]);
 
   const sendMessage = async (message) => {
     if (connectionRef.current && message.trim()) {
@@ -110,6 +112,7 @@ export function useSignalR(senderId, chatRoom, receiverId) {
           senderId,
           receiverId,
         });
+        setRefetchChats((prev) => !prev);
       } catch (err) {
         setError(err);
         console.error("Send message failed:", err);
