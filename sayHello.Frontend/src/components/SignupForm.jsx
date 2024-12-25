@@ -5,9 +5,9 @@ import { useForm } from "react-hook-form";
 import Button from "../ui/Button"
 import FormRow from "../ui/FormRow"
 import FormContainer from "../ui/FormContainer";
-import {useAddUser} from "../hooks/Users/useAddUser";
+import {useAddUser} from  "../components/User/hooks/useAddUser";
 import SpinnerMini from "../ui/SpinnerMini";
-import { useConfirmationEmail } from "../hooks/Users/useConfirmationEmail";
+import { useConfirmationEmail } from  "../components/User/hooks/useConfirmationEmail";
 import { useUser } from "../context/UserContext";
 
 
@@ -19,12 +19,11 @@ function SignupForm() {
     reset,
   } = useForm();
   const navigate =useNavigate();
-  const { mutate, User, isLoading } = useAddUser();
+  const { mutate, isLoading } = useAddUser();
   const { mutate :conformingEmail } = useConfirmationEmail();
   const { login }=useUser();
 
   function onSubmit(data) {
-
     if (data) {
       const formData = new FormData();
       formData.append("Username", data.Name);
@@ -65,7 +64,7 @@ function SignupForm() {
         <input type="file" id="ProfilePicture"  accept="image/*" {...register("ProfilePicture")} />
         </div>
         
-        <Button type="submit">
+        <Button variant="submit" type="submit">
           {isLoading ?  <SpinnerMini/> :<> signup... <FaUserLock /></>}
         </Button>
       </form>

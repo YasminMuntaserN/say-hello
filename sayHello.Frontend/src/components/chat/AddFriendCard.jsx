@@ -4,11 +4,16 @@ import Box from "../../ui/Box";
 import Image from "../../ui/Image";
 
 function AddFriendCard({ user }) {
-  const {setUserInChat}=useUser();
+  const {setUserInChat ,setShowChatPartnerOperations}=useUser();
   const { username, profilePictureUrl } = user;
 
+  const OnClick =()=>{
+    setUserInChat(user);
+    setShowChatPartnerOperations(false);
+  };
+
   return (
-    <Box colsNum={3} HandleOnClick={()=>setUserInChat(user)}>
+    <Box colsNum={3} HandleOnClick={()=>OnClick()}>
         <Image src={profilePictureUrl} alt={`${username}'s profile`} />
 
         <div className="ml-[-50px]  text-center">

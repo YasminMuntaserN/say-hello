@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import Signup from "./pages/Signup";
 import VerifyEmail from "./pages/VerifyEmail";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,6 +20,7 @@ function App() {
   
   return (
     <QueryClientProvider client={queryClient}>
+          <ReactQueryDevtools initialIsOpen={true} />
         <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
