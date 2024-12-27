@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import Logo from "../ui/Logo";
 import Button from "../ui/Button";
-import { useConfirmationEmail } from "../hooks/Users/useConfirmationEmail";
-import { useUser } from "../context/UserContext";
+import { useConfirmationEmail } from "../components/User/hooks/useConfirmationEmail";
+import { useChat } from "../context/UserContext";
 
 function VerifyEmail() {
-  const { user, logout } = useUser();
+  const { user, logout } = useChat();
   const { mutate: conformingEmail } = useConfirmationEmail();
   
 

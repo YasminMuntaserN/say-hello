@@ -13,7 +13,7 @@ function AddIcon({ handleOnClick, size = "sm" }) {
 
   return (
     <div
-      className={`${IconSize[size]} rounded-full bg-gradient-btn flex items-center justify-center`}
+      className={`${IconSize[size]} rounded-full bg-gradient-btn flex items-center justify-center cursor-pointer`}
       onClick={handleOnClick}
     >
       <RiAddFill className={`text-white ${TextSize[size]}`} />

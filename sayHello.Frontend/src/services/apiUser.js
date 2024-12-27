@@ -1,6 +1,14 @@
-import { addEntity, EditEntity, getAll, getBy, getCount } from "./BaseApi";
+import {
+  addEntity,
+  DeleteBy,
+  EditEntity,
+  getAll,
+  getAllBy,
+  getBy,
+  getCount,
+  IsExist,
+} from "./BaseApi";
 
-//const API_URL = import.meta.env.API_URL;
 export async function handleCheckUserByEmailAndPassword(Email, Password) {
   console.log(`${Email} - ${Password}`);
   try {
@@ -38,17 +46,49 @@ export const getAllBySenderId = async (senderId) =>
 
 export const getAllUsers = async () => await getAll("Users");
 
-//https://localhost:7201/BlockedUsers/count?id=16
 export const getAllBlockedUsersCount = async (id) =>
   await getCount("BlockedUsers", id);
 
 export const getAllBArchivedUsersCount = async (id) =>
   await getCount("ArchivedUsers", id);
 
-//https://localhost:7201/Users/updateUser/4
+//https://localhost:7201/BlockedUsers/all/14
+export const getAllBlockedUsers = async (id) =>
+  await getAllBy("BlockedUsers", id);
+
+export const getAllBArchivedUsers = async (id) =>
+  await getAllBy("ArchivedUsers", id);
+
 export const editUser = async (user, id) =>
   await EditEntity("Users/updateUser", user, id);
 
+export const isBlockedUser = async (BlockedUserId, BlockedByUserId) =>
+  await IsExist(
+    "BlockedUsers/BlockedUserExists",
+    `${BlockedUserId}/${BlockedByUserId}`
+  );
+
+export const isArchivedUser = async (ArchivedUserId, ArchivedByUserId) =>
+  await IsExist(
+    "ArchivedUsers/ArchivedUserExists",
+    `${ArchivedUserId}/${ArchivedByUserId}`
+  );
+
+//https://localhost:7201/ArchivedUsers/deleteArchivedUser/17/14
+export const DeleteBlockedUser = async ({ BlockedUserId, BlockedByUserId }) =>
+  await DeleteBy(
+    "BlockedUsers/deleteBlockedUser",
+    `${BlockedUserId}/${BlockedByUserId}`
+  );
+
+export const DeleteArchivedUser = async ({
+  ArchivedUserId,
+  ArchivedByUserId,
+}) =>
+  await DeleteBy(
+    "ArchivedUsers/deleteArchivedUser",
+    `${ArchivedUserId}/${ArchivedByUserId}`
+  );
 export async function handleConfirmationEmail(email) {
   try {
     const res = await fetch(
