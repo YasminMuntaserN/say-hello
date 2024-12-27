@@ -35,12 +35,12 @@ namespace sayHello.Business
         public async Task<int> ArchivedUsersCountAsync(int userId)
         {
             var user = await _dbSet
-                .Include(u => u.ArchivedUsers)
+                .Include(u => u.ArchivedByUsers)
                 .FirstOrDefaultAsync(u => u.UserId == userId);
 
             if (user == null) throw new KeyNotFoundException($"User with ID {userId} not found.");
 
-            return user.ArchivedUsers.Count;
+            return user.ArchivedByUsers.Count;
         }
         
         public async Task<ArchivedUserDetailsDto> AddArchivedUserAsync(CreateArchivedUserDto createArchivedUserDto)

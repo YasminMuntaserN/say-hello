@@ -169,6 +169,13 @@ public class UsersController : BaseController
         return Ok(result);
     }
 
+    [HttpPut("changePassword/{id:int}", Name = "changePassword")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<bool>> ChangePassword([FromRoute] int id,  string newPassword)
+        => await HandleResponse(()=>_userService.ChangePassword(id,newPassword), "User Password changed successfully");
 
     [HttpDelete("{id:int}", Name = "SoftDeleteUser")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

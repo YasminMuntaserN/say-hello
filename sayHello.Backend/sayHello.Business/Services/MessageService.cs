@@ -82,14 +82,14 @@ namespace sayHello.Business
             try
             {
                 //this the user received them so here the user will be the sender 
-                var conversations = _context.ConversationDetails
+                var conversations = await _context.ConversationDetails
                     .FromSqlInterpolated($"SELECT * FROM GetConversationDetails({senderId})")
-                    .ToList();
+                    .ToListAsync();
                 
                 //this the user sent them so here the user will be the receiver
-                var ReceivedConversation=_context.ConversationDetails
+                var ReceivedConversation= await _context.ConversationDetails
                     .FromSqlInterpolated($"SELECT * FROM GetReceivedConversationDetails({senderId})")
-                    .ToList();
+                    .ToListAsync();
                 
                 return conversations.Concat(ReceivedConversation).OrderByDescending(x=>x.LastMessageTime).DistinctBy(x=>x.ChatPartnerId);
             }

@@ -1,5 +1,6 @@
 using AutoMapper;
 using FluentValidation;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using sayHello.Business.Base;
@@ -15,7 +16,7 @@ namespace sayHello.Business
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
         private readonly DbSet<User> _dbSet;
-        private readonly  ILogger<UserService> _logger;
+        private readonly ILogger<UserService> _logger;
 
 
         public UserService(
@@ -28,7 +29,7 @@ namespace sayHello.Business
             _context = context;
             _dbSet = context.Set<User>();
             _mapper = mapper;
-            _logger= logger;
+            _logger = logger;
         }
 
         public async Task<UserDetailsDto> AddUserAsync(CreateUserDto createUserDto)
@@ -38,26 +39,22 @@ namespace sayHello.Business
         {
             try
             {
-                var affectedRows = await _context.Database.ExecuteSqlRawAsync(
-                    "UPDATE Users SET Username = {0}, ProfilePictureUrl = {1}, Password = {2}, Bio = {3} WHERE UserId = {4}",
-                    updatedUserDto.Username, updatedUserDto.ProfilePictureUrl, updatedUserDto.Password, updatedUserDto.Bio, id);
-
-                if (affectedRows > 0)
+                var user = await _dbSet.FindAsync(id);
+                if (user == null)
                 {
-                    var updatedUser = await _dbSet.FindAsync(id);
-                    if (updatedUser == null)
-                    {
-                        _logger.LogWarning("User not found: {Id}", id);
-                        throw new KeyNotFoundException($"User with ID {id} not found.");
-                    }
+                    _logger.LogWarning("User not found: {Id}", id);
+                    throw new KeyNotFoundException($"User with ID {id} not found.");
+                }
 
-                    return _mapper.Map<UserDetailsDto>(updatedUser);
-                }
-                else
-                {
-                    _logger.LogError("Error updating User: {Id}", id);
-                    throw new InvalidOperationException("Update operation failed.");
-                }
+                // Map the DTO to the entity
+                user.Username = updatedUserDto.Username;
+                user.ProfilePictureUrl = updatedUserDto.ProfilePictureUrl;
+                user.Password = updatedUserDto.Password;
+                user.Bio = updatedUserDto.Bio;
+
+                await _context.SaveChangesAsync();
+
+                return _mapper.Map<UserDetailsDto>(user);
             }
             catch (Exception ex)
             {
@@ -66,11 +63,13 @@ namespace sayHello.Business
             }
         }
 
+
         public async Task<UserDetailsDto?> GetUserByIdAsync(int id)
             => await FindBy(e => EF.Property<int>(e, "UserId") == id);
 
         public async Task<UserDetailsDto?> GetUserByEmailAndPasswordAsync(string Email, string Password)
-            => await FindBy(e => EF.Property<string>(e, "Email") == Email && EF.Property<string>(e, "Password") == Password);
+            => await FindBy(e =>
+                EF.Property<string>(e, "Email") == Email && EF.Property<string>(e, "Password") == Password);
 
         public async Task<UserDetailsDto?> GetUserByUserNameAsync(string Username)
             => await FindBy(e => EF.Property<string>(e, "Username") == Username);
@@ -88,6 +87,24 @@ namespace sayHello.Business
         public async Task<bool> UserExistsAsync(int userId)
             => await ExistsAsync(userId);
 
+        public async Task<bool> ChangePassword(int userId, string newPassword)
+        {try
+            {
+                var affectedRows = await _context.Database.ExecuteSqlRawAsync(
+                    "UPDATE Users SET Password = @newPassword WHERE UserId = @userId",
+                    new[] 
+                    {
+                        new SqlParameter("@newPassword", newPassword),
+                        new SqlParameter("@userId", userId)
+                    });
 
+                return affectedRows > 0;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating User: {UserId}", userId);
+                throw; 
+            }
+        }
     }
 }
