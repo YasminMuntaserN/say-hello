@@ -3,14 +3,14 @@ import { FaArchive } from "react-icons/fa";
 import { TbLockOpen ,TbArchiveOff} from "react-icons/tb";
 import Button from "../../ui/Button";
 import SpinnerMini from "../../ui/SpinnerMini";
-import { useUser } from "../../context/UserContext";
+import { useChat } from "../../context/UserContext";
 import { useArchivedUser ,useDeleteArchivedUser,useIsArchivedUser } from "./hooks/useArchivedUser";
   import { useBlockedUser ,useIsBlockedUser, useDeleteBlockedUser} from "./hooks/useBlockedUser";
 
 
 
 function ChatPartnerOperation() {
-  const {setUpdatedPartnerOperations, setShowChatPartnerOperations, userInChat, user } = useUser();
+  const {setUpdatedPartnerOperations, setShowChatPartnerOperations, userInChat, user } = useChat();
   const { ArchivedUser, isLoading: isArchiving, error: archiveError } = useArchivedUser();
   const { BlockedUser, isLoading: isBlocking, error: blockError } = useBlockedUser();
   const { unArchivedUser, isLoading: isUnArchiving, error: UnArchiveError } = useDeleteArchivedUser();
@@ -37,7 +37,7 @@ function ChatPartnerOperation() {
         onSuccess: (data) => {
           console.log("Operation completed successfully:", data);
           setShowChatPartnerOperations((prev) => !prev);
-          setUpdatedPartnerOperations((prev) => !prev);
+          setUpdatedPartnerOperations(true);s
         },
       }
     );
@@ -57,7 +57,7 @@ function ChatPartnerOperation() {
         onSuccess: (data) => {
           console.log("Operation completed successfully:", data);
           setShowChatPartnerOperations((prev) => !prev);
-          setUpdatedPartnerOperations((prev) => !prev);
+          setUpdatedPartnerOperations(true);
         },
       }
     );

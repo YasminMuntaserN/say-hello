@@ -5,16 +5,16 @@ import { FaArchive } from "react-icons/fa";
 import { useAllArchivedUsers, useArchivedUserCount } from "../User/hooks/useArchivedUser";
 import { useEffect } from "react";
 import { useAllBlockedUsers, useBlockedUserCount } from "../User/hooks/useBlockedUser";
-import { useUser } from "../../context/UserContext";
+import { useChat } from "../../context/UserContext";
 
-function QuickActions({setUsersToShown}) {
-  const{user ,updatedPartnerOperations} =useUser();
+function QuickActions({setUsersToShow }) {
+  const{user ,updatedPartnerOperations ,setShowUsers} =useChat();
   const {  ArchivedUser, ArchivedUsersCount } = useArchivedUserCount();
   const {  BlockedUser, BlockedUsersCount } = useBlockedUserCount();
 const { mutate:getAllArchivedUsers, AllArchivedUsers } = useAllArchivedUsers();
 const { mutate:getAllBlockedUsers, AllBlockedUsers } = useAllBlockedUsers();
 
-  useEffect(() => {
+useEffect(() => {
     ArchivedUser(user.userId);
     BlockedUser(user.userId);
   },[ArchivedUser , BlockedUser ,user.userId,updatedPartnerOperations]);
@@ -22,16 +22,20 @@ const { mutate:getAllBlockedUsers, AllBlockedUsers } = useAllBlockedUsers();
   const handleUsersToShow =(UsersType)=>{
       if(UsersType==="ArchivedUsers"){
         getAllArchivedUsers(user.userId);
-        setUsersToShown(AllArchivedUsers);
+        setUsersToShow(AllArchivedUsers);
+        setShowUsers(pre=>!pre);
       }
       else if(UsersType==="BlockedUsers"){
         getAllBlockedUsers(user.userId);
-        setUsersToShown(AllBlockedUsers);
+        setUsersToShow(AllBlockedUsers);
+        setShowUsers(pre=>!pre);
+      }else if(UsersType==="all"){
+        setShowUsers(pre=>!pre);
       }
   }
   return (
     <div className={StyledContainer}>
-      <BiSolidMessageSquareDots className={StyledIcon} />
+      <BiSolidMessageSquareDots className={StyledIcon}  onClick={()=>handleUsersToShow("all")}/>
       <div className="relative">
         <FaArchive
           onClick={()=>handleUsersToShow("ArchivedUsers")}
@@ -57,7 +61,7 @@ const { mutate:getAllBlockedUsers, AllBlockedUsers } = useAllBlockedUsers();
 
 const StyledContainer =
   "flex gap-10 justify-center p-5 rounded-lg shadow-2xl transition-all duration-300";
-const StyledIcon = "text-3xl text-lightText hover:text-purple cursor:pointer";
+const StyledIcon = "text-3xl text-lightText hover:text-purple cursor-pointer";
 const StyledCount =
   "absolute top-[-10px] right-[-10px] rounded-full bg-rose-700 flex items-center justify-center text-white w-5 h-5 text-sm";
 

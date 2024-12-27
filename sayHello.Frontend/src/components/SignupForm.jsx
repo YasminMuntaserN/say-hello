@@ -8,7 +8,7 @@ import FormContainer from "../ui/FormContainer";
 import {useAddUser} from  "../components/User/hooks/useAddUser";
 import SpinnerMini from "../ui/SpinnerMini";
 import { useConfirmationEmail } from  "../components/User/hooks/useConfirmationEmail";
-import { useUser } from "../context/UserContext";
+import { useChat } from "../context/UserContext";
 
 
 function SignupForm() {
@@ -21,7 +21,7 @@ function SignupForm() {
   const navigate =useNavigate();
   const { mutate, isLoading } = useAddUser();
   const { mutate :conformingEmail } = useConfirmationEmail();
-  const { login }=useUser();
+  const { login }=useChat();
 
   function onSubmit(data) {
     if (data) {

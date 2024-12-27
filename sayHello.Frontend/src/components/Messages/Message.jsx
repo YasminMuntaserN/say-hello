@@ -3,13 +3,13 @@ import { useSignalR } from "./hooks/useSignalR";
 import MessageHeader from "./MessageHeader";
 import OptionsMessages from "./OptionsMessages";
 import SendMessage from "./SendMessage";
-import { useUser } from "../../context/UserContext";
+import { useChat } from "../../context/UserContext";
 import ChatPartnerOperation from "../User/ChatPartnerOperation";
 
 
 function Message({ user, chatRoom, receiverId }) {
   const { messages, error, sendMessage } = useSignalR(user.userId, chatRoom, receiverId);
-  const {showChatPartnerOperations}=useUser();
+  const {showChatPartnerOperations}=useChat();
   console.log(showChatPartnerOperations);
   if (error) {
     console.error("Error in Message component:", error);
@@ -20,7 +20,7 @@ function Message({ user, chatRoom, receiverId }) {
     <div>
       <MessageHeader receiver={user} />
       {
-        !showChatPartnerOperations ?
+        showChatPartnerOperations ?
           <>
       <div className="flex-grow overflow-y-auto h-[520px] relative">
         {messages.length > 0

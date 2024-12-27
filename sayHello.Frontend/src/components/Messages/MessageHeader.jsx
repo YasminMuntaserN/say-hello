@@ -1,10 +1,10 @@
-import { useUser } from "../../context/UserContext";
+import { useChat } from "../../context/UserContext";
 import Image from "../../ui/Image";
 import { HiDotsHorizontal } from "react-icons/hi";
 
 function MessageHeader({receiver}) {
   const {receiverImage, receiverName, status  } = receiver;
-  const { setShowChatPartnerOperations} =useUser();
+  const { setShowChatPartnerOperations} =useChat();
 
   const statusColor= status=="Online"?"text-[#188D3F]":"text-lightTextColor";
 
@@ -17,7 +17,7 @@ function MessageHeader({receiver}) {
           <p className={StyledName}>{receiverName}</p>
           <p className={statusColor}>  {status} </p>
         </div>
-        <button onClick={()=>setShowChatPartnerOperations(e=>!e)}><HiDotsHorizontal className="absolute right-5 top-5 text-4xl text-lightText" /></button>
+        <button onClick={()=>setShowChatPartnerOperations(pre=>!pre)}><HiDotsHorizontal className="absolute right-10 top-5 text-2xl  text-lightText" /></button>
       </div>
   )
 }

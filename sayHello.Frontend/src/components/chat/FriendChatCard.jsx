@@ -2,16 +2,16 @@ import Image from "../../ui/Image"
 import { BiCheck ,BiCheckDouble} from "react-icons/bi";
 import { formatTime } from "../../utils/helpers";
 import Box from "../../ui/Box";
-import { useUser } from "../../context/UserContext";
+import { useChat } from "../../context/UserContext";
 
 function FriendChatCard({chatInfo}) {
-    const {setUserInChat ,setShowChatPartnerOperations}=useUser();
+    const {setUserInChat ,setShowChatPartnerOperations}=useChat();
     const {chatPartnerName ,chatPartnerImage, lastMessage, lastMessageStatus, lastMessageTime, unReadMessagesCount,isReceiver } = chatInfo;
     const IfRead = lastMessageStatus !== "Read";
   
     const OnClick =()=>{
       setUserInChat(chatInfo);
-      setShowChatPartnerOperations(false);
+      setShowChatPartnerOperations(pre=>!pre);
     };
 
     return (

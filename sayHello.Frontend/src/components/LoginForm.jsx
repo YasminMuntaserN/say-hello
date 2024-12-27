@@ -1,13 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { IoMdLogIn } from "react-icons/io";
-import { GoPasskeyFill } from "react-icons/go";
 import Button from "../ui/Button";
 import FormRow from "../ui/FormRow";
 import { useExistUser } from "../components/User/hooks/useExistUser";
 import SpinnerMini from "../ui/SpinnerMini";
 import FormContainer from "../ui/FormContainer";
-import { useUser } from "../context/UserContext";
+import { useChat } from "../context/UserContext";
+import ForgatPassword from "./User/ForgatPassword";
 
 function LoginForm() {
   const {
@@ -19,7 +19,7 @@ function LoginForm() {
 
   const {mutate,isLoading } =useExistUser();
   const navigate = useNavigate(); 
-  const {login}=useUser();
+  const {login}=useChat();
 
   function onSubmit(data) {
     console.log(data);
@@ -51,9 +51,7 @@ function LoginForm() {
         <Button variant="submit" type="submit">
           {isLoading ?  <SpinnerMini/> :<>Login... <IoMdLogIn className="text-white text-3xl"  /></>}
           </Button>
-          <Button>
-            <GoPasskeyFill className="text-secondary text-xl" /> Forget Password
-          </Button>
+          <ForgatPassword />
         </div>
       </form>
       <div className={StyledLine}></div>

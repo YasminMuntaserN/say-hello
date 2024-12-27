@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 import { useAllMessagesInChatRoom } from "./useAllMessagesInChatRoom";
-import { useUser } from "../../../context/UserContext";
+import { useChat } from "../../../context/UserContext";
 
 function addUniqueMessages(existingMessages, newMessages) {
   const existingIds = new Set(existingMessages.map((msg) => msg.messageId));
@@ -22,7 +22,7 @@ export function useSignalR(senderId, chatRoom, receiverId) {
   const [error, setError] = useState(null);
   const [connecting, setConnecting] = useState(false);
   const connectionRef = useRef(null);
-  const { setRefetchChats } = useUser();
+  const { setRefetchChats } = useChat();
 
   // Clear messages when chatRoom or receiverId changes
   useEffect(() => {
@@ -63,7 +63,9 @@ export function useSignalR(senderId, chatRoom, receiverId) {
           setMessages((prevMessages) =>
             addUniqueMessages(prevMessages, [message])
           );
-          setRefetchChats((e) => !e);
+          //شايف هنا هاد هوك انا عملاه انو اول ما ينبعت مسج جديد يروح يجيب الدتا هاي من تاني استنى اوريك اي داتا
+          //setRefetchChats(true);
+          setRefetchChats((pre) => !pre);
         });
 
         conn.on("UserJoinedRoom", (joinedSenderId) => {

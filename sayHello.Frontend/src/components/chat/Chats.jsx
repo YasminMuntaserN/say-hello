@@ -1,10 +1,10 @@
-import { useUser } from "../../context/UserContext"
-import Connections from "./Connections"
+import { useChat } from "../../context/UserContext"
 import Message from "../Messages/Message"
+import Connections from "./Connections";
 import Navbar from "./Navbar"
 
 function Chats() {
-  const {userInChat , user: AccountUser }= useUser();
+  const { user :AccountUser, userInChat } = useChat();
   const chatRoom = `${Math.min(userInChat?.userId, AccountUser.userId)}_${Math.max(userInChat?.userId, AccountUser.userId)}_Room`;
 
   return (

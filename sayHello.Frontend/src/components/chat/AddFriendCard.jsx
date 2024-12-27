@@ -1,15 +1,15 @@
-import { useUser } from "../../context/UserContext";
+import { useChat } from "../../context/UserContext";
 import AddIcon from "../../ui/AddIcon";
 import Box from "../../ui/Box";
 import Image from "../../ui/Image";
 
 function AddFriendCard({ user }) {
-  const {setUserInChat ,setShowChatPartnerOperations}=useUser();
+  const {setUserInChat ,setShowChatPartnerOperations}=useChat();
   const { username, profilePictureUrl } = user;
 
   const OnClick =()=>{
     setUserInChat(user);
-    setShowChatPartnerOperations(false);
+    setShowChatPartnerOperations(pre=>!pre);
   };
 
   return (
