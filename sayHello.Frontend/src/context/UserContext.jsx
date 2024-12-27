@@ -1,31 +1,65 @@
 import { createContext, useContext } from "react";
 import { useState } from "react";
 
-const UserContext = createContext();
-
-function UserInfoProvider({ children }) {
+const ChatContext = createContext();
+export function ChatProvider({ children }) {
+  const [userInChat ,setInChat] = useState(null);
+  const [showUsers ,setShowUsers] = useState(false);
   const [user, setUser] = useState(null);
+  //شايف  ل state 
+  const [refetchChats, setRefetchChats] = useState(false);
+  const [showChatPartnerOperations, setShowChatPartnerOperations] = useState(false);
+  const [updatedPartnerOperations, setUpdatedPartnerOperations] = useState(false);
+
 
   const login = (userInfo) => {
     setUser(userInfo);
+    console.log(userInfo);
   };
 
   const logout = () => {
     setUser(null);
   };
+  //here we want to but the chat partner
+  function setUserInChat(value) {
+    // here the chat will be from previous chats
+    if (value.chatPartnerId && value.chatPartnerName && value.chatPartnerImage) {
+      const mappedChatInfoFromPreviousChats = {
+          userId: value.chatPartnerId,
+          receiverName :value.chatPartnerName,
+          receiverImage:value.chatPartnerImage,
+          lastMessageStatus:value.lastMessageStatus
+        };
+      setInChat(mappedChatInfoFromPreviousChats);
+    } 
+    //here the chat will be from the add friends 
+    else if (value.userId && value.username && value.profilePictureUrl && value.status) {
+      const mappedChatInfo = {
+        userId: value.userId,
+        receiverImage: value.profilePictureUrl,
+        receiverName: value.username,
+        lastMessageStatus: value.status
+      };
+      setInChat(mappedChatInfo);
+    } else {
+      console.log("Unknown object structure. Cannot set user in chat.");
+    }
+  }
+
+
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <ChatContext.Provider value={{ user, login, logout,showUsers ,setShowUsers ,
+    userInChat ,setUserInChat ,refetchChats, setRefetchChats,
+    showChatPartnerOperations, setShowChatPartnerOperations ,updatedPartnerOperations, setUpdatedPartnerOperations}}>
       {children}
-    </UserContext.Provider>
+    </ChatContext.Provider>
   );
 }
 
-function useUser() {
-  const context = useContext(UserContext);
-  if (context === undefined) {
-    throw new Error("useUser must be used within a UserInfoProvider");
+export function useChat() {
+  const context = useContext(ChatContext);
+  if (!context) {
+    throw new Error('useChat must be used within a ChatProvider');
   }
   return context;
 }
-
-export { UserInfoProvider, useUser };

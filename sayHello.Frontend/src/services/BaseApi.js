@@ -145,3 +145,39 @@ export async function getCount(entityName, value) {
     throw error;
   }
 }
+
+export async function IsExist(entityName, value) {
+  console.log(`${API_URL}/${entityName}/${value}`);
+  try {
+    const res = await fetch(`${API_URL}/${entityName}/${value}`);
+
+    if (!res.ok) {
+      throw new Error(`Failed to check if the ${entityName} Exists`);
+    }
+
+    const data = await res.text();
+    return data === "true";
+  } catch (error) {
+    console.error(`Error checking  if the ${entityName} Exists:`, error);
+    throw error;
+  }
+}
+
+export async function DeleteBy(entityName, value) {
+  console.log(`${API_URL}/${entityName}/${value}`);
+  try {
+    const res = await fetch(`${API_URL}/${entityName}/${value}`, {
+      method: "DELETE",
+    });
+
+    if (!res.ok) {
+      throw new Error(`Failed to Delete ${entityName}`);
+    }
+
+    const data = await res.text();
+    return data === "true";
+  } catch (error) {
+    console.error(`Error Delete ${entityName} :`, error);
+    throw error;
+  }
+}
