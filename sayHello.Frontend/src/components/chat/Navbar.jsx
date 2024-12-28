@@ -3,9 +3,10 @@ import { LuLogOut } from "react-icons/lu";
 import { useChat } from "../../context/UserContext";
 import Image from "../../ui/Image";
 import EditUserInfo from "../User/EditUserInfo";
+import ForgatPassword from "../User/ForgatPassword";
 
 function Navbar() {
-  const {user}=useChat();
+  const {user ,logout}=useChat();
   
   return (
     <div className={StyledContainer}>
@@ -14,7 +15,8 @@ function Navbar() {
       <Image src={user?.profilePictureUrl}/>
       <p className={StyledName}>{user?.username}</p>
       <EditUserInfo />
-      <LuLogOut className={StyledIcon}/>
+      <ForgatPassword withLogin={false}/>
+      <LuLogOut className={StyledIcon} onClick={()=>logout()}/>
       </div>
     </div>
   )

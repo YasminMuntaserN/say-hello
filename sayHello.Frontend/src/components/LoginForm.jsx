@@ -22,15 +22,13 @@ function LoginForm() {
   const {login}=useChat();
 
   function onSubmit(data) {
-    console.log(data);
     const {Email ,Password} =data;
     mutate({Email, Password},
       {
         onSuccess: (data) => {
-          console.log(data);
           if(data){
           reset();
-          navigate('/dashboard');
+          navigate(`/dashboard/${data.username}`);
           login(data);
           }
         },
@@ -45,8 +43,18 @@ function LoginForm() {
     <FormContainer header ="Welcome Back...">
       <span className={StyledP}>Please enter your email and password.</span>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormRow type="email" errors={errors} register={register} FieldName="Email" />
-        <FormRow type="password" errors={errors} register={register} FieldName="Password" />
+        <FormRow 
+            type="email"
+            errors={errors}
+            register={register}
+            FieldName="Email"
+        />
+        <FormRow 
+              type="password"
+              errors={errors}
+              register={register}
+              FieldName="Password"
+        />
         <div className={StyledButtons}>
         <Button variant="submit" type="submit">
           {isLoading ?  <SpinnerMini/> :<>Login... <IoMdLogIn className="text-white text-3xl"  /></>}
@@ -55,7 +63,7 @@ function LoginForm() {
         </div>
       </form>
       <div className={StyledLine}></div>
-        <p className={StyledNewAccount}>Don't Have an Account yet ?  <Link className={StyledLink} to="/signup">Crate Account</Link></p>
+        <p className={StyledNewAccount}>Don't Have an Account yet ?  <Link className={StyledLink} to="/signup">Create Account</Link></p>
     </FormContainer>
   );
 }

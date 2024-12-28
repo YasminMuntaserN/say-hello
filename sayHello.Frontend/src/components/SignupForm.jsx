@@ -7,7 +7,6 @@ import FormRow from "../ui/FormRow"
 import FormContainer from "../ui/FormContainer";
 import {useAddUser} from  "../components/User/hooks/useAddUser";
 import SpinnerMini from "../ui/SpinnerMini";
-import { useConfirmationEmail } from  "../components/User/hooks/useConfirmationEmail";
 import { useChat } from "../context/UserContext";
 
 
@@ -20,7 +19,6 @@ function SignupForm() {
   } = useForm();
   const navigate =useNavigate();
   const { mutate, isLoading } = useAddUser();
-  const { mutate :conformingEmail } = useConfirmationEmail();
   const { login }=useChat();
 
   function onSubmit(data) {
@@ -38,14 +36,11 @@ function SignupForm() {
         console.error("No photo selected");
         formData.append("photo","" );
       }
-      console.log(formData);
       mutate(formData, {
         onSuccess: (data) => {
-          console.log(`{SignupForm ${data}`);
           reset(); 
           navigate('/verify-email');
-          conformingEmail(data.email);
-          login(data);
+          login(data.user);
         }
       });
     }

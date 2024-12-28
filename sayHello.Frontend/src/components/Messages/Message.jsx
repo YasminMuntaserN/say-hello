@@ -32,7 +32,7 @@ function Message({ user, chatRoom, receiverId }) {
               </div>
             ))
           :
-          <OptionsMessages />
+          <OptionsMessages addMessage={sendMessage}/>
         }
       </div>
 
