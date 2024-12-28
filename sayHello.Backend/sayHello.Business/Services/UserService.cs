@@ -46,7 +46,6 @@ namespace sayHello.Business
                     throw new KeyNotFoundException($"User with ID {id} not found.");
                 }
 
-                // Map the DTO to the entity
                 user.Username = updatedUserDto.Username;
                 user.ProfilePictureUrl = updatedUserDto.ProfilePictureUrl;
                 user.Password = updatedUserDto.Password;
@@ -74,6 +73,8 @@ namespace sayHello.Business
         public async Task<UserDetailsDto?> GetUserByUserNameAsync(string Username)
             => await FindBy(e => EF.Property<string>(e, "Username") == Username);
 
+        public async Task<UserDetailsDto?> GetUserByEmailAsync(string Email)
+            => await FindBy(e => EF.Property<string>(e, "Email") == Email);
 
         public async Task<IEnumerable<UserDetailsDto>> GetAllUsersAsync()
             => await GetAllAsync();

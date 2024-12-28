@@ -46,6 +46,15 @@ public class UsersController : BaseController
     public async Task<ActionResult<UserDetailsDto?>> FindUserByUserName(string UserName)
         => await HandleResponse(() => _userService.GetUserByUserNameAsync(UserName), "User retrieved successfully");
 
+    
+   /* [HttpGet("findByEmail/{Email}", Name = "FindUserByEmail")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<UserDetailsDto?>> FindUserByEmail(string Email)
+        => await HandleResponse(() => _userService.GetUserByEmailAsync(Email), "User retrieved successfully");*/
+    
     [HttpGet("findByEmailAndPassword/{Email}/{Password}", Name = "FindUserByEmailAndPassword")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -54,6 +63,7 @@ public class UsersController : BaseController
     public async Task<ActionResult<UserDetailsDto?>> FindUserByEmailAndPassword(string Email, string Password)
         => await HandleResponse(() => _userService.GetUserByEmailAndPasswordAsync(Email, Password), "User retrieved successfully");
 
+   
     [HttpPost("", Name = "CreateUser")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -84,8 +94,26 @@ public class UsersController : BaseController
             }
 
             _logger.LogInformation("User created successfully");
-            return Ok(result);
+            
+            EmailService _emailSender = new EmailService();
+            string token = Guid.NewGuid().ToString(); 
+            string confirmationLink = $"http://localhost:5173/dashboard/{result.Username}";
+
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return BadRequest("Invalid confirmation link.");
+            }
+
+            _emailSender.SendConfirmationEmail(result.Email, confirmationLink);
+
+            return Ok(new
+            {
+                message = "Confirmation email sent! and User Created Successfully",
+                user = result
+            });
         }
+        
         catch (ValidationException ex)
         {
             _logger.LogWarning("Validation failed: {Errors}",
@@ -99,14 +127,46 @@ public class UsersController : BaseController
         }
     }
 
-    /*  [HttpPost("", Name = "CreateUser")]
-      [ProducesResponseType(StatusCodes.Status400BadRequest)]
-      [ProducesResponseType(StatusCodes.Status200OK)]
-      [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-      public async Task<ActionResult<UserDetailsDto?>> Add([FromBody] CreateUserDto newUserDto)
-          => await HandleResponse(()=>_userService.AddUserAsync(newUserDto), "User creating  successfully");*/
+    
+    
+    [HttpPost("restorePassword/{Email}", Name = "RestorePassword")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult<UserDetailsDto?>> RestorePassword(string Email)
+    {
+        if (string.IsNullOrWhiteSpace(Email))
+        {
+            return BadRequest("Invalid email format.");
+        }
+       
+        EmailService _emailSender = new EmailService();
+        string token = Guid.NewGuid().ToString(); 
+       
+        var user = await _userService.GetUserByEmailAsync(Email);
+        if (user == null)
+        {
+            return BadRequest("No such user exists with the email address");
+        }
+       
+        string confirmationLink = $"http://localhost:5173/dashboard/{user.Username}";
+      
+        if (string.IsNullOrEmpty(token))
+        {
+            return BadRequest("Invalid confirmation link.");
+        }
+       
+        _emailSender.SendConfirmationEmail(Email, confirmationLink ,true);
 
-    [HttpPost("send-confirmation")]
+        return Ok(new
+        {
+            message = "password restored successfully!",
+            user 
+        });
+    }
+
+    
+
+    /*[HttpPost("send-confirmation")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult> SendConfirmationEmail(string email)
@@ -123,7 +183,7 @@ public class UsersController : BaseController
         _emailSender.SendConfirmationEmail(email, confirmationLink);
 
         return Ok("Confirmation email sent!");
-    }
+    }*/
     
     
     [HttpPut("updateUser/{id:int}", Name = "UpdateUser")]
@@ -169,6 +229,7 @@ public class UsersController : BaseController
         return Ok(result);
     }
 
+    
     [HttpPut("changePassword/{id:int}", Name = "changePassword")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -177,6 +238,7 @@ public class UsersController : BaseController
     public async Task<ActionResult<bool>> ChangePassword([FromRoute] int id,  string newPassword)
         => await HandleResponse(()=>_userService.ChangePassword(id,newPassword), "User Password changed successfully");
 
+    
     [HttpDelete("{id:int}", Name = "SoftDeleteUser")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

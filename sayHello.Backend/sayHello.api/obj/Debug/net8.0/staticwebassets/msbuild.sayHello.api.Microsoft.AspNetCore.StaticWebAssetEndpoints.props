@@ -612,6 +612,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rl8bewau2d"},{"Name":"integrity","Value":"sha256-sZEEomt9tRHEc\u002BnyzOEB5YimRXjubbWypPKlxJ8wXC8="},{"Name":"label","Value":"_content/sayHello.api/uploads/users/e5e6da68-425d-4d47-b70a-5ee106497668_m3.jpg"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2720252"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022sZEEomt9tRHEc\u002BnyzOEB5YimRXjubbWypPKlxJ8wXC8=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Dec 2024 12:05:45 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/sayHello.api/uploads/users/f298eec7-7920-4960-9fe7-49f794dff490_g2.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\users\f298eec7-7920-4960-9fe7-49f794dff490_g2.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ADsE2nXRjzMHCuVWwwIjRn/kxcdpOL3gv3KGzWTKnzU="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"422534"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022ADsE2nXRjzMHCuVWwwIjRn/kxcdpOL3gv3KGzWTKnzU=\u0022"},{"Name":"Last-Modified","Value":"Fri, 27 Dec 2024 14:30:54 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/sayHello.api/uploads/users/f298eec7-7920-4960-9fe7-49f794dff490_g2.sl72cvg5px.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\users\f298eec7-7920-4960-9fe7-49f794dff490_g2.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"sl72cvg5px"},{"Name":"integrity","Value":"sha256-ADsE2nXRjzMHCuVWwwIjRn/kxcdpOL3gv3KGzWTKnzU="},{"Name":"label","Value":"_content/sayHello.api/uploads/users/f298eec7-7920-4960-9fe7-49f794dff490_g2.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"422534"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022ADsE2nXRjzMHCuVWwwIjRn/kxcdpOL3gv3KGzWTKnzU=\u0022"},{"Name":"Last-Modified","Value":"Fri, 27 Dec 2024 14:30:54 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/sayHello.api/uploads/users/ff29e83a-058d-4797-bb31-b20dd04cbba9_m2.i1nemlkz5p.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\users\ff29e83a-058d-4797-bb31-b20dd04cbba9_m2.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>

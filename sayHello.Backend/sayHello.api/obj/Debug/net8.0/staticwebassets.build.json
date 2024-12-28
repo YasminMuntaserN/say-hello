@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fbmfpcJvd8WFgJiRChVdGd4bUDBZaa8Ie8iY+AcE43k=",
+  "Hash": "GjdPnqVvMkAu3OQQ490QQISfBG4rqlhBv1PyjVwA/F4=",
   "Source": "sayHello.api",
   "BasePath": "_content/sayHello.api",
   "Mode": "Default",
@@ -1086,6 +1086,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\users\\e5e6da68-425d-4d47-b70a-5ee106497668_m3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\f298eec7-7920-4960-9fe7-49f794dff490_g2.jpg",
+      "SourceId": "sayHello.api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\",
+      "BasePath": "_content/sayHello.api",
+      "RelativePath": "uploads/users/f298eec7-7920-4960-9fe7-49f794dff490_g2#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "sl72cvg5px",
+      "Integrity": "ADsE2nXRjzMHCuVWwwIjRn/kxcdpOL3gv3KGzWTKnzU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\users\\f298eec7-7920-4960-9fe7-49f794dff490_g2.jpg"
     },
     {
       "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\ff29e83a-058d-4797-bb31-b20dd04cbba9_m2.jpg",
@@ -5289,6 +5310,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-sZEEomt9tRHEc+nyzOEB5YimRXjubbWypPKlxJ8wXC8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/f298eec7-7920-4960-9fe7-49f794dff490_g2.jpg",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\f298eec7-7920-4960-9fe7-49f794dff490_g2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "422534"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ADsE2nXRjzMHCuVWwwIjRn/kxcdpOL3gv3KGzWTKnzU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 27 Dec 2024 14:30:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ADsE2nXRjzMHCuVWwwIjRn/kxcdpOL3gv3KGzWTKnzU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/f298eec7-7920-4960-9fe7-49f794dff490_g2.sl72cvg5px.jpg",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\f298eec7-7920-4960-9fe7-49f794dff490_g2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "422534"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ADsE2nXRjzMHCuVWwwIjRn/kxcdpOL3gv3KGzWTKnzU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 27 Dec 2024 14:30:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sl72cvg5px"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/users/f298eec7-7920-4960-9fe7-49f794dff490_g2.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ADsE2nXRjzMHCuVWwwIjRn/kxcdpOL3gv3KGzWTKnzU="
         }
       ]
     },

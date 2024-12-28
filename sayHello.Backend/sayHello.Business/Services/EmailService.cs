@@ -1,6 +1,7 @@
 using System.Net;
 using System.Net.Mail;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 
 namespace sayHello.Business;
 
@@ -8,7 +9,7 @@ public class EmailService
 {
     private static IConfigurationRoot? _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
    
-    public async Task SendConfirmationEmail(string recipientEmail, string confirmationLink)
+    public async Task SendConfirmationEmail(string recipientEmail, string confirmationLink ,bool restorePassword =false)
     {
         var emailFrom = _configuration.GetSection("Email").Value;
         var emailPassword = _configuration.GetSection("Password").Value;
@@ -17,7 +18,7 @@ public class EmailService
         
         try
         {
-            string emailBody = $@"
+            string emailBody = !restorePassword?$@"
                 <html>
                 <body>
                     <h1>Confirm Your Email</h1>
@@ -28,7 +29,26 @@ public class EmailService
                           padding: 10px 20px;
                           font-size: 16px;
                           color: white;
-                          background-color: #007BFF;
+                          background-color: #632969;
+                          text-decoration: none;
+                          border-radius: 5px;'>
+                        Confirm Email
+                    </a>
+                </body>
+                </html>" :
+                $@"
+                <html>
+                <body>
+                <h1>Account Restored Successfully 👀 </h1>
+                <p>We are glad to inform you that your account has been restored successfully.</p>
+                <p>For security reasons, we strongly recommend that you update your password from your profile settings at the earliest opportunity.</p>
+                    <a href='{confirmationLink}' 
+                       style='
+                          display: inline-block;
+                          padding: 10px 20px;
+                          font-size: 16px;
+                          color: white;
+                          background-color: #632969;
                           text-decoration: none;
                           border-radius: 5px;'>
                         Confirm Email
