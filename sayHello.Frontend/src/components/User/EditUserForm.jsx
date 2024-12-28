@@ -21,7 +21,6 @@ function EditUserForm({ user, onClose }) {
 
   function onSubmit(data) {
     if (!data) return;
-
     const formData = new FormData();
     formData.append("Username", data.Name || user.username);
     formData.append("Email", user.email);
@@ -38,7 +37,6 @@ function EditUserForm({ user, onClose }) {
 
     mutate({ user: formData, id: user.userId }, {
       onSuccess: (data) => {
-        console.log("Edited successfully", data);
         reset();
         login(data);
         onClose?.();
