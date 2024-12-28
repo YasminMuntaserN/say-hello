@@ -1,23 +1,25 @@
 import { createContext, useContext } from "react";
 import { useState } from "react";
+import { getStoredUser ,setStoredUser,removeStoredUser } from "../utils/storage";
 
 const ChatContext = createContext();
 export function ChatProvider({ children }) {
   const [userInChat ,setInChat] = useState(null);
   const [showUsers ,setShowUsers] = useState(false);
-  const [user, setUser] = useState(null);
-  //شايف  ل state 
+  const [user, setUser] = useState(getStoredUser());
   const [refetchChats, setRefetchChats] = useState(false);
   const [showChatPartnerOperations, setShowChatPartnerOperations] = useState(false);
   const [updatedPartnerOperations, setUpdatedPartnerOperations] = useState(false);
 
 
   const login = (userInfo) => {
+    setStoredUser(userInfo);
     setUser(userInfo);
     console.log(userInfo);
   };
 
   const logout = () => {
+    removeStoredUser();
     setUser(null);
   };
   //here we want to but the chat partner
