@@ -39,7 +39,6 @@ export async function addEntity(entityData, entityName) {
   }
 }
 
-//https://localhost:7201/Messages/allBySenderId/2
 export async function getBy(entityName, type, value) {
   try {
     const res = await fetch(`${API_URL}/${entityName}/${type}/${value}`);
@@ -57,7 +56,6 @@ export async function getBy(entityName, type, value) {
   }
 }
 
-//https://localhost:7201/Users/all
 export async function getAll(entityName) {
   console.log(`${API_URL}/${entityName}/all`);
   try {
@@ -178,6 +176,29 @@ export async function DeleteBy(entityName, value) {
     return data === "true";
   } catch (error) {
     console.error(`Error Delete ${entityName} :`, error);
+    throw error;
+  }
+}
+
+export async function FindBy(entityName, findBy, values) {
+  try {
+    const res = await fetch(
+      `https://localhost:7201/${entityName}/findBy${findBy}/${values}`
+    );
+
+    if (res.status === 404) {
+      console.warn(`No data found for the given ${findBy}`);
+      return null;
+    }
+
+    if (res.ok) {
+      const data = await res.json();
+      return data;
+    }
+
+    throw new Error(`Unexpected response: ${res.status}`);
+  } catch (error) {
+    console.error("No data found for the given ${findBy}", findBy);
     throw error;
   }
 }

@@ -29,3 +29,20 @@ export function useExistUser() {
 
   return { mutate, isLoading, error, User };
 }
+
+export function useExistUserByEmail() {
+  const {
+    mutate: ExistUserByEmil,
+    isLoading,
+    error,
+    data: User,
+  } = useMutation({
+    mutationFn: (Email) => handleCheckUserByEmailAndPassword(Email),
+    onError: (err) => {
+      console.error("An error occurred:", err);
+      toast.error(`user not found 🥲`);
+    },
+  });
+
+  return { ExistUserByEmil, isLoading, error, User };
+}

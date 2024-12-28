@@ -2,6 +2,7 @@ import {
   addEntity,
   DeleteBy,
   EditEntity,
+  FindBy,
   getAll,
   getAllBy,
   getBy,
@@ -9,29 +10,11 @@ import {
   IsExist,
 } from "./BaseApi";
 
-export async function handleCheckUserByEmailAndPassword(Email, Password) {
-  console.log(`${Email} - ${Password}`);
-  try {
-    const res = await fetch(
-      `https://localhost:7201/Users/findByEmailAndPassword/${Email}/${Password}`
-    );
+export const handleCheckUserByEmailAndPassword = async (Email, Password) =>
+  FindBy("Users", "EmailAndPassword", `${Email}/${Password}`);
 
-    if (res.status === 404) {
-      console.warn("No data found for the given email and password.");
-      return null;
-    }
-
-    if (res.ok) {
-      const data = await res.json();
-      return data;
-    }
-
-    throw new Error(`Unexpected response: ${res.status}`);
-  } catch (error) {
-    console.error("Error fetching user by email and password:", error);
-    throw error;
-  }
-}
+export const handleCheckUserByEmail = async (Email) =>
+  FindBy("Users", "Email", `${Email}`);
 
 export const addUser = async (user) => await addEntity(user, "Users");
 
@@ -52,7 +35,6 @@ export const getAllBlockedUsersCount = async (id) =>
 export const getAllBArchivedUsersCount = async (id) =>
   await getCount("ArchivedUsers", id);
 
-//https://localhost:7201/BlockedUsers/all/14
 export const getAllBlockedUsers = async (id) =>
   await getAllBy("BlockedUsers", id);
 
@@ -74,7 +56,6 @@ export const isArchivedUser = async (ArchivedUserId, ArchivedByUserId) =>
     `${ArchivedUserId}/${ArchivedByUserId}`
   );
 
-//https://localhost:7201/ArchivedUsers/deleteArchivedUser/17/14
 export const DeleteBlockedUser = async ({ BlockedUserId, BlockedByUserId }) =>
   await DeleteBy(
     "BlockedUsers/deleteBlockedUser",
@@ -89,6 +70,7 @@ export const DeleteArchivedUser = async ({
     "ArchivedUsers/deleteArchivedUser",
     `${ArchivedUserId}/${ArchivedByUserId}`
   );
+
 export async function handleConfirmationEmail(email) {
   try {
     const res = await fetch(
@@ -116,6 +98,57 @@ export async function handleConfirmationEmail(email) {
     throw new Error(`Unexpected response: ${res.status}`);
   } catch (error) {
     console.error("Error fetching Confirmation Email:", error);
+    throw error;
+  }
+}
+
+  //'https://localhost:7201/Users/restorePassword/jsd%40dd.com'
+export async function handleRestorePassword(email) {
+  try {
+    const res = await fetch(
+      `https://localhost:7201/Users/restorePassword/${encodeURIComponent(
+        email
+      )}`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "*/*",
+        },
+      }
+    );
+
+    if (res.ok) {
+      const data = await res.text();
+      return data === "Confirmation email sent!";
+    }
+
+    throw new Error(`Unexpected response: ${res.status}`);
+  } catch (error) {
+    console.error("Error fetching Confirmation Email:", error);
+    throw error;
+  }
+}
+
+export async function ChangePassword(id, newPassword) {
+  console.log(
+    `https://localhost:7201/Users/changePassword/${id}?newPassword=${newPassword}`
+  );
+  try {
+    const res = await fetch(
+      `https://localhost:7201/Users/changePassword/${id}?newPassword=${newPassword}`,
+      {
+        method: "PUT",
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error(`Failed to change password`);
+    }
+
+    const data = await res.text();
+    return data === "true";
+  } catch (error) {
+    console.error(`Error Delete change password :`, error);
     throw error;
   }
 }
