@@ -37,6 +37,7 @@ function LoginForm() {
           reset(); 
         },
       });
+      console.log("here from the login form");
   };
 
   return (
@@ -55,13 +56,13 @@ function LoginForm() {
               register={register}
               FieldName="Password"
         />
-        <div className={StyledButtons}>
         <Button variant="submit" type="submit">
           {isLoading ?  <SpinnerMini/> :<>Login... <IoMdLogIn className="text-white text-3xl"  /></>}
           </Button>
-          <ForgatPassword />
-        </div>
       </form>
+      <div className="flex ml-20  mt-[-50px] justify-end">
+      <ForgatPassword />
+      </div>
       <div className={StyledLine}></div>
         <p className={StyledNewAccount}>Don't Have an Account yet ?  <Link className={StyledLink} to="/signup">Create Account</Link></p>
     </FormContainer>
@@ -69,7 +70,6 @@ function LoginForm() {
 }
 
 const StyledP = "text-gray-600 font-normal";
-const StyledButtons = "flex justify-between gap-14 mt-10";
 const StyledLine = "bg-lightText w-full h-0.5 mt-5 ";
 const StyledNewAccount = "text-lg mt-10 text-center text-lightText";
 const StyledLink = "text-secondary font-bold underline";

@@ -2,19 +2,22 @@ import { BiSolidMessageSquareDots } from "react-icons/bi";
 import { FaUsers } from "react-icons/fa";
 import { MdBlockFlipped } from "react-icons/md";
 import { FaArchive } from "react-icons/fa";
+import { MdGroupAdd } from "react-icons/md";
 import { useAllArchivedUsers, useArchivedUserCount } from "../User/hooks/useArchivedUser";
 import { useEffect } from "react";
 import { useAllBlockedUsers, useBlockedUserCount } from "../User/hooks/useBlockedUser";
 import { useChat } from "../../context/UserContext";
+import { useAllUsers } from "../user/hooks/useAllUsers";
 
 function QuickActions({setUsersToShow }) {
   const{user ,updatedPartnerOperations ,setShowUsers} =useChat();
   const {  ArchivedUser, ArchivedUsersCount } = useArchivedUserCount();
   const {  BlockedUser, BlockedUsersCount } = useBlockedUserCount();
-const { mutate:getAllArchivedUsers, AllArchivedUsers } = useAllArchivedUsers();
-const { mutate:getAllBlockedUsers, AllBlockedUsers } = useAllBlockedUsers();
+  const { mutate:getAllArchivedUsers, AllArchivedUsers } = useAllArchivedUsers();
+  const { mutate:getAllBlockedUsers, AllBlockedUsers } = useAllBlockedUsers();
+  const { mutate:getAllUsers , AllUsers } = useAllUsers();
 
-useEffect(() => {
+  useEffect(() => {
     ArchivedUser(user.userId);
     BlockedUser(user.userId);
   },[ArchivedUser , BlockedUser ,user.userId,updatedPartnerOperations]);
@@ -29,13 +32,20 @@ useEffect(() => {
         getAllBlockedUsers(user.userId);
         setUsersToShow(AllBlockedUsers);
         setShowUsers(pre=>!pre);
-      }else if(UsersType==="all"){
+      }
+      else if(UsersType==="AllUsers"){
+        getAllUsers();
+        setUsersToShow(AllUsers);
         setShowUsers(pre=>!pre);
+      }else if(UsersType==="allPreviousChats"){
+        setShowUsers(false);
       }
   }
   return (
     <div className={StyledContainer}>
-      <BiSolidMessageSquareDots className={StyledIcon}  onClick={()=>handleUsersToShow("all")}/>
+      <BiSolidMessageSquareDots
+        className={StyledIcon}
+        onClick={()=>handleUsersToShow("allPreviousChats")}/>
       <div className="relative">
         <FaArchive
           onClick={()=>handleUsersToShow("ArchivedUsers")}
@@ -54,7 +64,10 @@ useEffect(() => {
           <span className={StyledCount}>{BlockedUsersCount}</span>
         )}
       </div>
-      <FaUsers className={StyledIcon} />
+      <FaUsers 
+            className={StyledIcon}
+            onClick={()=>handleUsersToShow("AllUsers")} />
+      <MdGroupAdd  className={StyledIcon}/>
     </div>
   );
 }

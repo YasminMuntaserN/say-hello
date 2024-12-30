@@ -4,10 +4,16 @@ import { useChat } from "../../context/UserContext";
 import Image from "../../ui/Image";
 import EditUserInfo from "../User/EditUserInfo";
 import ForgatPassword from "../User/ForgatPassword";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigation =useNavigate();
   const {user ,logout}=useChat();
   
+  const handleLogout=()=>{
+    logout();
+    navigation("/login");
+  }
   return (
     <div className={StyledContainer}>
       <Logo size="w-[180px] ml-10" color="black"/>
@@ -16,7 +22,7 @@ function Navbar() {
       <p className={StyledName}>{user?.username}</p>
       <EditUserInfo />
       <ForgatPassword withLogin={false}/>
-      <LuLogOut className={StyledIcon} onClick={()=>logout()}/>
+      <LuLogOut className={StyledIcon} onClick={()=>handleLogout()}/>
       </div>
     </div>
   )

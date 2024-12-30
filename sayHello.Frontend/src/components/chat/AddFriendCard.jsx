@@ -5,7 +5,7 @@ import Image from "../../ui/Image";
 
 function AddFriendCard({ user }) {
   const {setUserInChat ,setShowChatPartnerOperations}=useChat();
-  const { username, profilePictureUrl } = user;
+  const { username, profilePictureUrl ,bio} = user;
 
   const OnClick =()=>{
     setUserInChat(user);
@@ -18,9 +18,10 @@ function AddFriendCard({ user }) {
 
         <div className="ml-[-50px]  text-center">
           <p className={StyledName}>{username}</p>
+          <p className="text-sm text-lightText">{bio?.length > 30 ? `${bio.substring(0, 30)}...` : bio}</p>
         </div>
 
-        <AddIcon size="sm" handleOnClick={()=>setUserInChat(user)} />
+        <AddIcon size="lg" handleOnClick={()=>setUserInChat(user)} />
     </Box>
   );
 }

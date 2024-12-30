@@ -23,10 +23,10 @@ export function Connections() {
       mutate(user.userId);
     }
   }, [mutate, user?.userId, refetchChats, updatedPartnerOperations]);
-  console.log(`refetchChats ${refetchChats}`);
+  
   return (
     <div className="bg-[#f8fafc] h-screen flex flex-col">
-      <QuickActions setUsersToShow={setUsersToShow} />
+      <QuickActions setUsersToShow={setUsersToShow} AllUsersBySenderId={AllUsersBySenderId}/>
       <AddFriend setUsersToShow={setUsersToShow} />
       <SearchBar />
       
