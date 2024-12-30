@@ -63,8 +63,6 @@ export function useSignalR(senderId, chatRoom, receiverId) {
           setMessages((prevMessages) =>
             addUniqueMessages(prevMessages, [message])
           );
-          //شايف هنا هاد هوك انا عملاه انو اول ما ينبعت مسج جديد يروح يجيب الدتا هاي من تاني استنى اوريك اي داتا
-          //setRefetchChats(true);
           setRefetchChats((pre) => !pre);
         });
 

@@ -37,7 +37,7 @@ function ChatPartnerOperation() {
         onSuccess: (data) => {
           console.log("Operation completed successfully:", data);
           setShowChatPartnerOperations((prev) => !prev);
-          setUpdatedPartnerOperations(true);s
+          setUpdatedPartnerOperations((prev) => !prev);
         },
       }
     );
