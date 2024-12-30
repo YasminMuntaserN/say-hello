@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { RiDeleteBinLine } from "react-icons/ri";
 import { useEditUser } from "./hooks/useEditUser";
 import { useChat } from "../../context/UserContext";
 import Line from "../../ui/Line";
@@ -8,6 +7,7 @@ import Image from "../../ui/Image";
 import Button from "../../ui/Button";
 import SpinnerMini from "../../ui/SpinnerMini";
 import UserCard from "./UserCard";
+import DeleteUser from "./DeleteUser";
 function EditUserForm({ user, onClose }) {
   const {
     register,
@@ -94,9 +94,7 @@ function EditUserForm({ user, onClose }) {
       </div>
       
       <div className="flex justify-between">
-      <Button variant="delete">
-        <RiDeleteBinLine />Delete
-      </Button>
+      <DeleteUser />
       <div>
       <Button 
             variant="reset" 

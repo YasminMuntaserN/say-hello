@@ -4,20 +4,22 @@ import Button from "../../ui/Button";
 import SpinnerMini from "../../ui/SpinnerMini";
 import { FaCircleInfo } from "react-icons/fa6";
 import { useRestorePassword } from "./hooks/useChangePassword";
-
+import {useChat} from "../../context/UserContext";
 
 function CheckEmail({onClose}) {
     const {register,formState: { errors },handleSubmit } = useForm();
     const{mutate:changePassword ,loading}=useRestorePassword();
     const {login}=useChat();
+    
     const onSubmit =(formData)=> {
-      changePassword(formData.Email,{
+      console.log(formData);
+      changePassword({email:formData.Email},{
         onSuccess: (data) => {
-          login(data.use);
+          login(data.user);
           onClose?.();
         }
     });
-        }
+  }
   return (
     <div className="w-[700px]  p-5 ">
     <div className="border-[#6b4ca0] border-2 p-10 rounded-xl ">
@@ -34,7 +36,7 @@ function CheckEmail({onClose}) {
       <FaCircleInfo className="text-green-600 mt-1 text-xl" />
       after submit We will sent you an email. Please check your inbox and follow the link provided.
     </p>
-      <div className="ml-[60%] mt-5">
+      <div className=" mt-5">
       <Button variant="reset" onClick={onClose}>Cancel</Button>
       <Button variant="save" type="submit">{loading ? <SpinnerMini /> : "Submit"}</Button>
       </div>

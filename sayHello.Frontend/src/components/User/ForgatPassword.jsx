@@ -10,7 +10,7 @@ function ForgatPassword({withLogin=true}) {
     <Modal>
       <Modal.Open>
           {withLogin ?
-          <Button>
+          <Button type="button">
             <GoPasskeyFill className="text-secondary text-xl" />
             Forget Password
           </Button>
