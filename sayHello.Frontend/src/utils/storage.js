@@ -4,7 +4,12 @@ export function setStoredUser(user) {
 
 export function getStoredUser() {
   const user = localStorage.getItem("user");
-  return user ? JSON.parse(user) : null;
+  try {
+    return user ? JSON.parse(user) : null;
+  } catch (error) {
+    console.error("Invalid user data in localStorage", error);
+    return null;
+  }
 }
 
 export function removeStoredUser() {

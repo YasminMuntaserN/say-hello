@@ -70,6 +70,7 @@ export const DeleteArchivedUser = async ({
     "ArchivedUsers/deleteArchivedUser",
     `${ArchivedUserId}/${ArchivedByUserId}`
   );
+export const DeleteUser = async (id) => await DeleteBy("Users", id);
 
 export async function handleConfirmationEmail(email) {
   try {
@@ -102,7 +103,7 @@ export async function handleConfirmationEmail(email) {
   }
 }
 
-  //'https://localhost:7201/Users/restorePassword/jsd%40dd.com'
+//'https://localhost:7201/Users/restorePassword/jsd%40dd.com'
 export async function handleRestorePassword(email) {
   try {
     const res = await fetch(
@@ -112,14 +113,25 @@ export async function handleRestorePassword(email) {
       {
         method: "POST",
         headers: {
-          Accept: "*/*",
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
       }
     );
 
     if (res.ok) {
-      const data = await res.text();
-      return data === "Confirmation email sent!";
+      const data = await res.json();
+      return data;
+    }
+
+    if (res.ok) {
+      const data = await res.json();
+      return data;
+    }
+
+    if (res.status === 400) {
+      const errorDetails = await res.text();
+      throw new Error(`Bad Request: ${errorDetails}`);
     }
 
     throw new Error(`Unexpected response: ${res.status}`);

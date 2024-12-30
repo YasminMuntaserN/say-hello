@@ -1,6 +1,6 @@
 import { RiAddFill } from "react-icons/ri";
 
-function AddIcon({ handleOnClick, size = "sm" }) {
+function AddIcon({ handleOnClick, size = "lg" }) {
   const IconSize = {
     sm: "h-5 w-5",
     lg: "h-7 w-7",

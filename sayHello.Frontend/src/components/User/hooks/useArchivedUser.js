@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   addArchivedUser,
   DeleteArchivedUser,
@@ -9,6 +9,7 @@ import {
 import toast from "react-hot-toast";
 
 export function useArchivedUser() {
+  const queryClient = useQueryClient();
   const {
     mutate: ArchivedUser,
     isLoading,
@@ -18,16 +19,18 @@ export function useArchivedUser() {
     mutationFn: addArchivedUser,
     onSuccess: () => {
       toast.success("User Archived successfully");
+      queryClient.invalidateQueries(["ArchivedUsers"]);
     },
     onError: (err) => {
       toast.error(`${err.message}`);
     },
-    mutationKey: "Users",
+    mutationKey: ["ArchivedUsers"],
   });
   return { ArchivedUser, isLoading, error, User };
 }
 
 export function useArchivedUserCount() {
+  const queryClient = useQueryClient();
   const {
     mutate: ArchivedUser,
     isLoading,
@@ -38,6 +41,9 @@ export function useArchivedUserCount() {
     mutationFn: getAllBArchivedUsersCount,
     onError: (err) => {
       console.log(`${err.message}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["ArchivedUsers"]);
     },
   });
 
@@ -54,6 +60,7 @@ export function useIsArchivedUser(ArchivedUserId, ArchivedByUserId) {
 }
 
 export function useDeleteArchivedUser() {
+  const queryClient = useQueryClient();
   const {
     mutate: unArchivedUser,
     isLoading,
@@ -63,6 +70,7 @@ export function useDeleteArchivedUser() {
     mutationFn: DeleteArchivedUser,
     onSuccess: () => {
       toast.success("User UnArchived successfully");
+      queryClient.invalidateQueries(["ArchivedUsers"]);
     },
     onError: (err) => {
       toast.error(`${err.message}`);
@@ -73,6 +81,7 @@ export function useDeleteArchivedUser() {
 }
 
 export function useAllArchivedUsers() {
+  const queryClient = useQueryClient();
   const {
     mutate,
     isLoading,
@@ -83,6 +92,9 @@ export function useAllArchivedUsers() {
     mutationFn: getAllBArchivedUsers,
     onError: (err) => {
       console.log(`${err.message}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["ArchivedUsers"]);
     },
   });
 
