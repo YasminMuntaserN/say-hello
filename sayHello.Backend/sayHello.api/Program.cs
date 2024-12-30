@@ -28,6 +28,10 @@ builder.Services.AddAutoMapper(typeof(MessageMappingProfile));
 builder.Services.AddAutoMapper(typeof(MediaMappingProfile));
 builder.Services.AddAutoMapper(typeof(BlockedUserMappingProfile));
 builder.Services.AddAutoMapper(typeof(ArchivedUserMappingProfile));
+builder.Services.AddAutoMapper(typeof(GroupMappingProfile));
+builder.Services.AddAutoMapper(typeof(GroupMemberMappingProfile));
+
+
 
 // Register the Services
 builder.Services.AddScoped<UniqueValidatorService>();
@@ -43,6 +47,10 @@ builder.Services.AddScoped<ArchivedUserService>();
 builder.Services.AddScoped<ArchivedUserValidator>();
 builder.Services.AddScoped<EmailService>();
 builder.Services.AddScoped<UserConnection>();
+builder.Services.AddScoped<GroupService>();
+builder.Services.AddScoped<GroupMemberService>();
+
+
 
 
 // Register SignalR

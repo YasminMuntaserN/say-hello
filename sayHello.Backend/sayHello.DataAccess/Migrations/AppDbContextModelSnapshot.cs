@@ -24,6 +24,20 @@ namespace sayHello.DataAccess.Migrations
 
             modelBuilder.Entity("sayHello.DTOs.Message.ConversationDetailsDto", b =>
                 {
+                    b.Property<int>("ChatPartnerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ChatPartnerImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ChatPartnerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IsReceiver")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("LastLoginForReceiver")
                         .HasColumnType("datetime2");
 
@@ -37,24 +51,6 @@ namespace sayHello.DataAccess.Migrations
 
                     b.Property<DateTime?>("LastMessageTime")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("ReceiverId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReceiverImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ReceiverName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SenderId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SenderName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UnReadMessagesCount")
                         .HasColumnType("int");
@@ -97,11 +93,11 @@ namespace sayHello.DataAccess.Migrations
 
             modelBuilder.Entity("sayHello.Entities.BlockedUser", b =>
                 {
-                    b.Property<int>("BlockedUserId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BlockedUserId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("BlockedByUserId")
                         .HasColumnType("int");
@@ -121,7 +117,7 @@ namespace sayHello.DataAccess.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("BlockedUserId");
+                    b.HasKey("Id");
 
                     b.HasIndex("BlockedByUserId");
 
@@ -130,6 +126,57 @@ namespace sayHello.DataAccess.Migrations
                         .HasDatabaseName("IX_BlockedUser_User_BlockingUser");
 
                     b.ToTable("BlockedUsers");
+                });
+
+            modelBuilder.Entity("sayHello.Entities.Group", b =>
+                {
+                    b.Property<int>("GroupId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GroupId"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("GroupId");
+
+                    b.ToTable("Groups");
+                });
+
+            modelBuilder.Entity("sayHello.Entities.GroupMember", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("GroupId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GroupId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("GroupMembers");
                 });
 
             modelBuilder.Entity("sayHello.Entities.Media", b =>
@@ -172,6 +219,9 @@ namespace sayHello.DataAccess.Migrations
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 
+                    b.Property<int?>("GroupId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("ReadDT")
                         .HasColumnType("datetime");
 
@@ -194,6 +244,8 @@ namespace sayHello.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("MessageId");
+
+                    b.HasIndex("GroupId");
 
                     b.HasIndex("ReceiverId");
 
@@ -260,10 +312,6 @@ namespace sayHello.DataAccess.Migrations
                     b.HasIndex("Email")
                         .IsUnique()
                         .HasDatabaseName("IX_Users_Email");
-
-                    b.HasIndex("Username")
-                        .IsUnique()
-                        .HasDatabaseName("IX_Users_Username");
 
                     b.ToTable("Users");
                 });
@@ -332,6 +380,25 @@ namespace sayHello.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("sayHello.Entities.GroupMember", b =>
+                {
+                    b.HasOne("sayHello.Entities.Group", "Group")
+                        .WithMany("Members")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("sayHello.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Group");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("sayHello.Entities.Media", b =>
                 {
                     b.HasOne("sayHello.Entities.Message", "Message")
@@ -345,6 +412,10 @@ namespace sayHello.DataAccess.Migrations
 
             modelBuilder.Entity("sayHello.Entities.Message", b =>
                 {
+                    b.HasOne("sayHello.Entities.Group", "Group")
+                        .WithMany("Messages")
+                        .HasForeignKey("GroupId");
+
                     b.HasOne("sayHello.Entities.User", "Receiver")
                         .WithMany("ReceivedMessages")
                         .HasForeignKey("ReceiverId");
@@ -355,9 +426,18 @@ namespace sayHello.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Group");
+
                     b.Navigation("Receiver");
 
                     b.Navigation("Sender");
+                });
+
+            modelBuilder.Entity("sayHello.Entities.Group", b =>
+                {
+                    b.Navigation("Members");
+
+                    b.Navigation("Messages");
                 });
 
             modelBuilder.Entity("sayHello.Entities.Message", b =>

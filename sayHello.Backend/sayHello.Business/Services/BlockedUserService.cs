@@ -31,16 +31,9 @@ namespace sayHello.Business
         }
 
         public async Task<int> BlockedUsersCountAsync(int userId)
-        {
-            var user = await _dbSet
-                .Include(u => u.BlockedUsers)
-                .FirstOrDefaultAsync(u => u.UserId == userId);
-
-            if (user == null) throw new KeyNotFoundException($"User with ID {userId} not found.");
-
-            return user.BlockedUsers.Count;
-        }
-       
+            => _dbSet
+                .Where(u => u.UserId == userId)
+                .SelectMany(u => u.BlockedUsers.Select(a => a.BlockedByUser)).Count();       
         public async Task<BlockedUserDetailsDto> AddBlockedUserAsync(CreateBlockedUserDto createBlockedUserDto)
             => await AddAsync(createBlockedUserDto, "BlockedUser");
 

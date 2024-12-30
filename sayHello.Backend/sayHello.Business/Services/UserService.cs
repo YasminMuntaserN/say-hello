@@ -80,7 +80,27 @@ namespace sayHello.Business
             => await GetAllAsync();
 
         public async Task<bool> SoftDeleteUserAsync(int userId)
-            => await SoftDeleteAsync(userId, "IsDeleted");
+        {
+            // => await SoftDeleteAsync(userId, "IsDeleted");
+
+            try
+            {
+                var affectedRows = await _context.Database.ExecuteSqlRawAsync(
+                    "UPDATE Users SET IsDeleted = 1 WHERE UserId = @userId",
+                    new[] 
+                    {
+                        new SqlParameter("@userId", userId)
+                    });
+
+                return affectedRows > 0;
+            }
+
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while soft-deleting entity: {EntityId}", userId);
+                throw;
+            }
+        }
 
         public async Task<bool> HardDeleteUserAsync(int userId)
             => await HardDeleteAsync(userId, "UserId");

@@ -19,6 +19,9 @@ public class AppDbContext: DbContext
     public DbSet<Media> Medias { get; set; }
     public DbSet<ConversationDetailsDto> ConversationDetails { get; set; }
     public DbSet<UserConnection> UserConnections { get; set; }
+    public DbSet<Group> Groups { get; set; }
+    public DbSet<GroupMember> GroupMembers { get; set; }
+
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

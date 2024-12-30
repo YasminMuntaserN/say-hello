@@ -37,6 +37,10 @@ public class MessageConfiguration : IEntityTypeConfiguration<Message>
             .HasForeignKey(e => e.ReceiverId)
             .IsRequired(false); // message can be sent to no one
 
+        builder.HasOne(gm => gm.Group)
+            .WithMany(g => g.Messages)
+            .HasForeignKey(gm => gm.GroupId);
+        
         builder.HasIndex(e => new { e.SenderId, e.ReceiverId })
             .HasDatabaseName("IX_Message_Sender_Receiver");
 

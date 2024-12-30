@@ -33,15 +33,9 @@ namespace sayHello.Business
         }
 
         public async Task<int> ArchivedUsersCountAsync(int userId)
-        {
-            var user = await _dbSet
-                .Include(u => u.ArchivedByUsers)
-                .FirstOrDefaultAsync(u => u.UserId == userId);
-
-            if (user == null) throw new KeyNotFoundException($"User with ID {userId} not found.");
-
-            return user.ArchivedByUsers.Count;
-        }
+            =>_dbSet
+                .Where(u => u.UserId == userId)
+                .SelectMany(u => u.ArchivedUsers.Select(a => a.Archived_User)).Count();
         
         public async Task<ArchivedUserDetailsDto> AddArchivedUserAsync(CreateArchivedUserDto createArchivedUserDto)
             => await AddAsync(createArchivedUserDto, "ArchivedUser");
@@ -74,7 +68,7 @@ namespace sayHello.Business
         {
             var archivedUsers = await _dbSet
                 .Where(u => u.UserId == userId)
-                .SelectMany(u => u.ArchivedByUsers.Select(a => a.User))
+                .SelectMany(u => u.ArchivedUsers.Select(a => a.Archived_User))
                 .ToListAsync();
 
             if (!archivedUsers.Any())

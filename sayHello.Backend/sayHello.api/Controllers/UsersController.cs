@@ -47,14 +47,6 @@ public class UsersController : BaseController
         => await HandleResponse(() => _userService.GetUserByUserNameAsync(UserName), "User retrieved successfully");
 
     
-   /* [HttpGet("findByEmail/{Email}", Name = "FindUserByEmail")]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<UserDetailsDto?>> FindUserByEmail(string Email)
-        => await HandleResponse(() => _userService.GetUserByEmailAsync(Email), "User retrieved successfully");*/
-    
     [HttpGet("findByEmailAndPassword/{Email}/{Password}", Name = "FindUserByEmailAndPassword")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -164,27 +156,7 @@ public class UsersController : BaseController
         });
     }
 
-    
-
-    /*[HttpPost("send-confirmation")]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult> SendConfirmationEmail(string email)
-    {
-        EmailService _emailSender = new EmailService();
-        string token = Guid.NewGuid().ToString(); 
-        string confirmationLink = $"http://localhost:5173/dashboard";
-
-        if (string.IsNullOrEmpty(token))
-        {
-            return BadRequest("Invalid confirmation link.");
-        }
-
-        _emailSender.SendConfirmationEmail(email, confirmationLink);
-
-        return Ok("Confirmation email sent!");
-    }*/
-    
+  
     
     [HttpPut("updateUser/{id:int}", Name = "UpdateUser")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
