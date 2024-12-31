@@ -70,6 +70,7 @@ export const DeleteArchivedUser = async ({
     "ArchivedUsers/deleteArchivedUser",
     `${ArchivedUserId}/${ArchivedByUserId}`
   );
+
 export const DeleteUser = async (id) => await DeleteBy("Users", id);
 
 export async function handleConfirmationEmail(email) {

@@ -21,7 +21,7 @@ export function useChangePassword() {
 
 export function useRestorePassword() {
   const { mutate, error, loading } = useMutation({
-    mutationFn: (data) => handleRestorePassword(data),
+    mutationFn: (data) => handleRestorePassword(data.email),
     onSuccess: () => {
       toast.success("Please check your inbox and follow the link provided.");
     },

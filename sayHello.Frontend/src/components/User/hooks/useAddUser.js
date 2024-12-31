@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { addUser } from "../../../services/apiUser";
+import { addUser, DeleteUser } from "../../../services/apiUser";
 import toast from "react-hot-toast";
 
 export function useAddUser() {
@@ -21,4 +21,20 @@ export function useAddUser() {
     },
   });
   return { mutate, isLoading, error, User };
+}
+
+export function useDeleteUser() {
+  const queryClient = useQueryClient();
+
+  const { mutate, isLoading, error } = useMutation({
+    mutationFn: DeleteUser,
+    onSuccess: () => {
+      toast.success("User Deleted successfully");
+      queryClient.invalidateQueries({ queryKey: ["Users"] });
+    },
+    onError: (err) => {
+      toast.error(`${err.message}`);
+    },
+  });
+  return { mutate, isLoading, error };
 }

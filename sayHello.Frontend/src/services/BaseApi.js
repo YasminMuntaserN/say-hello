@@ -1,15 +1,31 @@
 const API_URL = import.meta.env.VITE_API_URL;
 
 export async function addEntity(entityData, entityName) {
-  console.log(entityData);
   try {
     let response;
     if (entityName === "Users") {
-      console.log(`Adding user with data:`, entityData);
-      response = await fetch("https://localhost:7201/Users", {
+      // Handle Users
+      response = await fetch(`${API_URL}/${entityName}`, {
         method: "POST",
         headers: { Accept: "text/plain" },
         body: entityData,
+      });
+    } else if (entityName === "Group") {
+      // Handle Groups
+      response = await fetch(`${API_URL}/${entityName}`, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: entityData,
+      });
+    } else if (entityName === "GroupMember") {
+      // Handle GroupMember
+      const formData = new FormData();
+      formData.append("groupId", entityData.groupId);
+      formData.append("userId", entityData.userId);
+      response = await fetch(`${API_URL}/${entityName}`, {
+        method: "POST",
+        headers: { Accept: "text/plain" },
+        body: formData,
       });
     } else {
       response = await fetch(`${API_URL}/${entityName}`, {

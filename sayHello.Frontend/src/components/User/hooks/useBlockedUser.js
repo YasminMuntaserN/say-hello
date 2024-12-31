@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   addBlockedUser,
   DeleteBlockedUser,
@@ -9,6 +9,7 @@ import {
 import toast from "react-hot-toast";
 
 export function useBlockedUser() {
+  const queryClient = useQueryClient();
   const {
     mutate: BlockedUser,
     isLoading,
@@ -18,16 +19,18 @@ export function useBlockedUser() {
     mutationFn: addBlockedUser,
     onSuccess: () => {
       toast.success("User Blocked successfully");
+      queryClient.invalidateQueries(["BlockedUsers"]);
     },
     onError: (err) => {
       toast.error(`${err.message}`);
     },
-    mutationKey: "Users",
+    mutationKey: ["BlockedUsers"],
   });
   return { BlockedUser, isLoading, error, User };
 }
 
 export function useBlockedUserCount() {
+  const queryClient = useQueryClient();
   const {
     mutate: BlockedUser,
     isLoading,
@@ -38,6 +41,9 @@ export function useBlockedUserCount() {
     mutationFn: getAllBlockedUsersCount,
     onError: (err) => {
       console.log(`${err.message}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["BlockedUsers"]);
     },
   });
 
@@ -54,6 +60,7 @@ export function useIsBlockedUser(BlockedUserId, BlockedByUserId) {
 }
 
 export function useDeleteBlockedUser() {
+  const queryClient = useQueryClient();
   const {
     mutate: unBlockedUser,
     isLoading,
@@ -63,6 +70,7 @@ export function useDeleteBlockedUser() {
     mutationFn: DeleteBlockedUser,
     onSuccess: () => {
       toast.success("User UnBlocked successfully");
+      queryClient.invalidateQueries(["BlockedUsers"]);
     },
     onError: (err) => {
       toast.error(`${err.message}`);
@@ -73,6 +81,7 @@ export function useDeleteBlockedUser() {
 }
 
 export function useAllBlockedUsers() {
+  const queryClient = useQueryClient();
   const {
     mutate,
     isLoading,
@@ -83,6 +92,9 @@ export function useAllBlockedUsers() {
     mutationFn: getAllBlockedUsers,
     onError: (err) => {
       console.log(`${err.message}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["BlockedUsers"]);
     },
   });
 
