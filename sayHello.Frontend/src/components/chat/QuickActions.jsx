@@ -2,12 +2,12 @@ import { BiSolidMessageSquareDots } from "react-icons/bi";
 import { FaUsers } from "react-icons/fa";
 import { MdBlockFlipped } from "react-icons/md";
 import { FaArchive } from "react-icons/fa";
-import { MdGroupAdd } from "react-icons/md";
 import { useAllArchivedUsers, useArchivedUserCount } from "../User/hooks/useArchivedUser";
 import { useEffect } from "react";
 import { useAllBlockedUsers, useBlockedUserCount } from "../User/hooks/useBlockedUser";
 import { useChat } from "../../context/UserContext";
-import { useAllUsers } from "../user/hooks/useAllUsers";
+import CreateGroup from "../Groups/CreateGroup";
+import { useAllGroups } from "../Groups/hooks/useGroups";
 
 function QuickActions({setUsersToShow }) {
   const{user ,updatedPartnerOperations ,setShowUsers} =useChat();
@@ -15,7 +15,8 @@ function QuickActions({setUsersToShow }) {
   const {  BlockedUser, BlockedUsersCount } = useBlockedUserCount();
   const { mutate:getAllArchivedUsers, AllArchivedUsers } = useAllArchivedUsers();
   const { mutate:getAllBlockedUsers, AllBlockedUsers } = useAllBlockedUsers();
-  const { mutate:getAllUsers , AllUsers } = useAllUsers();
+  const { mutate:getAllGroups , AllGroups } = useAllGroups();
+
 
   useEffect(() => {
     ArchivedUser(user.userId);
@@ -33,11 +34,17 @@ function QuickActions({setUsersToShow }) {
         setUsersToShow(AllBlockedUsers);
         setShowUsers(pre=>!pre);
       }
-      else if(UsersType==="AllUsers"){
-        getAllUsers();
-        setUsersToShow(AllUsers);
+      else if(UsersType==="AllGroups"){
+        getAllGroups(user.userId);
+        const mappedGroups = AllGroups.map((group) => ({
+          username: group.chatPartnerName,
+          profilePictureUrl: group.chatPartnerImage,
+          userId: group.chatPartnerId,
+        }));
+        setUsersToShow(mappedGroups);
         setShowUsers(pre=>!pre);
-      }else if(UsersType==="allPreviousChats"){
+      }
+      else if(UsersType==="allPreviousChats"){
         setShowUsers(false);
       }
   }
@@ -66,8 +73,8 @@ function QuickActions({setUsersToShow }) {
       </div>
       <FaUsers 
             className={StyledIcon}
-            onClick={()=>handleUsersToShow("AllUsers")} />
-      <MdGroupAdd  className={StyledIcon}/>
+            onClick={()=>handleUsersToShow("AllGroups")} />
+      <CreateGroup />
     </div>
   );
 }

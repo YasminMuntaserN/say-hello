@@ -23,7 +23,7 @@ export function Connections() {
       mutate(user.userId);
     }
   }, [mutate, user?.userId, refetchChats, updatedPartnerOperations]);
-  
+  console.log(usersToShow);
   return (
     <div className="bg-[#f8fafc] h-screen flex flex-col">
       <QuickActions setUsersToShow={setUsersToShow} AllUsersBySenderId={AllUsersBySenderId}/>
