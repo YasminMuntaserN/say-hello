@@ -42,6 +42,33 @@ namespace sayHello.Business
         public async Task<IEnumerable<GroupDetailsDto>> GetAllGroupsAsync()
             => await GetAllAsync();
 
+
+        public async Task<IEnumerable<GroupConversationDetailsDto>> GetAllGroupsContainingUserAsync(int senderId)
+        {
+            try
+            {
+                var groups = await _context.GroupMembers
+                    .Where(gm => gm.UserId == senderId)
+                    .Join(_context.Groups, 
+                        gm => gm.GroupId, 
+                        g => g.GroupId, 
+                        (gm, g) => new GroupConversationDetailsDto
+                        {
+                            ChatPartnerId = g.GroupId,
+                            ChatPartnerName = g.Name,
+                            ChatPartnerImage = g.ImageUrl
+                        })
+                    .ToListAsync();
+
+                return groups;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving all groups by Sender ID.");
+                throw;
+            }
+        }
+        
         public async Task<bool> HardDeleteGroupAsync(int GroupId)
             => await HardDeleteAsync(GroupId, "GroupId");
 

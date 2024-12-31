@@ -1,8 +1,9 @@
 ﻿namespace sayHello.DTOs.Group;
 
-    public record CreateGroupDto(
-    string Name,
-    string ImageUrl,
-    DateTime? CreatedAt = default
-);
+public class CreateGroupDto
+{
+    public string Name{ get; set; }
+    public string? ImageUrl{ get; set; }
+    public DateTime? CreatedAt { get; set; } = default;
+}
 
