@@ -15,8 +15,8 @@ function ChatPartnerOperation() {
   const { BlockedUser, isLoading: isBlocking, error: blockError } = useBlockedUser();
   const { unArchivedUser, isLoading: isUnArchiving, error: UnArchiveError } = useDeleteArchivedUser();
   const { unBlockedUser, isLoading: isUnBlocking, error: UnBlockError } = useDeleteBlockedUser();
-  const { isArchived } = useIsArchivedUser(userInChat.userId, user.userId);
-  const { isBlocked } = useIsBlockedUser(userInChat.userId, user.userId);
+  const { isArchived } = useIsArchivedUser(userInChat.type.userId, user.userId);
+  const { isBlocked } = useIsBlockedUser(userInChat.type.userId, user.userId);
   
   console.log(`isBlocked ${isBlocked},isArchived ${isArchived}`);
 
@@ -24,12 +24,12 @@ function ChatPartnerOperation() {
     operation(operation==ArchivedUser?
       {
         userId: user.userId,
-        archivedUserId: userInChat.userId,
+        archivedUserId: userInChat.type.userId,
         dateArchived: new Date().toISOString(),
       }:
       {
         userId: user.userId,
-        blockedByUserId: userInChat.userId,
+        blockedByUserId: userInChat.type.userId,
         dateBlocked: new Date().toISOString(),
       }
       ,
@@ -45,11 +45,11 @@ function ChatPartnerOperation() {
   const handleRemoveOperation = (operation) => {
     operation(operation==unArchivedUser ?
       {
-        ArchivedUserId: userInChat.userId,
+        ArchivedUserId: userInChat.type.userId,
         ArchivedByUserId: user.userId,
       }:
       {
-        BlockedUserId: userInChat.userId,
+        BlockedUserId: userInChat.type.userId,
         BlockedByUserId: user.userId,
       }
       ,

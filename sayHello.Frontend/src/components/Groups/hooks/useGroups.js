@@ -1,6 +1,10 @@
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import { addGroup, getAllGroups } from "../../../services/apiGroup";
+import {
+  addGroup,
+  getAllGroups,
+  getGroupsCount,
+} from "../../../services/apiGroup";
 
 export function useAddGroup() {
   const {
@@ -38,4 +42,21 @@ export function useAllGroups() {
     },
   });
   return { mutate, isLoading, error, AllGroups };
+}
+
+export function useGroupsCount() {
+  const {
+    mutate: Group,
+    isLoading,
+    error,
+    data: GroupsCount,
+  } = useMutation({
+    mutationKey: ["Groups"],
+    mutationFn: getGroupsCount,
+    onError: (err) => {
+      console.log(`${err.message}`);
+    },
+  });
+
+  return { Group, isLoading, error, GroupsCount };
 }
