@@ -41,5 +41,12 @@ public class GroupMemberController : BaseController
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<GroupDetailsMemberDto>> CreateGroupMember([FromForm] CreateGroupMemberDto newGroupMemberDto)
     => await HandleResponse(() => _GroupMemberService.AddGroupMemberAsync(newGroupMemberDto));
+    
+    [HttpGet("count", Name = "GetAllGroupsContainingUserCount")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<int>> GetAllGroupsContainingUserCount(int id)
+        => await HandleResponse(()=>_GroupMemberService.GetAllGroupsContainingUserCountAsync(id), "Groups count retrieved successfully");
 
 }

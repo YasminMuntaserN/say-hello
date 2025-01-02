@@ -28,7 +28,7 @@ namespace sayHello.Business.Services
             await Clients.Group(chatRoom).SendAsync("UserJoinedRoom", userId);
         }
 
-        public async Task SendMessage(string chatRoom, CreateMessageDto dto)
+        public async Task<MessageDetailsDto> SendMessage(string chatRoom, CreateMessageDto dto)
         {
             if (string.IsNullOrEmpty(chatRoom) || dto == null)
                 throw new ArgumentException("Invalid chatRoom or messageDto.");
@@ -38,6 +38,7 @@ namespace sayHello.Business.Services
               
                 var message = await _MessageService.AddMessageAsync(dto);
                 await Clients.Group(chatRoom).SendAsync("ReceiveMessage", message);
+                return message;
             }
             catch (Exception ex)
             {

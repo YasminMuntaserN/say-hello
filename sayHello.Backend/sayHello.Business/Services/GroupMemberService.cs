@@ -55,11 +55,16 @@ namespace sayHello.Business
                 throw;
             }
         }
+        
         public async Task<bool> HardDeleteGroupMemberAsync(int GroupMemberId)
             => await HardDeleteAsync(GroupMemberId, "GroupMemberId");
 
         public async Task<bool> GroupMemberExistsAsync(int GroupMemberId)
             => await ExistsAsync(GroupMemberId);
+        
+        public async Task<int> GetAllGroupsContainingUserCountAsync(int UserId)
+        =>await _context.GroupMembers.Where(gm => gm.UserId == UserId).CountAsync();
+        
 
     }
 }

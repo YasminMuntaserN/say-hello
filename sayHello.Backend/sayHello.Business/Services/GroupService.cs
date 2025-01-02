@@ -42,7 +42,6 @@ namespace sayHello.Business
         public async Task<IEnumerable<GroupDetailsDto>> GetAllGroupsAsync()
             => await GetAllAsync();
 
-
         public async Task<IEnumerable<GroupConversationDetailsDto>> GetAllGroupsContainingUserAsync(int senderId)
         {
             try
@@ -74,6 +73,7 @@ namespace sayHello.Business
 
         public async Task<bool> GroupExistsAsync(int GroupId)
             => await ExistsAsync(GroupId);
+        
 
     }
 }

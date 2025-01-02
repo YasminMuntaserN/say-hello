@@ -7,5 +7,6 @@ public record MessageDetailsDto(
     DateTime? ReadDT,
     string ReadStatus,
     int SenderId,
-    int? ReceiverId
-);
+    int? ReceiverId,
+    int? GroupId
+    );

@@ -110,7 +110,17 @@ namespace sayHello.Business
                     (m.SenderId == receiverId && m.ReceiverId == senderId))
                 .OrderBy(m => m.SendDT) 
                 .ToListAsync();
-            
+            return _mapper.Map<IEnumerable<MessageDetailsDto>>(messages);
+        }
+        
+      
+        // this method will  retrieving conversations in Group
+        public async Task<IEnumerable<MessageDetailsDto>> GetMessagesInChatRoomForGroupAsync(int groupId)
+        {
+            var messages = await _context.Messages
+                .Where(m => m.GroupId == groupId)
+                .OrderBy(m => m.SendDT) 
+                .ToListAsync();
             return _mapper.Map<IEnumerable<MessageDetailsDto>>(messages);
         }
     }

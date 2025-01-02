@@ -4,5 +4,6 @@ public record CreateMessageDto(
     int SenderId,
     string ReadStatus,
     int? ReceiverId,
+    int? GroupId,
     DateTime? SendDT = default
 );
