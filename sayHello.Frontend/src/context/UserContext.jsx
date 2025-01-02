@@ -32,7 +32,7 @@ export function ChatProvider({ children }) {
           receiverImage:value.chatPartnerImage,
           lastMessageStatus:value.lastMessageStatus
         };
-      setInChat(mappedChatInfoFromPreviousChats);
+      setInChat({type:mappedChatInfoFromPreviousChats ,from:"previous chat partner"});
     } 
     //here the chat will be from the add friends 
     else if (value.userId && value.username && value.profilePictureUrl && value.status) {
@@ -42,8 +42,19 @@ export function ChatProvider({ children }) {
         receiverName: value.username,
         lastMessageStatus: value.status
       };
-      setInChat(mappedChatInfo);
-    } else {
+
+      setInChat({type:mappedChatInfo ,from:"new chat partner"});
+    } 
+    //here the chat will be from the add group 
+    else if (value.userId && value.username && value.profilePictureUrl) {
+    const mappedChatInfo = {
+      userId: value.userId,
+      receiverImage: value.profilePictureUrl,
+      receiverName: value.username,
+      lastMessageStatus: "Read"
+    };
+    setInChat({type:mappedChatInfo ,from:"group"});
+  } else {
       console.log("Unknown object structure. Cannot set user in chat.");
     }
   }

@@ -6,7 +6,7 @@ const GroupContext = createContext();
 
 export function GroupProvider({ children }) {
   const {user}=useChat();
-  const [MemberInGroup, setMemberInGroup] = useState([user.userId]);
+  const [MemberInGroup, setMemberInGroup] = useState([user?.userId]);
   const { mutate } = useAddGroupMember();
 
   const addGroupMember = (userId) => {
