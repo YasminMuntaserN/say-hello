@@ -7,7 +7,7 @@ import Image from "../../ui/Image";
 import { useGroup } from "../../context/GroupContext";
 
 function AddFriendCard({ user ,groupMember=false}) {
-  console.log(user);
+  console.log(JSON.stringify(user));
   const {setUserInChat ,setShowChatPartnerOperations}=useChat();
   const {addGroupMember }=useGroup();
   const { userId,username, profilePictureUrl ,bio} = user;

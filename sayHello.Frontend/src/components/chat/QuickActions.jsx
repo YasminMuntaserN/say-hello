@@ -7,12 +7,13 @@ import { useEffect } from "react";
 import { useAllBlockedUsers, useBlockedUserCount } from "../User/hooks/useBlockedUser";
 import { useChat } from "../../context/UserContext";
 import CreateGroup from "../Groups/CreateGroup";
-import { useAllGroups } from "../Groups/hooks/useGroups";
+import { useAllGroups, useGroupsCount } from "../Groups/hooks/useGroups";
 
 function QuickActions({setUsersToShow }) {
   const{user ,updatedPartnerOperations ,setShowUsers} =useChat();
   const {  ArchivedUser, ArchivedUsersCount } = useArchivedUserCount();
   const {  BlockedUser, BlockedUsersCount } = useBlockedUserCount();
+  const { Group, GroupsCount }=useGroupsCount();
   const { mutate:getAllArchivedUsers, AllArchivedUsers } = useAllArchivedUsers();
   const { mutate:getAllBlockedUsers, AllBlockedUsers } = useAllBlockedUsers();
   const { mutate:getAllGroups , AllGroups } = useAllGroups();
@@ -21,7 +22,8 @@ function QuickActions({setUsersToShow }) {
   useEffect(() => {
     ArchivedUser(user.userId);
     BlockedUser(user.userId);
-  },[ArchivedUser , BlockedUser ,user.userId,updatedPartnerOperations]);
+    Group(user.userId);
+  },[ArchivedUser , BlockedUser ,Group,user.userId,updatedPartnerOperations]);
 
   const handleUsersToShow =(UsersType)=>{
       if(UsersType==="ArchivedUsers"){
@@ -71,9 +73,16 @@ function QuickActions({setUsersToShow }) {
           <span className={StyledCount}>{BlockedUsersCount}</span>
         )}
       </div>
+      <div className="relative">
       <FaUsers 
-            className={StyledIcon}
-            onClick={()=>handleUsersToShow("AllGroups")} />
+            onClick={()=>handleUsersToShow("AllGroups")} 
+            className={`${StyledIcon} ${GroupsCount > 0 ? "text-purple" : ""}`}
+        />
+        {GroupsCount > 0 && (
+          <span className={StyledCount}>{GroupsCount}</span>
+        )}
+      </div>
+
       <CreateGroup />
     </div>
   );

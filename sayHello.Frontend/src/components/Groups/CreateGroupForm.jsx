@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import AddFriendCard from "../chat/AddFriendCard";
 import { useAddGroup } from "./hooks/useGroups";
 import { useGroup } from "../../context/GroupContext";
+import { useChat } from "../../context/UserContext";
 
 
 function CreateGroupForm({onClose}) {
@@ -21,6 +22,7 @@ function CreateGroupForm({onClose}) {
   const { mutate, AllUsers } = useAllUsers();
   const { mutate: addGroup, isLoading, error }=useAddGroup();
   const {SaveGroupMembers}=useGroup();
+  const {setUpdatedPartnerOperations}=useChat();
 
   function onSubmit(data) {
     console.log(data);
@@ -38,6 +40,7 @@ function CreateGroupForm({onClose}) {
         console.log("group" ,data);
         reset();
         SaveGroupMembers(data.groupId);
+        setUpdatedPartnerOperations(true);
         onClose?.();
       }
     });
