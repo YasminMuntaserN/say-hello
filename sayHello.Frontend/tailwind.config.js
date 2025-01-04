@@ -37,6 +37,8 @@ export default {
       },
       backgroundImage: {
         "gradient-bg": "linear-gradient(to right, #280B31, #04213D)",
+        "secondary-bg":
+          "linear-gradient(to top ,#632969,#9D38D2, #04213D,#2E8DEC,#280B31)",
         "gradient-btn": "linear-gradient(to top, #632969,#9D38D2, #2E8DEC)",
         "gradient-message":
           "linear-gradient(to right, #632969,#9D38D2, #2E8DEC)",
