@@ -46,7 +46,8 @@ namespace sayHello.Business
         {
             try
             {
-                var entities = await _context.GroupMembers.Where(gm => gm.GroupId == GroupId).ToListAsync();
+                var entities = await _context.GroupMembers.Include(gr=>gr.User)
+                               .Where(gm => gm.GroupId == GroupId).ToListAsync();
                 return _mapper.Map<IEnumerable<GroupDetailsMemberDto>>(entities);
             }
             catch (Exception ex)
@@ -55,10 +56,15 @@ namespace sayHello.Business
                 throw;
             }
         }
+
+        public async Task<int> GroupMembersCountAsync(int GroupId)
+            => await _context.GroupMembers.Where(gm => gm.GroupId == GroupId).CountAsync();        
         
         public async Task<bool> HardDeleteGroupMemberAsync(int GroupMemberId)
-            => await HardDeleteAsync(GroupMemberId, "GroupMemberId");
+            => await HardDeleteAsync(GroupMemberId, "Id");
 
+        public async Task<bool> HardDeleteGroupMemberByUserIdAsync(int UserId)
+            => await HardDeleteAsync(UserId, "UserId");
         public async Task<bool> GroupMemberExistsAsync(int GroupMemberId)
             => await ExistsAsync(GroupMemberId);
         

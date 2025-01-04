@@ -39,7 +39,7 @@ public class MessagesController : BaseController
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<IEnumerable<MessageDetailsDto>>> GetMessagesInChatRoom(int senderId, int receiverId)
+    public async Task<ActionResult<IEnumerable<MessageDetailsWithUsersInfoDto>>> GetMessagesInChatRoom(int senderId, int receiverId)
         => await HandleResponse(() => _MessageService.GetMessagesInChatRoomAsync(senderId,receiverId), "Messages retrieved successfully");
     
    
@@ -47,7 +47,7 @@ public class MessagesController : BaseController
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<IEnumerable<MessageDetailsDto>>> GetMessagesInChatRoomForGroup(int groupId)
+    public async Task<ActionResult<IEnumerable<MessageDetailsWithUsersInfoDto>>> GetMessagesInChatRoomForGroup(int groupId)
         => await HandleResponse(() => _MessageService.GetMessagesInChatRoomForGroupAsync(groupId), "Messages retrieved successfully");
     
     
