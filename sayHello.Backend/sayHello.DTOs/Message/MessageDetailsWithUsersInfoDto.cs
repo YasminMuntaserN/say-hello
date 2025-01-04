@@ -1,6 +1,6 @@
 namespace sayHello.DTOs.Message;
   
-public class MessageDetailsWithImgsDto
+public class MessageDetailsWithUsersInfoDto
 {
     public int MessageId { get; set; }
     public string Content{ get; set; }
@@ -10,6 +10,6 @@ public class MessageDetailsWithImgsDto
     public int SenderId{ get; set; }
     public int? ReceiverId{ get; set; }
     public int? GroupId{ get; set; }
-    public string? SenderImg{ get; set; }
-    public string? ReceiverImg{ get; set; }
+    public string? SenderName{ get; set; }
+    public string? ReceiverName{ get; set; }
 }
