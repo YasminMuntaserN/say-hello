@@ -11,7 +11,7 @@ function FriendChatCard({chatInfo}) {
   
     const OnClick =()=>{
       setUserInChat(chatInfo);
-      setShowChatPartnerOperations(pre=>!pre);
+      setShowChatPartnerOperations(false);
     };
 
     return (

@@ -9,8 +9,8 @@ import { useChat } from "../../context/UserContext";
 import CreateGroup from "../Groups/CreateGroup";
 import { useAllGroups, useGroupsCount } from "../Groups/hooks/useGroups";
 
-function QuickActions({setUsersToShow }) {
-  const{user ,updatedPartnerOperations ,setShowUsers} =useChat();
+function QuickActions() {
+  const{user ,updatedPartnerOperations ,setShowUsers ,setUsersToShow} =useChat();
   const {  ArchivedUser, ArchivedUsersCount } = useArchivedUserCount();
   const {  BlockedUser, BlockedUsersCount } = useBlockedUserCount();
   const { Group, GroupsCount }=useGroupsCount();

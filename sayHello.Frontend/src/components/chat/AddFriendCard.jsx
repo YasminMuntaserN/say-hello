@@ -7,7 +7,6 @@ import Image from "../../ui/Image";
 import { useGroup } from "../../context/GroupContext";
 
 function AddFriendCard({ user ,groupMember=false}) {
-  console.log(JSON.stringify(user));
   const {setUserInChat ,setShowChatPartnerOperations}=useChat();
   const {addGroupMember }=useGroup();
   const { userId,username, profilePictureUrl ,bio} = user;
@@ -15,8 +14,9 @@ function AddFriendCard({ user ,groupMember=false}) {
 
   const handleAddNewChat =()=>{
     setUserInChat(user);
-    setShowChatPartnerOperations(pre=>!pre);
+    setShowChatPartnerOperations(false);
   };
+  
   const handleAddNewMemberToGroup =()=>{
     addGroupMember(userId);
     setGroupMemberAdded(true);

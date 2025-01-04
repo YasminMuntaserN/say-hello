@@ -3,8 +3,8 @@ import { useAllUsers } from '../user/hooks/useAllUsers';
 import { useChat } from '../../context/UserContext';
 import AddIcon from '../../ui/AddIcon';
 
-function AddFriend({ setUsersToShow }) {
-  const { showUsers, setShowUsers } = useChat();
+function AddFriend() {
+  const { showUsers, setShowUsers ,setUsersToShow} = useChat();
   const { mutate, AllUsers } = useAllUsers();
 
   const handleClick = () => {
