@@ -102,26 +102,31 @@ namespace sayHello.Business
 
        
         // this method will  retrieving conversations between a sender and a receiver.
-        public async Task<IEnumerable<MessageDetailsDto>> GetMessagesInChatRoomAsync(int senderId, int receiverId)
+        public async Task<IEnumerable<MessageDetailsWithUsersInfoDto>> GetMessagesInChatRoomAsync(int senderId, int receiverId)
         {
             var messages = await _context.Messages
+                .Include(m => m.Sender)  
+                .Include(m => m.Receiver)
                 .Where(m => 
                     (m.SenderId == senderId && m.ReceiverId == receiverId) || 
                     (m.SenderId == receiverId && m.ReceiverId == senderId))
                 .OrderBy(m => m.SendDT) 
                 .ToListAsync();
-            return _mapper.Map<IEnumerable<MessageDetailsDto>>(messages);
+            
+            return _mapper.Map<IEnumerable<MessageDetailsWithUsersInfoDto>>(messages);
         }
         
       
         // this method will  retrieving conversations in Group
-        public async Task<IEnumerable<MessageDetailsDto>> GetMessagesInChatRoomForGroupAsync(int groupId)
+        public async Task<IEnumerable<MessageDetailsWithUsersInfoDto>> GetMessagesInChatRoomForGroupAsync(int groupId)
         {
             var messages = await _context.Messages
+                .Include(m => m.Sender)  
+                .Include(m => m.Receiver)
                 .Where(m => m.GroupId == groupId)
                 .OrderBy(m => m.SendDT) 
                 .ToListAsync();
-            return _mapper.Map<IEnumerable<MessageDetailsDto>>(messages);
+            return _mapper.Map<IEnumerable<MessageDetailsWithUsersInfoDto>>(messages);
         }
     }
 }

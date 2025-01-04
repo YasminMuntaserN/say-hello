@@ -55,7 +55,7 @@ namespace sayHello.Business
                         {
                             ChatPartnerId = g.GroupId,
                             ChatPartnerName = g.Name,
-                            ChatPartnerImage = g.ImageUrl
+                            ChatPartnerImage = g.ImageUrl,
                         })
                     .ToListAsync();
 
