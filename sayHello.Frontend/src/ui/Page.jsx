@@ -10,4 +10,3 @@ function Page({children}) {
 }
 const StyledContainer ="relative m-0  bg-cover bg-no-repeat bg-center lg:h-screen lg:overflow-hidden sm:overflow-y-auto md:overflow-y-auto";
 export default Page
-//sm:ml-[-120px]
