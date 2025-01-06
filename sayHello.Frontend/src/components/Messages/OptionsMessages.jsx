@@ -29,6 +29,6 @@ function OptionsMessages({ addMessage }) {
 
 const StyledMessage =
   "bg-gradient-message cursor-pointer rounded-tl-full text-lg px-5 rounded-full  m-3 p-3 w-fit text-white hover:bg-gradient-to-r hover:from-blue-500 hover:bg-secondary";
-const optionsContainer ="flex-grow flex justify-center items-end h-[520px]";  
+const optionsContainer ="flex-grow flex justify-center items-end h-[500px]";  
 
 export default OptionsMessages;

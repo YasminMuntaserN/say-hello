@@ -4,13 +4,13 @@ import { HiDotsHorizontal } from "react-icons/hi";
 
 function MessageHeader({receiver}) {
   const {receiverImage, receiverName, status  } = receiver;
-  const { setShowChatPartnerOperations} =useChat();
+  const { setShowChatPartnerOperations ,showChatPartnerOperations} =useChat();
 
   const statusColor= status=="Online"?"text-[#188D3F]":"text-lightTextColor";
 
   return (
     <div className={StyledContainer}>
-        <div className="ml-[-700px]">
+        <div className={`${showChatPartnerOperations ?"ml-[-500px]":"ml-[-700px]"}`}>
           <Image src={receiverImage} alt={`${receiverImage}'s profile`} />
         </div>
         <div className="flex flex-col">
