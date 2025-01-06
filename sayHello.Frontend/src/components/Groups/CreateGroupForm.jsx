@@ -5,27 +5,35 @@ import Line from "../../ui/Line";
 import Button from "../../ui/Button";
 import SpinnerMini from "../../ui/SpinnerMini";
 import { useAllUsers } from "../user/hooks/useAllUsers";
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import AddFriendCard from "../chat/AddFriendCard";
 import { useAddGroup } from "./hooks/useGroups";
 import { useGroup } from "../../context/GroupContext";
 import { useChat } from "../../context/UserContext";
+import SearchBar from "../../ui/SearchBar";
 
 
-function CreateGroupForm({onClose}) {
+function CreateGroupForm({onClose ,groupInfo}) {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
+  const groupId = groupInfo?.groupId ?? null;
+  const groupMembers = groupInfo?.groupMembers ?? [];
+  
   const { mutate, AllUsers } = useAllUsers();
   const { mutate: addGroup, isLoading, error }=useAddGroup();
-  const {SaveGroupMembers}=useGroup();
+  const {SaveGroupMembers ,setUpdateGroupMembers}=useGroup();
   const {setUpdatedPartnerOperations}=useChat();
+  const [filteredUsers, setFilteredUsers] = useState([]); 
+  const [Users, setUsers] = useState([]); 
+  const AddNewMember = !!groupInfo;
+  console.log(AddNewMember);
 
   function onSubmit(data) {
-    console.log(data);
+    if (!AddNewMember) {
       if (!data) return;
       const formData = new FormData();
       formData.append("Name",data.GroupName);
@@ -43,18 +51,52 @@ function CreateGroupForm({onClose}) {
         setUpdatedPartnerOperations(true);
         onClose?.();
       }
-    });
+    })
+    }else{
+      SaveGroupMembers(groupId);
+      setUpdatedPartnerOperations(true);
+      setUpdateGroupMembers(true)
+      onClose?.();
+    } 
   }
   
-  useEffect(()=>mutate(),[]);
+  const filteredInitialUsers = useMemo(() => {
+    if (!AllUsers) return [];
+    return AddNewMember
+      ? AllUsers.filter(user => !groupMembers.some(member => member.userId === user.userId))
+      : AllUsers;
+  }, [AllUsers, groupMembers, AddNewMember]);
+
+  const handleSearch = (query) => {
+    if (!query.trim()) {
+      setFilteredUsers(Users);
+      return;
+    }
+    const filtered = Users?.filter(user => 
+      user.username.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredUsers(filtered);
+  };
+
+  useEffect(() => {
+    mutate();
+  }, [mutate]);
+
+  useEffect(() => {
+    if (AllUsers?.length > 0) {
+      setUsers(filteredInitialUsers);
+      setFilteredUsers(filteredInitialUsers);
+    }
+  }, [AllUsers, filteredInitialUsers]);
+
 
   return (
   <div className="w-[700px]  p-5 ">
     <div className="border-[#6b4ca0] border-2 p-5 rounded-xl ">
-    <h1 className="text-center text-secondary  font-bold text-3xl">Create Group</h1>
+    <h1 className="text-center text-secondary  font-bold text-3xl">{AddNewMember ?"Add New Member" :"Create Group"}</h1>
     {error && <p>Something happened when creating the group</p>}
-    <form onSubmit={handleSubmit(onSubmit)}>
-    <div className="flex items-center w-full justify-around">
+    <form onSubmit={handleSubmit(onSubmit)} >
+    <div className={`flex items-center w-full justify-around ${AddNewMember ? "opacity-10 pointer-events-none" : "" }`}>
       <label
         htmlFor="ProfilePicture"
         className="cursor-pointer text-5xl text-center"
@@ -78,8 +120,9 @@ function CreateGroupForm({onClose}) {
 
       <Line />
       <div className="flex-grow overflow-y-auto h-[350px] m-5">
+      <SearchBar onSearch={handleSearch} />
         {
-          AllUsers?.map((user) => (
+          filteredUsers?.map((user) => (
             <AddFriendCard key={user.userId} user={user} groupMember={true}/>
           ))
         }
