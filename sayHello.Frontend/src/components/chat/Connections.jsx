@@ -6,6 +6,7 @@ import FriendChatCard from './FriendChatCard';
 import AddFriend from './AddFriend';
 import AddFriendCard from './AddFriendCard';
 import { useChat } from '../../context/UserContext';
+import LoadingChattingCards from '../../ui/LoadingChatingCards';
 
 export function Connections() {
   const { user, showUsers, refetchChats, updatedPartnerOperations, usersToShow } = useChat();
@@ -44,7 +45,7 @@ export function Connections() {
       <AddFriend />
       <SearchBar onSearch={handleSearch} />
 
-      {isLoading && <p>Loading messages...</p>}
+      {isLoading && <LoadingChattingCards/>}
       {error && <p>Error fetching messages: {error.message}</p>}
 
       <div className="flex-grow overflow-y-auto h-[450px]">

@@ -57,7 +57,7 @@ function LoginForm() {
               FieldName="Password"
         />
         <Button variant="submit" type="submit">
-          {isLoading ?  <SpinnerMini/> :<>Login... <IoMdLogIn className="text-white text-3xl"  /></>}
+          {isLoading ?  <SpinnerMini/> : <>Login... <IoMdLogIn className="text-white text-3xl"  /></>}
           </Button>
       </form>
       <div className="flex ml-20  mt-[-50px] justify-end">
