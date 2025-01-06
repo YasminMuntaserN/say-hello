@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 
 export function useConfirmationEmail() {
   const queryClient = useQueryClient();
-  const { mutate, isLoading } = useMutation({
+  const { mutate, status } = useMutation({
     mutationFn: handleConfirmationEmail,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["Email"] });
@@ -17,5 +17,5 @@ export function useConfirmationEmail() {
     },
   });
 
-  return { isLoading, mutate };
+  return { isLoading: status === "pending", mutate };
 }

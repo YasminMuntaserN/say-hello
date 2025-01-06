@@ -6,7 +6,6 @@ export const addMessage = async (message) =>
 
 //https://localhost:7201/Messages/all/16/17
 export const getMessagesInChatRoom = async ({ senderId, receiverId }) => {
-  // await getAllBy("Messages", `${senderId}/${receiverId}`);
   console.log(`https://localhost:7201/Messages/all/${senderId}/${receiverId}`);
   try {
     const res = await fetch(
@@ -25,3 +24,7 @@ export const getMessagesInChatRoom = async ({ senderId, receiverId }) => {
     throw error;
   }
 };
+
+//https://localhost:7201/Messages/all/1010
+export const GetMessagesInChatRoomForGroup = async (groupId) =>
+  await getAllBy("Messages", `${groupId}`);

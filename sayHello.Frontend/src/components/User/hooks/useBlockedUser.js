@@ -12,7 +12,7 @@ export function useBlockedUser() {
   const queryClient = useQueryClient();
   const {
     mutate: BlockedUser,
-    isLoading,
+    status,
     error,
     data: User,
   } = useMutation({
@@ -26,14 +26,14 @@ export function useBlockedUser() {
     },
     mutationKey: ["BlockedUsers"],
   });
-  return { BlockedUser, isLoading, error, User };
+  return { BlockedUser, isLoading: status === "pending", error, User };
 }
 
 export function useBlockedUserCount() {
   const queryClient = useQueryClient();
   const {
     mutate: BlockedUser,
-    isLoading,
+    status,
     error,
     data: BlockedUsersCount,
   } = useMutation({
@@ -47,23 +47,28 @@ export function useBlockedUserCount() {
     },
   });
 
-  return { BlockedUser, isLoading, error, BlockedUsersCount };
+  return {
+    BlockedUser,
+    isLoading: status === "pending",
+    error,
+    BlockedUsersCount,
+  };
 }
 
 export function useIsBlockedUser(BlockedUserId, BlockedByUserId) {
-  const { error, isLoading, data } = useQuery({
+  const { error, status, data } = useQuery({
     queryFn: () => isBlockedUser(BlockedUserId, BlockedByUserId),
     queryKey: ["BlockedUsers", { BlockedUserId, BlockedByUserId }],
   });
 
-  return { error, isLoading, isBlocked: data };
+  return { error, isLoading: status === "pending", isBlocked: data };
 }
 
 export function useDeleteBlockedUser() {
   const queryClient = useQueryClient();
   const {
     mutate: unBlockedUser,
-    isLoading,
+    status,
     error,
     data: IsUnBlocked,
   } = useMutation({
@@ -77,14 +82,14 @@ export function useDeleteBlockedUser() {
     },
     mutationKey: ["BlockedUsers"],
   });
-  return { unBlockedUser, isLoading, error, IsUnBlocked };
+  return { unBlockedUser, isLoading: status === "pending", error, IsUnBlocked };
 }
 
 export function useAllBlockedUsers() {
   const queryClient = useQueryClient();
   const {
     mutate,
-    isLoading,
+    status,
     error,
     data: AllBlockedUsers,
   } = useMutation({
@@ -98,5 +103,5 @@ export function useAllBlockedUsers() {
     },
   });
 
-  return { mutate, isLoading, error, AllBlockedUsers };
+  return { mutate, isLoading: status === "pending", error, AllBlockedUsers };
 }

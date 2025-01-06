@@ -7,7 +7,7 @@ export function useAddUser() {
 
   const {
     mutate,
-    isLoading,
+    status,
     error,
     data: User,
   } = useMutation({
@@ -20,13 +20,13 @@ export function useAddUser() {
       toast.error(`${err.message}`);
     },
   });
-  return { mutate, isLoading, error, User };
+  return { mutate, isLoading: status === "pending", error, User };
 }
 
 export function useDeleteUser() {
   const queryClient = useQueryClient();
 
-  const { mutate, isLoading, error } = useMutation({
+  const { mutate, status, error } = useMutation({
     mutationFn: DeleteUser,
     onSuccess: () => {
       toast.success("User Deleted successfully");
@@ -36,5 +36,5 @@ export function useDeleteUser() {
       toast.error(`${err.message}`);
     },
   });
-  return { mutate, isLoading, error };
+  return { mutate, isLoading: status === "pending", error };
 }

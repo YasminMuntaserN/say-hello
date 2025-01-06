@@ -9,7 +9,7 @@ import {
 export function useAddGroup() {
   const {
     mutate,
-    isLoading,
+    status,
     error,
     data: Group,
   } = useMutation({
@@ -22,13 +22,13 @@ export function useAddGroup() {
       toast.error(`${err.message}`);
     },
   });
-  return { mutate, isLoading, error, Group };
+  return { mutate, isLoading: status === "pending", error, Group };
 }
 
 export function useAllGroups() {
   const {
     mutate,
-    isLoading,
+    status,
     error,
     data: AllGroups,
   } = useMutation({
@@ -41,13 +41,13 @@ export function useAllGroups() {
       console.log(`${err.message}`);
     },
   });
-  return { mutate, isLoading, error, AllGroups };
+  return { mutate, isLoading: status === "pending", error, AllGroups };
 }
 
 export function useGroupsCount() {
   const {
     mutate: Group,
-    isLoading,
+    status,
     error,
     data: GroupsCount,
   } = useMutation({
@@ -58,5 +58,5 @@ export function useGroupsCount() {
     },
   });
 
-  return { Group, isLoading, error, GroupsCount };
+  return { Group, isLoading: status === "pending", error, GroupsCount };
 }

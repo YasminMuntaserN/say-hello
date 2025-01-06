@@ -12,7 +12,7 @@ export function useArchivedUser() {
   const queryClient = useQueryClient();
   const {
     mutate: ArchivedUser,
-    isLoading,
+    status,
     error,
     data: User,
   } = useMutation({
@@ -26,14 +26,14 @@ export function useArchivedUser() {
     },
     mutationKey: ["ArchivedUsers"],
   });
-  return { ArchivedUser, isLoading, error, User };
+  return { ArchivedUser, isLoading: status === "pending", error, User };
 }
 
 export function useArchivedUserCount() {
   const queryClient = useQueryClient();
   const {
     mutate: ArchivedUser,
-    isLoading,
+    status,
     error,
     data: ArchivedUsersCount,
   } = useMutation({
@@ -47,23 +47,28 @@ export function useArchivedUserCount() {
     },
   });
 
-  return { ArchivedUser, isLoading, error, ArchivedUsersCount };
+  return {
+    ArchivedUser,
+    isLoading: status === "pending",
+    error,
+    ArchivedUsersCount,
+  };
 }
 
 export function useIsArchivedUser(ArchivedUserId, ArchivedByUserId) {
-  const { error, isLoading, data } = useQuery({
+  const { error, status, data } = useQuery({
     queryFn: () => isArchivedUser(ArchivedUserId, ArchivedByUserId),
     queryKey: ["ArchivedUsers", { ArchivedUserId, ArchivedByUserId }],
   });
 
-  return { error, isLoading, isArchived: data };
+  return { error, isLoading: status === "pending", isArchived: data };
 }
 
 export function useDeleteArchivedUser() {
   const queryClient = useQueryClient();
   const {
     mutate: unArchivedUser,
-    isLoading,
+    status,
     error,
     data: IsUnArchived,
   } = useMutation({
@@ -77,14 +82,19 @@ export function useDeleteArchivedUser() {
     },
     mutationKey: ["ArchivedUsers"],
   });
-  return { unArchivedUser, isLoading, error, IsUnArchived };
+  return {
+    unArchivedUser,
+    isLoading: status === "pending",
+    error,
+    IsUnArchived,
+  };
 }
 
 export function useAllArchivedUsers() {
   const queryClient = useQueryClient();
   const {
     mutate,
-    isLoading,
+    status,
     error,
     data: AllArchivedUsers,
   } = useMutation({
@@ -98,5 +108,5 @@ export function useAllArchivedUsers() {
     },
   });
 
-  return { mutate, isLoading, error, AllArchivedUsers };
+  return { mutate, isLoading: status === "pending", error, AllArchivedUsers };
 }

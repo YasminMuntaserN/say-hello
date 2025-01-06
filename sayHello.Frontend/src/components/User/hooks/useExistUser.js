@@ -7,7 +7,7 @@ export function useExistUser() {
 
   const {
     mutate,
-    isLoading,
+    status,
     error,
     data: User,
   } = useMutation({
@@ -27,13 +27,13 @@ export function useExistUser() {
     },
   });
 
-  return { mutate, isLoading, error, User };
+  return { mutate, isLoading: status === "pending", error, User };
 }
 
 export function useExistUserByEmail() {
   const {
     mutate: ExistUserByEmil,
-    isLoading,
+    status,
     error,
     data: User,
   } = useMutation({
@@ -44,5 +44,5 @@ export function useExistUserByEmail() {
     },
   });
 
-  return { ExistUserByEmil, isLoading, error, User };
+  return { ExistUserByEmil, isLoading: status === "pending", error, User };
 }

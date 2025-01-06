@@ -1,10 +1,16 @@
-import { addEntity, getAllBy } from "./BaseApi";
+import { addEntity, DeleteBy, getAllBy, getCount } from "./BaseApi";
 
-//https://localhost:7201/Group
 export const addGroup = async (group) => await addEntity(group, "Group");
 
 export const addGroupMember = async (groupMember) =>
   await addEntity(groupMember, "GroupMember");
 
-//https://localhost:7201/Group/all/2
 export const getAllGroups = async (id) => await getAllBy("Group", id);
+
+export const getAllGroupMembers = async (id) =>
+  await getAllBy("GroupMember", id);
+
+export const getGroupsCount = async (id) => await getCount("GroupMember", id);
+
+export const deleteGroupMember = async (id) =>
+  await DeleteBy("GroupMember/deleteGroupMember", id);

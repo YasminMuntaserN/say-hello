@@ -4,7 +4,7 @@ import { getAllBySenderId } from "../../../services/apiUser";
 export function useAllUsersBySenderId() {
   const {
     mutate,
-    isLoading,
+    status,
     error,
     data: AllUsers,
   } = useMutation({
@@ -15,5 +15,5 @@ export function useAllUsersBySenderId() {
     },
   });
 
-  return { mutate, isLoading, error, AllUsers };
+  return { mutate, isLoading: status === "pending", error, AllUsers };
 }

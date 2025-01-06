@@ -5,7 +5,7 @@ import { addMessage } from "../../../services/apiMessage";
 export function useAddMessage() {
   const {
     mutate,
-    isLoading,
+    status,
     error,
     data: message,
   } = useMutation({
@@ -18,5 +18,5 @@ export function useAddMessage() {
       toast.error(`${err.message}`);
     },
   });
-  return { mutate, isLoading, error, message };
+  return { mutate, isLoading: status === "pending", error, message };
 }

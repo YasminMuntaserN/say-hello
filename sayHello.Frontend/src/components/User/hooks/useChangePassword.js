@@ -6,7 +6,7 @@ import {
 import toast from "react-hot-toast";
 
 export function useChangePassword() {
-  const { mutate, error, loading } = useMutation({
+  const { mutate, error, status } = useMutation({
     mutationFn: (data) => ChangePassword(data.id, data.newPassword),
     onSuccess: () => {
       toast.success("User Password has been updated");
@@ -16,11 +16,11 @@ export function useChangePassword() {
     },
     mutationKey: "Users",
   });
-  return { mutate, error, loading };
+  return { mutate, error, isLoading: status === "pending" };
 }
 
 export function useRestorePassword() {
-  const { mutate, error, loading } = useMutation({
+  const { mutate, error, status } = useMutation({
     mutationFn: (data) => handleRestorePassword(data.email),
     onSuccess: () => {
       toast.success("Please check your inbox and follow the link provided.");
@@ -30,5 +30,5 @@ export function useRestorePassword() {
     },
     mutationKey: "Users",
   });
-  return { mutate, error, loading };
+  return { mutate, error, isLoading: status === "pending" };
 }

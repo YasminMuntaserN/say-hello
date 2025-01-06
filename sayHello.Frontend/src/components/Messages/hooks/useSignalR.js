@@ -11,12 +11,14 @@ function addUniqueMessages(existingMessages, newMessages) {
   ];
 }
 
-export function useSignalR(senderId, chatRoom, receiverId) {
+export function useSignalR(user, chatRoom, receiverId) {
+  const { type, from } = user;
+  const senderId = type.userId;
   const {
     mutate: RefetchMessages,
     isLoading,
     error: fetchError,
-  } = useAllMessagesInChatRoom();
+  } = useAllMessagesInChatRoom(from);
 
   const [messages, setMessages] = useState([]);
   const [error, setError] = useState(null);
@@ -40,7 +42,7 @@ export function useSignalR(senderId, chatRoom, receiverId) {
 
         // Fetch messages for the new room/receiver
         await RefetchMessages(
-          { senderId, receiverId },
+          from === "group" ? senderId : { senderId, receiverId },
           {
             onSuccess: (data) => {
               setMessages(data);
@@ -63,7 +65,8 @@ export function useSignalR(senderId, chatRoom, receiverId) {
           setMessages((prevMessages) =>
             addUniqueMessages(prevMessages, [message])
           );
-          setRefetchChats((pre) => !pre);
+          setRefetchChats(true);
+          // setRefetchChats((pre) => !pre);
         });
 
         conn.on("UserJoinedRoom", (joinedSenderId) => {
@@ -91,28 +94,26 @@ export function useSignalR(senderId, chatRoom, receiverId) {
         setConnecting(false);
       }
     };
-  }, [RefetchMessages, setRefetchChats, chatRoom, receiverId, senderId]);
+  }, [RefetchMessages, setRefetchChats, chatRoom, receiverId, senderId, from]);
 
   const sendMessage = async (message) => {
     if (connectionRef.current && message.trim()) {
       try {
-        console.log(`Sending message: ${message}`);
-
-        setMessages((prevMessages) => {
-          const existingIds = new Set(prevMessages.map((msg) => msg.messageId));
-          if (!existingIds.has(message.messageId)) {
-            return [...prevMessages, message];
+        const sentMessage = await connectionRef.current.invoke(
+          "SendMessage",
+          chatRoom,
+          {
+            content: message,
+            readStatus: "Read",
+            senderId: from === "group" ? receiverId : senderId,
+            receiverId: from !== "group" ? receiverId : null,
+            groupId: from === "group" ? senderId : null,
           }
-          return prevMessages;
-        });
+        );
 
-        await connectionRef.current.invoke("SendMessage", chatRoom, {
-          content: message,
-          readStatus: "Read",
-          senderId,
-          receiverId,
-        });
-        setRefetchChats((prev) => !prev);
+        setMessages((prevMessages) =>
+          addUniqueMessages(prevMessages, [sentMessage])
+        );
       } catch (err) {
         setError(err);
         console.error("Send message failed:", err);
