@@ -1,69 +1,103 @@
-import { createContext, useContext } from "react";
-import { useState } from "react";
-import { getStoredUser ,setStoredUser,removeStoredUser } from "../utils/storage";
+import { createContext, useContext, useState } from 'react';
+import { getStoredUser, setStoredUser, removeStoredUser } from '../utils/storage';
+import { useMessageBlocking } from '../components/Messages/hooks/useMessageBlocking';
 
 const ChatContext = createContext();
+
 export function ChatProvider({ children }) {
-  const [userInChat ,setInChat] = useState(null);
-  const [showUsers ,setShowUsers] = useState(false);
+  const [userInChat, setInChat] = useState(null);
+  const [showUsers, setShowUsers] = useState(false);
   const [user, setUser] = useState(getStoredUser());
   const [refetchChats, setRefetchChats] = useState(false);
   const [showChatPartnerOperations, setShowChatPartnerOperations] = useState(false);
   const [updatedPartnerOperations, setUpdatedPartnerOperations] = useState(false);
+  
+  const [usersToShow, setUsersToShow] = useState([]);
 
+  const {
+    preventedUsers,
+    handlePreventSendMessage,
+    checkIfUserPrevented,
+    removePreventedUser
+  } = useMessageBlocking();
 
   const login = (userInfo) => {
     setStoredUser(userInfo);
     setUser(userInfo);
-    console.log(userInfo);
   };
 
   const logout = () => {
     removeStoredUser();
     setUser(null);
   };
-  //here we want to but the chat partner
+
   function setUserInChat(value) {
-    // here the chat will be from previous chats
     if (value.chatPartnerId && value.chatPartnerName && value.chatPartnerImage) {
-      const mappedChatInfoFromPreviousChats = {
-          userId: value.chatPartnerId,
-          receiverName :value.chatPartnerName,
-          receiverImage:value.chatPartnerImage,
-          lastMessageStatus:value.lastMessageStatus
-        };
-      setInChat({type:mappedChatInfoFromPreviousChats ,from:"previous chat partner"});
+      const mappedChatInfo = {
+        userId: value.chatPartnerId,
+        receiverName: value.chatPartnerName,
+        receiverImage: value.chatPartnerImage,
+        lastMessageStatus: value.lastMessageStatus,
+        bio: value.bio
+      };
+      setInChat({ type: mappedChatInfo, from: "previous chat partner" });
     } 
-    //here the chat will be from the add friends 
     else if (value.userId && value.username && value.profilePictureUrl && value.status) {
       const mappedChatInfo = {
         userId: value.userId,
         receiverImage: value.profilePictureUrl,
         receiverName: value.username,
-        lastMessageStatus: value.status
+        lastMessageStatus: value.status,
+        bio: value.bio
       };
-
-      setInChat({type:mappedChatInfo ,from:"new chat partner"});
-    } 
-    //here the chat will be from the add group 
+      setInChat({ type: mappedChatInfo, from: "new chat partner" });
+    }
     else if (value.userId && value.username && value.profilePictureUrl) {
-    const mappedChatInfo = {
-      userId: value.userId,
-      receiverImage: value.profilePictureUrl,
-      receiverName: value.username,
-      lastMessageStatus: "Read"
-    };
-    setInChat({type:mappedChatInfo ,from:"group"});
-  } else {
-      console.log("Unknown object structure. Cannot set user in chat.");
+      const mappedChatInfo = {
+        userId: value.userId,
+        receiverImage: value.profilePictureUrl,
+        receiverName: value.username,
+        lastMessageStatus: "Read",
+        bio: ""
+      };
+      setInChat({ type: mappedChatInfo, from: "group" });
+    } 
+    else if (value.groupId && value.username && value.userId&& value.userImg) {
+      const mappedChatInfo = {
+        userId: value.userId,
+        receiverImage: value.userImg,
+        receiverName: value.username,
+        lastMessageStatus: "Read",
+        bio: value.bio
+      };
+      setInChat({ type: mappedChatInfo, from: "group member" });
+    }else {
+      setInChat(null);
     }
   }
 
-
   return (
-    <ChatContext.Provider value={{ user, login, logout,showUsers ,setShowUsers ,
-    userInChat ,setUserInChat ,refetchChats, setRefetchChats,
-    showChatPartnerOperations, setShowChatPartnerOperations ,updatedPartnerOperations, setUpdatedPartnerOperations}}>
+    <ChatContext.Provider value={{
+      user,
+      login,
+      logout,
+      showUsers,
+      setShowUsers,
+      userInChat,
+      setUserInChat,
+      refetchChats,
+      setRefetchChats,
+      usersToShow,
+      setUsersToShow,
+      showChatPartnerOperations,
+      setShowChatPartnerOperations,
+      updatedPartnerOperations,
+      setUpdatedPartnerOperations,
+      preventedUsers,
+      handlePreventSendMessage,
+      checkIfUserPrevented,
+      removePreventedUser
+    }}>
       {children}
     </ChatContext.Provider>
   );

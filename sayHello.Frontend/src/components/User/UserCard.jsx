@@ -2,6 +2,7 @@ import { MdEmail } from "react-icons/md";
 import Image from "../../ui/Image";
 
 function UserCard({user ,withBio=false}) {
+  console.log(user);  
   return (
     <>
     <div className="h-20 bg-lightText relative" />
@@ -13,7 +14,7 @@ function UserCard({user ,withBio=false}) {
           <p className="text-basic font-light text-sm flex justify-items-center ml-2">
           <MdEmail className="mt-1" />{user?.email}
           </p>
-          {withBio && <p>{user.bio}</p>}
+          {withBio && <p>{user?.bio}</p>}
       </div>
     </>
   )

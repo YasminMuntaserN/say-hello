@@ -7,6 +7,7 @@ const GroupContext = createContext();
 export function GroupProvider({ children }) {
   const {user}=useChat();
   const [MemberInGroup, setMemberInGroup] = useState([user?.userId]);
+  const [updateGroupMembers, setUpdateGroupMembers] = useState(false);
   const { mutate } = useAddGroupMember();
 
   const addGroupMember = (userId) => {
@@ -46,6 +47,8 @@ export function GroupProvider({ children }) {
         addGroupMember,
         RemoveGroupMember,
         SaveGroupMembers,
+        updateGroupMembers, 
+        setUpdateGroupMembers
       }}
     >
       {children}
