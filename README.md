@@ -116,6 +116,12 @@ SignalR manages group communication, ensuring every group member receives messag
 - Profiles can be edited to update information or reset passwords.  
   <div align="center">
     <img src="https://imgur.com/dt7Qxt6.jpg" alt="Edit Profile" />
+    <div align="center">
+    <img src="https://imgur.com/hjlPpAx.jpg" alt="Registration Verification" />
+  </div>
+    <div align="center">
+    <img src="https://imgur.com/W085fPA.jpg" alt="Registration Verification" />
+  </div>
     <img src="https://imgur.com/NEzABbg.jpg" alt="Reset Password" />
   </div>
 
