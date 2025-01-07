@@ -35,7 +35,6 @@ namespace sayHello.Business.Services
 
             try
             {
-              
                 var message = await _MessageService.AddMessageAsync(dto);
                 await Clients.Group(chatRoom).SendAsync("ReceiveMessage", message);
                 return message;

@@ -130,31 +130,32 @@ public class UsersController : BaseController
         {
             return BadRequest("Invalid email format.");
         }
-       
+
         EmailService _emailSender = new EmailService();
         string token = Guid.NewGuid().ToString(); 
-       
+
         var user = await _userService.GetUserByEmailAsync(Email);
         if (user == null)
         {
             return BadRequest("No such user exists with the email address");
         }
-       
+
         string confirmationLink = $"http://localhost:5173/dashboard/{user.Username}";
-      
+
         if (string.IsNullOrEmpty(token))
         {
             return BadRequest("Invalid confirmation link.");
         }
-       
-        _emailSender.SendConfirmationEmail(Email, confirmationLink ,true);
+
+        await _emailSender.SendConfirmationEmail(Email, confirmationLink, true);
 
         return Ok(new
         {
-            message = "password restored successfully!",
-            user 
+            message = "Password restored successfully!",
+            user
         });
     }
+
 
   
     
