@@ -4,17 +4,20 @@ import MessageHeader from "./MessageHeader";
 import OptionsMessages from "./OptionsMessages";
 import SendMessage from "./SendMessage";
 import { formatTime } from "../../utils/helpers";
+import { useChat } from "../../context/UserContext";
 
 
-function Message({ user, chatRoom, receiverId }) {
-  const { messages, error, sendMessage } = useSignalR(user, chatRoom, receiverId);
-  const {type :receiver } =user;
-const IsReceiver=(msg)=>(msg.senderId === receiverId) ;
+function Message({ chatRoom }) {
+  const { user,userInChat}=useChat();
+  const { messages, error, sendMessage } = useSignalR( chatRoom, user?.userId);
+  const {type :receiver ,from } =userInChat;
+  const IsReceiver=(msg)=>(msg.senderId === user?.userId) ;
   if (error) {
     console.error("Error in Message component:", error);
     return <div className="text-red-500">Error: {error.message}</div>;
   }
-  
+  console.log(messages);
+  console.log(`${JSON.stringify(userInChat)} , ${JSON.stringify(user)}`);
   return (
     <div>
       <MessageHeader receiver={receiver} />
@@ -26,7 +29,9 @@ const IsReceiver=(msg)=>(msg.senderId === receiverId) ;
               <div key={msg.messageId} className={`flex ${IsReceiver(msg)? "justify-end" : "justify-start"} text-center`}>
                 <div className={IsReceiver(msg)?  StyledReceiverMessage :StyledSenderMessage}>
                 <div className={messageHeader}>
-                  <span>~{IsReceiver(msg)?  msg.senderName :msg.senderName } </span>
+                  <span>
+                  ~{(IsReceiver(msg)?user.username : from==="group"? msg.senderName  :receiver.receiverName)  } 
+                  </span>
                   <span>{formatTime(msg?.sendDT )} </span>
                 </div>
                   {msg.content}

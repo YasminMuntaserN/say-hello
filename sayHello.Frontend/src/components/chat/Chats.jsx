@@ -6,14 +6,16 @@ import Navbar from "./Navbar"
 
 function Chats() {
   const { user :AccountUser, userInChat ,showChatPartnerOperations } = useChat();
-  const chatRoom = `${Math.min(userInChat?.type?.userId, AccountUser.userId)}_${Math.max(userInChat?.type?.userId, AccountUser.userId)}_Room`;
+  const chatRoom = userInChat?.from === "group"?
+      `${userInChat?.type?.userId}_Room`
+      :`${Math.min(userInChat?.type?.userId, AccountUser.userId)}_${Math.max(userInChat?.type?.userId, AccountUser.userId)}_Room`;
   const StyledContainer =`grid ${showChatPartnerOperations ?"grid-cols-[1fr_2fr_1fr]":"grid-cols-[1fr_2fr]"}`;
   return (
     <>
       <Navbar />
       <div className={StyledContainer}>
         <Connections />
-        {userInChat?.type && <div><Message chatRoom={chatRoom} user={userInChat}  receiverId={AccountUser?.userId}/></div>}
+        {userInChat?.type && <div><Message chatRoom={chatRoom} /></div>}
         {showChatPartnerOperations&& <ChatPartner />}
       </div>
     </>

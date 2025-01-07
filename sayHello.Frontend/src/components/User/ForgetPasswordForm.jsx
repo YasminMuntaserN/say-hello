@@ -14,7 +14,7 @@ function ForgetPasswordForm({onClose}) {
     formState: { errors },
     watch,
   } = useForm();
-    const{mutate:changePassword ,loading}=useChangePassword();
+    const{mutate:changePassword ,isLoading}=useChangePassword();
     const onSubmit =(data)=> {
       changePassword({ id: user.userId, newPassword: data.NewPassword },{
         onSuccess: () => {
@@ -49,7 +49,7 @@ function ForgetPasswordForm({onClose}) {
       <div className="ml-[60%]">
       <Button variant="reset" onClick={onClose}>Cancel</Button>
       <Button variant="save" type="submit">
-          {loading ? <SpinnerMini /> : "Save Changes"}
+          {isLoading ? <SpinnerMini /> : "Save Changes"}
       </Button>
       </div>
       </form>

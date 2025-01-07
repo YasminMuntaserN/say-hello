@@ -11,8 +11,9 @@ function addUniqueMessages(existingMessages, newMessages) {
   ];
 }
 
-export function useSignalR(user, chatRoom, receiverId) {
-  const { type, from } = user;
+export function useSignalR(chatRoom, receiverId) {
+  const { user, userInChat } = useChat();
+  const { type, from } = userInChat;
   const senderId = type.userId;
   const {
     mutate: RefetchMessages,
@@ -45,6 +46,7 @@ export function useSignalR(user, chatRoom, receiverId) {
           from === "group" ? senderId : { senderId, receiverId },
           {
             onSuccess: (data) => {
+              console.log(data);
               setMessages(data);
             },
             onError: (err) => {
@@ -97,6 +99,7 @@ export function useSignalR(user, chatRoom, receiverId) {
   }, [RefetchMessages, setRefetchChats, chatRoom, receiverId, senderId, from]);
 
   const sendMessage = async (message) => {
+    console.log(receiverId, senderId);
     if (connectionRef.current && message.trim()) {
       try {
         const sentMessage = await connectionRef.current.invoke(
@@ -105,9 +108,10 @@ export function useSignalR(user, chatRoom, receiverId) {
           {
             content: message,
             readStatus: "Read",
-            senderId: from === "group" ? receiverId : senderId,
-            receiverId: from !== "group" ? receiverId : null,
+            senderId: receiverId,
+            receiverId: from === "group" ? null : senderId,
             groupId: from === "group" ? senderId : null,
+            senderName: user?.username,
           }
         );
 

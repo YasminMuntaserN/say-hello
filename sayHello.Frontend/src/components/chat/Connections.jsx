@@ -40,7 +40,7 @@ export function Connections() {
   }, [showUsers, usersToShow, AllUsersBySenderId]);
 
   return (
-    <div className="bg-[#f8fafc] h-screen flex flex-col">
+    <div className="bg-[#f8fafc] flex flex-col">
       <QuickActions AllUsersBySenderId={AllUsersBySenderId} />
       <AddFriend />
       <SearchBar onSearch={handleSearch} />
@@ -48,7 +48,7 @@ export function Connections() {
       {isLoading && <LoadingChattingCards/>}
       {error && <p>Error fetching messages: {error.message}</p>}
 
-      <div className="flex-grow overflow-y-auto h-[450px]">
+      <div className="flex-grow overflow-y-auto h-[450px] relative mb-10">
         {filteredUsers?.map((user) =>
           showUsers ? (
             <AddFriendCard key={user.userId} user={user} />
