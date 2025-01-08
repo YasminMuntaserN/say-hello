@@ -23,7 +23,7 @@ function Message({ chatRoom }) {
       <MessageHeader receiver={receiver} />
       {
       <>
-      <div className="flex-grow overflow-y-auto h-[500px] relative">
+      <div className="flex-grow overflow-y-auto h-[460px] relative">
         {messages.length > 0
           ? messages.map((msg) => (
               <div key={msg.messageId} className={`flex ${IsReceiver(msg)? "justify-end" : "justify-start"} text-center`}>

@@ -16,7 +16,8 @@ function ForgetPasswordForm({onClose}) {
   } = useForm();
     const{mutate:changePassword ,isLoading}=useChangePassword();
     const onSubmit =(data)=> {
-      changePassword({ id: user.userId, newPassword: data.NewPassword },{
+      console.log(data);  
+      changePassword({ id: user.userId, newPassword: data.Password },{
         onSuccess: () => {
           onClose?.();
         }

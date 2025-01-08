@@ -25,7 +25,6 @@ export function useMessageBlocking() {
     );
   };
 
-  console.log(preventedUsers);
   return {
     preventedUsers,
     handlePreventSendMessage,

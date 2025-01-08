@@ -37,7 +37,6 @@ function LoginForm() {
           reset(); 
         },
       });
-      console.log("here from the login form");
   };
 
   return (

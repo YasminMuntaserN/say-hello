@@ -73,7 +73,6 @@ export async function getBy(entityName, type, value) {
 }
 
 export async function getAll(entityName) {
-  console.log(`${API_URL}/${entityName}/all`);
   try {
     const res = await fetch(`${API_URL}/${entityName}/all`);
 
@@ -91,7 +90,6 @@ export async function getAll(entityName) {
 }
 
 export async function getAllBy(entityName, value) {
-  console.log(`${API_URL}/${entityName}/all/${value}`);
   try {
     const res = await fetch(`${API_URL}/${entityName}/all/${value}`);
 
@@ -109,9 +107,6 @@ export async function getAllBy(entityName, value) {
 }
 
 export async function EditEntity(entityName, entityData, id) {
-  console.log(
-    `EditEntity ${entityName} with ${id} ${JSON.stringify(entityData)}`
-  );
   try {
     let response;
     if (entityName === "Users/updateUser") {
@@ -144,7 +139,6 @@ export async function EditEntity(entityName, entityData, id) {
 }
 
 export async function getCount(entityName, value) {
-  console.log(`${API_URL}/${entityName}/count?id=${value}`);
   try {
     const res = await fetch(`${API_URL}/${entityName}/count?id=${value}`);
 
@@ -161,7 +155,6 @@ export async function getCount(entityName, value) {
 }
 
 export async function IsExist(entityName, value) {
-  console.log(`${API_URL}/${entityName}/${value}`);
   try {
     const res = await fetch(`${API_URL}/${entityName}/${value}`);
 
@@ -178,7 +171,6 @@ export async function IsExist(entityName, value) {
 }
 
 export async function DeleteBy(entityName, value) {
-  console.log(`${API_URL}/${entityName}/${value}`);
   try {
     const res = await fetch(`${API_URL}/${entityName}/${value}`, {
       method: "DELETE",
