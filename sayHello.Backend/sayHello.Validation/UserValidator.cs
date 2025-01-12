@@ -41,5 +41,10 @@ public class UserValidator : AbstractValidator<User>
         RuleFor(user => user.LastLogin)
             .LessThanOrEqualTo(DateTime.Now).When(user => user.LastLogin.HasValue)
             .WithMessage("Last Login cannot be in the future.");
+
+        RuleFor(user => user.Role)
+            .NotEmpty().WithMessage("Role is required.")
+            .Must(Role => new[] {  "Moderator" ,"User" ,"Admin" }.Contains(Role))
+            .WithMessage("Role must be Moderator ,User or Admin.");
     }
 }
