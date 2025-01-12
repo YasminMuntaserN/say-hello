@@ -576,6 +576,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\users\88b2517a-e7c5-4bca-bf6f-833378208c7b_m2.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\users\89cb56fb-85a8-43ff-bbed-04eb4c0d9ebf_g6.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>sayHello.api</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/sayHello.api</BasePath>
+      <RelativePath>uploads/users/89cb56fb-85a8-43ff-bbed-04eb4c0d9ebf_g6.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>wwl9s62lfg</Fingerprint>
+      <Integrity>0FQTjlMYPuzyVZgVshqrj5Vfuuk4+bK5TNjJ38Xfe9E=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\users\89cb56fb-85a8-43ff-bbed-04eb4c0d9ebf_g6.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\users\8c6a262b-4f4f-4f6f-a7eb-8bc91efa8044_m2.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>sayHello.api</SourceId>

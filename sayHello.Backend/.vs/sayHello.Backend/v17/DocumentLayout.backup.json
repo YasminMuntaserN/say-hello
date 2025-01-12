@@ -57,25 +57,25 @@
               "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GroupDetailsMemberDto.cs",
-              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\GroupMember\\GroupDetailsMemberDto.cs",
-              "RelativeDocumentMoniker": "sayHello.DTOs\\GroupMember\\GroupDetailsMemberDto.cs",
-              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\GroupMember\\GroupDetailsMemberDto.cs*",
-              "RelativeToolTip": "sayHello.DTOs\\GroupMember\\GroupDetailsMemberDto.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T18:18:07.551Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GroupDetailsMemberDto.cs",
+              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\GroupMember\\GroupDetailsMemberDto.cs",
+              "RelativeDocumentMoniker": "sayHello.DTOs\\GroupMember\\GroupDetailsMemberDto.cs",
+              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\GroupMember\\GroupDetailsMemberDto.cs",
+              "RelativeToolTip": "sayHello.DTOs\\GroupMember\\GroupDetailsMemberDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T18:18:07.551Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

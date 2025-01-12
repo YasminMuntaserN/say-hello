@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,10 +58,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
@@ -74,8 +70,7 @@
               "RelativeToolTip": "sayHello.DTOs\\GroupMember\\GroupDetailsMemberDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T18:18:07.551Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T18:18:07.551Z"
             },
             {
               "$type": "Document",
@@ -100,8 +95,7 @@
               "RelativeToolTip": "sayHello.DTOs\\Group\\CreateGroupDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T18:12:15.932Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T18:12:15.932Z"
             },
             {
               "$type": "Document",
@@ -113,8 +107,7 @@
               "RelativeToolTip": "sayHello.Business\\Services\\MessageService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T18:08:46.083Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T18:08:46.083Z"
             },
             {
               "$type": "Document",
@@ -126,8 +119,7 @@
               "RelativeToolTip": "sayHello.Business\\Services\\GroupMemberService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T18:08:11.983Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T18:08:11.983Z"
             },
             {
               "$type": "Document",
@@ -139,8 +131,7 @@
               "RelativeToolTip": "sayHello.Entities\\Group.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T17:53:10.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T17:53:10.125Z"
             },
             {
               "$type": "Document",
@@ -152,8 +143,11 @@
               "RelativeToolTip": "sayHello.api\\Program.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAcwDgAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T11:37:36.511Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-19T11:37:36.511Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         }

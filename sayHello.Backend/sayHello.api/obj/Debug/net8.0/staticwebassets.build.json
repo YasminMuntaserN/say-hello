@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "a8vK4t7FhvjUyl8CorlVjnFMC+stIKvx+t40uvUyGAY=",
+  "Hash": "FIRma2lF3/Jqn8vigpMSwkfNwTeD0tljPDPGuTR3yCs=",
   "Source": "sayHello.api",
   "BasePath": "_content/sayHello.api",
   "Mode": "Default",
@@ -687,6 +687,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\users\\88b2517a-e7c5-4bca-bf6f-833378208c7b_m2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\89cb56fb-85a8-43ff-bbed-04eb4c0d9ebf_g6.jpg",
+      "SourceId": "sayHello.api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\",
+      "BasePath": "_content/sayHello.api",
+      "RelativePath": "uploads/users/89cb56fb-85a8-43ff-bbed-04eb4c0d9ebf_g6#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wwl9s62lfg",
+      "Integrity": "0FQTjlMYPuzyVZgVshqrj5Vfuuk4+bK5TNjJ38Xfe9E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\users\\89cb56fb-85a8-43ff-bbed-04eb4c0d9ebf_g6.jpg"
     },
     {
       "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\8c6a262b-4f4f-4f6f-a7eb-8bc91efa8044_m2.jpg",
@@ -3878,6 +3899,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-2klZtAwUhAjTXHUYHnmKGAP1lF0EVZn0lAKFYao+V+U="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/89cb56fb-85a8-43ff-bbed-04eb4c0d9ebf_g6.jpg",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\89cb56fb-85a8-43ff-bbed-04eb4c0d9ebf_g6.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20223"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0FQTjlMYPuzyVZgVshqrj5Vfuuk4+bK5TNjJ38Xfe9E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 12:06:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0FQTjlMYPuzyVZgVshqrj5Vfuuk4+bK5TNjJ38Xfe9E="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/89cb56fb-85a8-43ff-bbed-04eb4c0d9ebf_g6.wwl9s62lfg.jpg",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\89cb56fb-85a8-43ff-bbed-04eb4c0d9ebf_g6.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20223"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0FQTjlMYPuzyVZgVshqrj5Vfuuk4+bK5TNjJ38Xfe9E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 12:06:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wwl9s62lfg"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/users/89cb56fb-85a8-43ff-bbed-04eb4c0d9ebf_g6.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0FQTjlMYPuzyVZgVshqrj5Vfuuk4+bK5TNjJ38Xfe9E="
         }
       ]
     },
