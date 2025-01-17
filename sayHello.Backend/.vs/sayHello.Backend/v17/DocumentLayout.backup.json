@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7D441D50-530E-44D6-8710-322884B10D77}|sayHello.DTOs\\sayHello.DTOs.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.dtos\\group\\groupdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D441D50-530E-44D6-8710-322884B10D77}|sayHello.DTOs\\sayHello.DTOs.csproj|solutionrelative:sayhello.dtos\\group\\groupdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D441D50-530E-44D6-8710-322884B10D77}|sayHello.DTOs\\sayHello.DTOs.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.dtos\\groupmember\\groupdetailsmemberdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D441D50-530E-44D6-8710-322884B10D77}|sayHello.DTOs\\sayHello.DTOs.csproj|solutionrelative:sayhello.dtos\\groupmember\\groupdetailsmemberdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D441D50-530E-44D6-8710-322884B10D77}|sayHello.DTOs\\sayHello.DTOs.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.dtos\\group\\creategroupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D441D50-530E-44D6-8710-322884B10D77}|sayHello.DTOs\\sayHello.DTOs.csproj|solutionrelative:sayhello.dtos\\group\\creategroupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{675B6B8C-EB54-412C-8742-AA8D7E713D93}|sayHello.Validation\\sayHello.Validation.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.validation\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{675B6B8C-EB54-412C-8742-AA8D7E713D93}|sayHello.Validation\\sayHello.Validation.csproj|solutionrelative:sayhello.validation\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{11CE448C-FA74-4014-9821-62F400E62988}|sayHello.api\\sayHello.api.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{11CE448C-FA74-4014-9821-62F400E62988}|sayHello.api\\sayHello.api.csproj|solutionrelative:sayhello.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F6719EE-DC09-4F69-AD36-78744632365D}|sayHello.Entities\\sayHello.Entities.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.entities\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F6719EE-DC09-4F69-AD36-78744632365D}|sayHello.Entities\\sayHello.Entities.csproj|solutionrelative:sayhello.entities\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E2178D2-28B0-404F-99AA-A19CF5A6DEF1}|sayHello.Business\\sayHello.Business.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.business\\services\\groupmemberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E2178D2-28B0-404F-99AA-A19CF5A6DEF1}|sayHello.Business\\sayHello.Business.csproj|solutionrelative:sayhello.business\\services\\groupmemberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E2178D2-28B0-404F-99AA-A19CF5A6DEF1}|sayHello.Business\\sayHello.Business.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.business\\services\\messageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E2178D2-28B0-404F-99AA-A19CF5A6DEF1}|sayHello.Business\\sayHello.Business.csproj|solutionrelative:sayhello.business\\services\\messageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A6A79BDC-846D-4C8E-B100-3D06289B5E6C}|sayHello.DataAccess\\sayHello.DataAccess.csproj|c:\\users\\top\\desktop\\chat\\sayhello.backend\\sayhello.dataaccess\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6A79BDC-846D-4C8E-B100-3D06289B5E6C}|sayHello.DataAccess\\sayHello.DataAccess.csproj|solutionrelative:sayhello.dataaccess\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,102 +42,49 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GroupDetailsMemberDto.cs",
-              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\GroupMember\\GroupDetailsMemberDto.cs",
-              "RelativeDocumentMoniker": "sayHello.DTOs\\GroupMember\\GroupDetailsMemberDto.cs",
-              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\GroupMember\\GroupDetailsMemberDto.cs",
-              "RelativeToolTip": "sayHello.DTOs\\GroupMember\\GroupDetailsMemberDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T18:18:07.551Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GroupDetailsDto.cs",
-              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\Group\\GroupDetailsDto.cs",
-              "RelativeDocumentMoniker": "sayHello.DTOs\\Group\\GroupDetailsDto.cs",
-              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\Group\\GroupDetailsDto.cs",
-              "RelativeToolTip": "sayHello.DTOs\\Group\\GroupDetailsDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAACAAAAAAAAAA==",
+              "Title": "UserValidator.cs",
+              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Validation\\UserValidator.cs",
+              "RelativeDocumentMoniker": "sayHello.Validation\\UserValidator.cs",
+              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Validation\\UserValidator.cs*",
+              "RelativeToolTip": "sayHello.Validation\\UserValidator.cs*",
+              "ViewState": "AgIAABkAAAAAAAAAAAAnwCsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T18:13:10.631Z",
+              "WhenOpened": "2025-01-16T13:06:51.255Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CreateGroupDto.cs",
-              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\Group\\CreateGroupDto.cs",
-              "RelativeDocumentMoniker": "sayHello.DTOs\\Group\\CreateGroupDto.cs",
-              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\Group\\CreateGroupDto.cs",
-              "RelativeToolTip": "sayHello.DTOs\\Group\\CreateGroupDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T18:12:15.932Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MessageService.cs",
-              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\Services\\MessageService.cs",
-              "RelativeDocumentMoniker": "sayHello.Business\\Services\\MessageService.cs",
-              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\Services\\MessageService.cs",
-              "RelativeToolTip": "sayHello.Business\\Services\\MessageService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T18:08:46.083Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GroupMemberService.cs",
-              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\Services\\GroupMemberService.cs",
-              "RelativeDocumentMoniker": "sayHello.Business\\Services\\GroupMemberService.cs",
-              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\Services\\GroupMemberService.cs",
-              "RelativeToolTip": "sayHello.Business\\Services\\GroupMemberService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T18:08:11.983Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Group.cs",
-              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\Group.cs",
-              "RelativeDocumentMoniker": "sayHello.Entities\\Group.cs",
-              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\Group.cs",
-              "RelativeToolTip": "sayHello.Entities\\Group.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T17:53:10.125Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\Program.cs",
               "RelativeDocumentMoniker": "sayHello.api\\Program.cs",
               "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\Program.cs",
               "RelativeToolTip": "sayHello.api\\Program.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAcwDgAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T11:37:36.511Z",
+              "WhenOpened": "2025-01-16T12:47:17.773Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "sayHello.DataAccess\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\AppDbContext.cs",
+              "RelativeToolTip": "sayHello.DataAccess\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-16T12:14:26.646Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         }
