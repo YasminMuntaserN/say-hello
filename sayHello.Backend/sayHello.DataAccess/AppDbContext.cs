@@ -13,6 +13,7 @@ public class AppDbContext: DbContext
     {
     }
     public DbSet<User> Users { get; set; }
+    public DbSet<AuthUser> AuthUsers { get; set; }
     public DbSet<BlockedUser> BlockedUsers { get; set; }
     public DbSet<ArchivedUser> ArchivedUsers { get; set; }
     public DbSet<Message> Messages { get; set; }

@@ -55,6 +55,9 @@ namespace sayHello.DataAccess.Migrations
                     b.Property<int>("UnReadMessagesCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("bio")
+                        .HasColumnType("nvarchar(max)");
+
                     b.ToTable("ConversationDetails");
                 });
 
@@ -89,6 +92,36 @@ namespace sayHello.DataAccess.Migrations
                         .HasDatabaseName("IX_ArchivedUser_User_ArchivedUser");
 
                     b.ToTable("ArchivedUsers");
+                });
+
+            modelBuilder.Entity("sayHello.Entities.AuthUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("RefreshToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RefreshTokenExpiryTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("AuthUsers");
                 });
 
             modelBuilder.Entity("sayHello.Entities.BlockedUser", b =>
@@ -142,7 +175,6 @@ namespace sayHello.DataAccess.Migrations
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -361,6 +393,17 @@ namespace sayHello.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("sayHello.Entities.AuthUser", b =>
+                {
+                    b.HasOne("sayHello.Entities.User", "User")
+                        .WithOne("AuthUser")
+                        .HasForeignKey("sayHello.Entities.AuthUser", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("sayHello.Entities.BlockedUser", b =>
                 {
                     b.HasOne("sayHello.Entities.User", "BlockedByUser")
@@ -450,6 +493,9 @@ namespace sayHello.DataAccess.Migrations
                     b.Navigation("ArchivedByUsers");
 
                     b.Navigation("ArchivedUsers");
+
+                    b.Navigation("AuthUser")
+                        .IsRequired();
 
                     b.Navigation("BlockedByUsers");
 
