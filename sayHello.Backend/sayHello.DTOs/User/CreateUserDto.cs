@@ -8,5 +8,6 @@ public class CreateUserDto
     public string? ProfilePictureUrl { get; set; }
     public string? Bio{ get; set; }
     public string Status{ get; set; }
+    public string Role{ get; set; }
     public DateTime DateJoined{ get; set; } = default;
 };
