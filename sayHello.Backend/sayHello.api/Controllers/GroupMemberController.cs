@@ -2,6 +2,7 @@ using System.Net;
 using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using sayHello.api.Authorization;
 using sayHello.api.Controllers.Base;
 using sayHello.Business;
 using sayHello.DTOs.Group;
@@ -21,6 +22,7 @@ public class GroupMemberController : BaseController
     }
 
     [HttpGet("all", Name = "GetAllGroupMember")]
+    [RequirePermission(Permissions.ManageGroups)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -28,6 +30,7 @@ public class GroupMemberController : BaseController
         => await HandleResponse(() => _GroupMemberService.GetAllGroupMembersAsync(), "GroupMember retrieved successfully");
 
     [HttpGet("all/{GroupId:int}", Name = "GetAllGroupMemberById")]
+    [RequirePermission(Permissions.AuthenticateUsers)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -36,6 +39,7 @@ public class GroupMemberController : BaseController
 
 
     [HttpPost("", Name = "CreateGroupMember")]
+    [RequirePermission(Permissions.AddGroupMember)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -43,6 +47,7 @@ public class GroupMemberController : BaseController
     => await HandleResponse(() => _GroupMemberService.AddGroupMemberAsync(newGroupMemberDto));
     
     [HttpGet("countGroupMembers", Name = "GetGroupMembersCount")]
+    [RequirePermission(Permissions.ManageGroups)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -50,6 +55,7 @@ public class GroupMemberController : BaseController
         => await HandleResponse(()=>_GroupMemberService.GroupMembersCountAsync(GroupId), "Group members count retrieved successfully");
     
     [HttpDelete("deleteGroupMember/{id:int}", Name = "HardDeleteGroupMember")]
+    [RequirePermission(Permissions.RemoveGroupMember)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -58,6 +64,7 @@ public class GroupMemberController : BaseController
         => await HandleResponse(()=>_GroupMemberService.HardDeleteGroupMemberAsync(id), "Group member deleting  successfully");
     
     [HttpDelete("deleteGroupMemberByUserId/{id:int}", Name = "HardDeleteGroupMemberByUserId")]
+    [RequirePermission(Permissions.RemoveGroupMember)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -66,10 +73,19 @@ public class GroupMemberController : BaseController
         => await HandleResponse(()=>_GroupMemberService.HardDeleteGroupMemberByUserIdAsync(UsreId), "Group member deleting  successfully");
     
     [HttpGet("count", Name = "GetAllGroupsContainingUserCount")]
+    [RequirePermission(Permissions.AuthenticateUsers)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<int>> GetAllGroupsContainingUserCount(int id)
         => await HandleResponse(()=>_GroupMemberService.GetAllGroupsContainingUserCountAsync(id), "Groups count retrieved successfully");
+
+    [HttpGet("UserId", Name = "GroupMemberExistsByUserId")]
+    [RequirePermission(Permissions.AuthenticateUsers)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<bool>> GroupMemberExistsByUserId(int UserId)
+        => await HandleResponse(()=>_GroupMemberService.GroupMemberExistsByUserIdAsync(UserId), "Yes , This user is GroupMember");
 
 }

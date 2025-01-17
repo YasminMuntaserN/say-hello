@@ -2,6 +2,7 @@ using System.Net;
 using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using sayHello.api.Authorization;
 using sayHello.api.Controllers.Base;
 using sayHello.Business;
 using sayHello.DTOs.Group;
@@ -22,6 +23,7 @@ public class GroupController : BaseController
     }
 
     [HttpGet("all", Name = "GetAllGroup")]
+    [RequirePermission(Permissions.ManageGroups)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -30,6 +32,7 @@ public class GroupController : BaseController
 
     
     [HttpGet("all/{id:int}", Name = "GetAllGroupsContainingUser")]
+    [RequirePermission(Permissions.AuthenticateUsers)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -38,6 +41,7 @@ public class GroupController : BaseController
 
 
     [HttpGet("findGroupByGroupId/{id:int}", Name = "FindGroupByGroupId")]
+    [RequirePermission(Permissions.ManageGroups)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -48,6 +52,7 @@ public class GroupController : BaseController
 
 
     [HttpPost("", Name = "CreateGroup")]
+    [RequirePermission(Permissions.AuthenticateUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -93,6 +98,7 @@ public class GroupController : BaseController
     }
     
     [HttpDelete("deleteGroup/{id:int}", Name = "HardDeleteGroup")]
+    [RequirePermission(Permissions.ManageGroups)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -102,6 +108,7 @@ public class GroupController : BaseController
  
     
     [HttpGet("GroupExists/{id:int}", Name = "GroupExists")]
+    [RequirePermission(Permissions.ManageGroups)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]

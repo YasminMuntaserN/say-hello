@@ -2,6 +2,7 @@ using System.Net;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using sayHello.api.Authorization;
 using sayHello.api.Controllers.Base;
 using sayHello.Business;
 using sayHello.Business.Services;
@@ -22,6 +23,7 @@ public class MessagesController : BaseController
     }
 
     [HttpGet("allBySenderId/{senderId:int}", Name = "GetAllMessagesBySenderId")]
+    [RequirePermission(Permissions.ViewChats)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -29,6 +31,7 @@ public class MessagesController : BaseController
         => await HandleResponse(() => _MessageService.GetAllMessagesBySenderIdAsync(senderId), "Messages retrieved successfully");
 
     [HttpGet("all", Name = "GetAllMessages")]
+    [RequirePermission(Permissions.View)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -36,6 +39,7 @@ public class MessagesController : BaseController
         => await HandleResponse(() => _MessageService.GetAllMessagesAsync(), "Messages retrieved successfully");
 
     [HttpGet("all/{senderId:int}/{receiverId:int}", Name = "GetMessagesInChatRoom")]
+    [RequirePermission(Permissions.ViewChats)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -44,6 +48,7 @@ public class MessagesController : BaseController
     
    
     [HttpGet("all/{groupId:int}", Name = "GetMessagesInChatRoomForGroup")]
+    [RequirePermission(Permissions.ViewChats)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -52,6 +57,7 @@ public class MessagesController : BaseController
     
     
     [HttpGet("findMessageByMessageId/{id:int}", Name = "FindMessageByMessageId")]
+    [RequirePermission(Permissions.SendMessages)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -62,6 +68,7 @@ public class MessagesController : BaseController
 
 
     [HttpPost("", Name = "CreateMessage")]
+    [RequirePermission(Permissions.SendMessages)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -84,6 +91,7 @@ public class MessagesController : BaseController
 
 
     [HttpPut("updateMessage/{id:int}", Name = "UpdateMessage")]
+    [RequirePermission(Permissions.SendMessages)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -92,6 +100,7 @@ public class MessagesController : BaseController
         => await HandleResponse(() => _MessageService.UpdateMessageAsync(id, updatedMessageDto), "Message Updating  successfully");
 
     [HttpPut("SeenMessage/{id:int}", Name = "SeenMessage")]
+    [RequirePermission(Permissions.SendMessages)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -100,6 +109,7 @@ public class MessagesController : BaseController
         => await HandleResponse(() => _MessageService.MakeTheMessageSeenAsync(id), "Message Seen  successfully");
 
     [HttpDelete("deleteMessage/{id:int}", Name = "HardDeleteMessage")]
+    [RequirePermission(Permissions.SendMessages)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -109,6 +119,7 @@ public class MessagesController : BaseController
 
 
     [HttpGet("MessageExists/{id:int}", Name = "MessageExists")]
+    [RequirePermission(Permissions.SendMessages)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]

@@ -2,6 +2,7 @@ using System.Net;
 using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using sayHello.api.Authorization;
 using sayHello.api.Controllers.Base;
 using sayHello.Business;
 using sayHello.DTOs.ArchivedUser;
@@ -23,6 +24,7 @@ public class ArchivedUsersController : BaseController
     }
 
     [HttpGet("count", Name = "GetArchivedUsersCount")]
+    [RequirePermission(Permissions.ArchiveChats)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -31,6 +33,7 @@ public class ArchivedUsersController : BaseController
     
     
     [HttpGet("all", Name = "GetAllArchivedUsers")]
+    [RequirePermission(Permissions.View)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -40,6 +43,7 @@ public class ArchivedUsersController : BaseController
 
 
     [HttpGet("all/{id:int}", Name = "getAllArchivedUserById")]
+    [RequirePermission(Permissions.ArchiveChats)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -49,6 +53,7 @@ public class ArchivedUsersController : BaseController
     
   
     [HttpPost("", Name = "CreateArchivedUser")]
+    [RequirePermission(Permissions.ManageUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -57,6 +62,7 @@ public class ArchivedUsersController : BaseController
     
     
     [HttpPut("updateArchivedUser/{id:int}", Name = "UpdateArchivedUser")]
+    [RequirePermission(Permissions.ManageUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -66,6 +72,7 @@ public class ArchivedUsersController : BaseController
    
 
     [HttpDelete("{id:int}", Name = "SoftDeleteArchivedUser")]
+    [RequirePermission(Permissions.ManageUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -75,6 +82,7 @@ public class ArchivedUsersController : BaseController
     
     
     [HttpDelete("deleteArchivedUser/{id:int}", Name = "HardDeleteArchivedUser")]
+    [RequirePermission(Permissions.ManageUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -84,6 +92,7 @@ public class ArchivedUsersController : BaseController
  
    
     [HttpDelete("deleteArchivedUser/{archivedUserId:int}/{archivedByUserId:int}", Name = "DeleteArchivedUserByArchivedUserIdArchivedByUserId")]
+    [RequirePermission(Permissions.ArchiveChats)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -93,6 +102,7 @@ public class ArchivedUsersController : BaseController
     
     
     [HttpGet("ArchivedUserExists/{id:int}", Name = "ArchivedUserExists")]
+    [RequirePermission(Permissions.ArchiveChats)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -101,6 +111,7 @@ public class ArchivedUsersController : BaseController
         => await HandleResponse(()=>_ArchivedUserService.ArchivedUserExistsAsync(id), "ArchivedUser Founded  successfully");
     
     [HttpGet("ArchivedUserExists/{archivedUserId:int}/{archivedByUserId:int}", Name = "ExistsByArchivedUserIdAndArchivedByUserId")]
+    [RequirePermission(Permissions.ArchiveChats)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]

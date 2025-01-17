@@ -1,7 +1,9 @@
 using System.Net;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using sayHello.api.Authorization;
 using sayHello.api.Controllers.Base;
 using sayHello.Business;
 using sayHello.DTOs.User;
@@ -10,6 +12,7 @@ namespace sayHello.api.Controllers;
 
 [Route("Users")]
 [ApiController]
+[Authorize] 
 public class UsersController : BaseController
 {
     private readonly UserService _userService;
@@ -21,6 +24,7 @@ public class UsersController : BaseController
     }
 
     [HttpGet("all", Name = "GetAllUsers")]
+    [RequirePermission(Permissions.ViewChats)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -30,6 +34,7 @@ public class UsersController : BaseController
 
 
     [HttpGet("findUserByUserId/{id:int}", Name = "FindUserByUserId")]
+    [RequirePermission(Permissions.View)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -39,6 +44,7 @@ public class UsersController : BaseController
     
   
     [HttpGet("findByUserName/{UserName}", Name = "FindUserByUserName")]
+    [RequirePermission(Permissions.View)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -48,6 +54,7 @@ public class UsersController : BaseController
 
     
     [HttpGet("findByEmailAndPassword/{Email}/{Password}", Name = "FindUserByEmailAndPassword")]
+    [RequirePermission(Permissions.AuthenticateUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -57,6 +64,7 @@ public class UsersController : BaseController
 
    
     [HttpPost("", Name = "CreateUser")]
+    [RequirePermission(Permissions.ManageUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -122,6 +130,7 @@ public class UsersController : BaseController
     
     
     [HttpPost("restorePassword/{Email}", Name = "RestorePassword")]
+    [RequirePermission(Permissions.ManageUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult<UserDetailsDto?>> RestorePassword(string Email)
@@ -160,6 +169,7 @@ public class UsersController : BaseController
   
     
     [HttpPut("updateUser/{id:int}", Name = "UpdateUser")]
+    [RequirePermission(Permissions.AuthenticateUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -204,6 +214,7 @@ public class UsersController : BaseController
 
     
     [HttpPut("changePassword/{id:int}", Name = "changePassword")]
+    [RequirePermission(Permissions.AuthenticateUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -213,6 +224,7 @@ public class UsersController : BaseController
 
     
     [HttpDelete("{id:int}", Name = "SoftDeleteUser")]
+    [RequirePermission(Permissions.AuthenticateUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -222,6 +234,7 @@ public class UsersController : BaseController
     
     
     [HttpDelete("deleteUser/{id:int}", Name = "HardDeleteUser")]
+    [RequirePermission(Permissions.ManageUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -231,6 +244,7 @@ public class UsersController : BaseController
  
     
     [HttpGet("userExists/{id:int}", Name = "UserExists")]
+    [RequirePermission(Permissions.View)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
