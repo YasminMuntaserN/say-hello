@@ -45,5 +45,9 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.Property(e => e.LastLogin)
             .HasColumnType("datetime");
+
+        builder.HasOne(e => e.AuthUser)
+            .WithOne(e => e.User)
+            .HasForeignKey<AuthUser>(au => au.UserId);;
     }
 }
