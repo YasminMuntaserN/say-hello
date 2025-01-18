@@ -1,3 +1,4 @@
+import { apiClient } from "./apiClient";
 import {
   addEntity,
   DeleteBy,
@@ -75,10 +76,8 @@ export const DeleteUser = async (id) => await DeleteBy("Users", id);
 
 export async function handleConfirmationEmail(email) {
   try {
-    const res = await fetch(
-      `https://localhost:7201/Users/send-confirmation?email=${encodeURIComponent(
-        email
-      )}`,
+    const res = await apiClient(
+      `Users/send-confirmation?email=${encodeURIComponent(email)}`,
       {
         method: "POST",
         headers: {
@@ -104,13 +103,10 @@ export async function handleConfirmationEmail(email) {
   }
 }
 
-//'https://localhost:7201/Users/restorePassword/jsd%40dd.com'
 export async function handleRestorePassword(email) {
   try {
-    const res = await fetch(
-      `https://localhost:7201/Users/restorePassword/${encodeURIComponent(
-        email
-      )}`,
+    const res = await apiClient(
+      `Users/restorePassword/${encodeURIComponent(email)}`,
       {
         method: "POST",
         headers: {
@@ -143,12 +139,9 @@ export async function handleRestorePassword(email) {
 }
 
 export async function ChangePassword(id, newPassword) {
-  console.log(
-    `https://localhost:7201/Users/changePassword/${id}?newPassword=${newPassword}`
-  );
   try {
-    const res = await fetch(
-      `https://localhost:7201/Users/changePassword/${id}?newPassword=${newPassword}`,
+    const res = await apiClient(
+      `Users/changePassword/${id}?newPassword=${newPassword}`,
       {
         method: "PUT",
       }
