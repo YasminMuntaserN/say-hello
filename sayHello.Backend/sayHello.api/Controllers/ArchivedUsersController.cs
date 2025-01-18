@@ -53,7 +53,7 @@ public class ArchivedUsersController : BaseController
     
   
     [HttpPost("", Name = "CreateArchivedUser")]
-    [RequirePermission(Permissions.ManageUsers)]
+    [RequirePermission(Permissions.ArchiveChats)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -82,7 +82,7 @@ public class ArchivedUsersController : BaseController
     
     
     [HttpDelete("deleteArchivedUser/{id:int}", Name = "HardDeleteArchivedUser")]
-    [RequirePermission(Permissions.ManageUsers)]
+    [RequirePermission(Permissions.ArchiveChats)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]

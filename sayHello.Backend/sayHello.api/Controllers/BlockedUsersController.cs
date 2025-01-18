@@ -2,6 +2,7 @@ using System.Net;
 using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using sayHello.api.Authorization;
 using sayHello.api.Controllers.Base;
 using sayHello.Business;
 using sayHello.DTOs.BlockedUser;
@@ -23,6 +24,7 @@ public class BlockedUsersController : BaseController
     }
 
     [HttpGet("count", Name = "GetBlockedUsersCount")]
+    [RequirePermission(Permissions.BlockUsers)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -31,6 +33,7 @@ public class BlockedUsersController : BaseController
     
     
     [HttpGet("all", Name = "GetAllBlockedUsers")]
+    [RequirePermission(Permissions.View)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -38,6 +41,7 @@ public class BlockedUsersController : BaseController
         => await HandleResponse(()=>_BlockedUserService.GetAllBlockedUsersAsync(), "BlockedBlockedUsers retrieved successfully");
 
     [HttpGet("all/{id:int}", Name = "GetAllBlockedUsersByUserId")]
+    [RequirePermission(Permissions.BlockUsers)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -46,6 +50,7 @@ public class BlockedUsersController : BaseController
 
     
     [HttpPost("", Name = "CreateBlockedUser")]
+    [RequirePermission(Permissions.BlockUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -54,6 +59,7 @@ public class BlockedUsersController : BaseController
     
     
     [HttpPut("updateBlockedUser/{id:int}", Name = "UpdateBlockedUser")]
+    [RequirePermission(Permissions.ManageUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -63,6 +69,7 @@ public class BlockedUsersController : BaseController
    
 
     [HttpDelete("{id:int}", Name = "SoftDeleteBlockedUser")]
+    [RequirePermission(Permissions.ManageUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -72,6 +79,7 @@ public class BlockedUsersController : BaseController
     
     
     [HttpDelete("deleteBlockedUser/{id:int}", Name = "HardDeleteBlockedUser")]
+    [RequirePermission(Permissions.BlockUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -81,6 +89,7 @@ public class BlockedUsersController : BaseController
  
     
     [HttpDelete("deleteBlockedUser/{BlockedUserId:int}/{BlockedByUserId:int}", Name = "DeleteBlockedUserByBlockedUserIdAndBlockedByUserId")]
+    [RequirePermission(Permissions.BlockUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -90,6 +99,7 @@ public class BlockedUsersController : BaseController
     
     
     [HttpGet("BlockedUserExists/{id:int}", Name = "BlockedUserExists")]
+    [RequirePermission(Permissions.BlockUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -98,6 +108,7 @@ public class BlockedUsersController : BaseController
         => await HandleResponse(()=>_BlockedUserService.BlockedUserExistsAsync(id), "BlockedUser Founded  successfully");
     
     [HttpGet("BlockedUserExists/{BlockedUserId:int}/{BlockedByUserId:int}", Name = "ExistsByBlockedUserIdAndBlockedByUserId")]
+    [RequirePermission(Permissions.BlockUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]

@@ -39,20 +39,31 @@ public class AuthController :ControllerBase
     }
 
     [HttpPost("refresh")]
+    [AllowAnonymous]
     public async Task<ActionResult<TokenResponseDto>> RefreshToken([FromBody] RefreshTokenRequestDto request)
     {
-        var (accessToken, refreshToken) = await _authService.RefreshTokenAsync(request.RefreshToken);
-        
-        if (accessToken == null)
-            return Unauthorized();
-
-        return Ok(new TokenResponseDto
+        try
         {
-            AccessToken = accessToken,
-            RefreshToken = refreshToken
-        });
+            if (string.IsNullOrEmpty(request.RefreshToken))
+                return BadRequest("Refresh token is required");
+
+            var (accessToken, refreshToken) = await _authService.RefreshTokenAsync(request.RefreshToken);
+
+            if (accessToken == null || refreshToken == null)
+                return Unauthorized(new { message = "Invalid or expired refresh token" });
+
+            return Ok(new TokenResponseDto
+            {
+                AccessToken = accessToken,
+                RefreshToken = refreshToken
+            });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = "An error occurred while refreshing the token" });
+        }
     }
-    
+
     [Authorize]
     [HttpPost("revoke")]
     public async Task<IActionResult> RevokeToken()

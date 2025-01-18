@@ -39,6 +39,7 @@ public class AuthService
 
         var accessToken = GenerateJwtToken(user);
         var refreshToken = GenerateRefreshToken();
+       
         if (user.AuthUser == null)
         {
             var authUser = new AuthUser 
@@ -55,6 +56,7 @@ public class AuthService
         {
             user.AuthUser.RefreshToken = refreshToken;
             user.AuthUser.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_jwtOptions.RefreshTokenLifetimeDays);
+            _dbContext.AuthUsers.Update(user.AuthUser);
         }
 
         await _dbContext.SaveChangesAsync();
@@ -65,10 +67,11 @@ public class AuthService
 
     public async Task<(string AccessToken, string RefreshToken)> RefreshTokenAsync(string refreshToken)
     {
-        var authUser = await _dbContext.Set<AuthUser>()
+        var authUser = await _dbContext.AuthUsers
             .Include(a => a.User)
             .FirstOrDefaultAsync(u => u.RefreshToken == refreshToken);
 
+       
         if (authUser == null || authUser.RefreshTokenExpiryTime <= DateTime.UtcNow)
             return (null, null);
 
