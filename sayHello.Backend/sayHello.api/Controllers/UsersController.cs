@@ -64,7 +64,7 @@ public class UsersController : BaseController
 
    
     [HttpPost("", Name = "CreateUser")]
-    [RequirePermission(Permissions.ManageUsers)]
+    [AllowAnonymous] 
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -130,7 +130,7 @@ public class UsersController : BaseController
     
     
     [HttpPost("restorePassword/{Email}", Name = "RestorePassword")]
-    [RequirePermission(Permissions.ManageUsers)]
+    [AllowAnonymous] 
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult<UserDetailsDto?>> RestorePassword(string Email)
