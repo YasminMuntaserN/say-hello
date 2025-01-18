@@ -8,6 +8,7 @@ export function GroupProvider({ children }) {
   const {user}=useChat();
   const [MemberInGroup, setMemberInGroup] = useState([user?.userId]);
   const [updateGroupMembers, setUpdateGroupMembers] = useState(false);
+  const [GroupJoinedOrLeft, setGroupJoinedOrLeft] = useState(false);
   const { mutate } = useAddGroupMember();
 
   const addGroupMember = (userId) => {
@@ -48,7 +49,9 @@ export function GroupProvider({ children }) {
         RemoveGroupMember,
         SaveGroupMembers,
         updateGroupMembers, 
-        setUpdateGroupMembers
+        setUpdateGroupMembers,
+        GroupJoinedOrLeft, 
+        setGroupJoinedOrLeft
       }}
     >
       {children}

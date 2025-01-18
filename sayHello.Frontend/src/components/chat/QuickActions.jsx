@@ -8,56 +8,82 @@ import { useAllBlockedUsers, useBlockedUserCount } from "../User/hooks/useBlocke
 import { useChat } from "../../context/UserContext";
 import CreateGroup from "../Groups/CreateGroup";
 import { useAllGroups, useGroupsCount } from "../Groups/hooks/useGroups";
+import { useGroup } from "../../context/GroupContext";
 
 function QuickActions() {
-  const{user ,updatedPartnerOperations ,setShowUsers ,setUsersToShow} =useChat();
-  const {  ArchivedUser, ArchivedUsersCount } = useArchivedUserCount();
-  const {  BlockedUser, BlockedUsersCount } = useBlockedUserCount();
-  const { Group, GroupsCount }=useGroupsCount();
-  const { mutate:getAllArchivedUsers, AllArchivedUsers } = useAllArchivedUsers();
-  const { mutate:getAllBlockedUsers, AllBlockedUsers } = useAllBlockedUsers();
-  const { mutate:getAllGroups , AllGroups } = useAllGroups();
-
+  const { user, updatedPartnerOperations, setShowUsers, setUsersToShow } = useChat();
+  const { GroupJoinedOrLeft } = useGroup();
+  const { ArchivedUser, ArchivedUsersCount } = useArchivedUserCount();
+  const { BlockedUser, BlockedUsersCount } = useBlockedUserCount();
+  const { Group, GroupsCount } = useGroupsCount();
+  
+  
+  const { 
+    mutate: getAllArchivedUsers, 
+  } = useAllArchivedUsers();
+  
+  const { 
+    mutate: getAllBlockedUsers, 
+  } = useAllBlockedUsers();
+  
+  const { 
+    mutate: getAllGroups, 
+  } = useAllGroups();
 
   useEffect(() => {
-    ArchivedUser(user.userId);
-    BlockedUser(user.userId);
-    Group(user.userId);
-  },[ArchivedUser , BlockedUser ,Group,user.userId,updatedPartnerOperations]);
+    if (user?.userId) {
+      ArchivedUser(user.userId);
+      BlockedUser(user.userId);
+      Group(user.userId);
+    }
+  }, [ArchivedUser, BlockedUser, Group, user?.userId ,updatedPartnerOperations, GroupJoinedOrLeft]);
 
-  const handleUsersToShow =(UsersType)=>{
-      if(UsersType==="ArchivedUsers"){
-        getAllArchivedUsers(user.userId);
-        setUsersToShow(AllArchivedUsers);
-        setShowUsers(pre=>!pre);
-      }
-      else if(UsersType==="BlockedUsers"){
-        getAllBlockedUsers(user.userId);
-        setUsersToShow(AllBlockedUsers);
-        setShowUsers(pre=>!pre);
-      }
-      else if(UsersType==="AllGroups"){
-        getAllGroups(user.userId);
-        const mappedGroups = AllGroups.map((group) => ({
-          username: group.chatPartnerName,
-          profilePictureUrl: group.chatPartnerImage,
-          userId: group.chatPartnerId,
-        }));
-        setUsersToShow(mappedGroups);
-        setShowUsers(pre=>!pre);
-      }
-      else if(UsersType==="allPreviousChats"){
-        setShowUsers(false);
-      }
-  }
+  useEffect(() => {
+    handleUsersToShow(updatedPartnerOperations === "BlockedUsers" ?"BlockedUsers" :"ArchivedUsers");
+    handleUsersToShow("AllGroups");
+  }, [updatedPartnerOperations, GroupJoinedOrLeft]);
+
+  const handleUsersToShow = (UsersType) => {
+    if (UsersType === "ArchivedUsers" ) {
+      getAllArchivedUsers(user.userId ,{
+        onSuccess:(data)=>{
+          setUsersToShow(data);
+          setShowUsers(prev => !prev);
+        }});
+    }
+    else if (UsersType === "BlockedUsers") {
+      getAllBlockedUsers(user.userId,{
+        onSuccess:(data)=>{
+      setUsersToShow(data);
+      setShowUsers(prev => !prev);
+    }});
+    }
+    else if (UsersType === "AllGroups") {
+      getAllGroups(user.userId,{
+        onSuccess:(data)=>{
+      const mappedGroups = data.map((group) => ({
+        username: group.chatPartnerName,
+        profilePictureUrl: group.chatPartnerImage,
+        userId: group.chatPartnerId,
+      }));
+      setUsersToShow(mappedGroups);
+      setShowUsers(prev => !prev);
+    }});
+    }
+    else if (UsersType === "allPreviousChats") {
+      setShowUsers(false);
+    }
+  };
+
   return (
     <div className={StyledContainer}>
       <BiSolidMessageSquareDots
         className={StyledIcon}
-        onClick={()=>handleUsersToShow("allPreviousChats")}/>
+        onClick={() => handleUsersToShow("allPreviousChats")}
+      />
       <div className="relative">
         <FaArchive
-          onClick={()=>handleUsersToShow("ArchivedUsers")}
+          onClick={() => handleUsersToShow("ArchivedUsers")}
           className={`${StyledIcon} ${ArchivedUsersCount > 0 ? "text-purple" : ""}`}
         />
         {ArchivedUsersCount > 0 && (
@@ -66,7 +92,7 @@ function QuickActions() {
       </div>
       <div className="relative">
         <MdBlockFlipped
-          onClick={()=>handleUsersToShow("BlockedUsers")}
+          onClick={() => handleUsersToShow("BlockedUsers")}
           className={`${StyledIcon} ${BlockedUsersCount > 0 ? "text-purple" : ""}`}
         />
         {BlockedUsersCount > 0 && (
@@ -74,9 +100,9 @@ function QuickActions() {
         )}
       </div>
       <div className="relative">
-      <FaUsers 
-            onClick={()=>handleUsersToShow("AllGroups")} 
-            className={`${StyledIcon} ${GroupsCount > 0 ? "text-purple" : ""}`}
+        <FaUsers 
+          onClick={() => handleUsersToShow("AllGroups")} 
+          className={`${StyledIcon} ${GroupsCount > 0 ? "text-purple" : ""}`}
         />
         {GroupsCount > 0 && (
           <span className={StyledCount}>{GroupsCount}</span>

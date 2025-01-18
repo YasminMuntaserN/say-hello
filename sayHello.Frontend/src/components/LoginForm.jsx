@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { IoMdLogIn } from "react-icons/io";
 import Button from "../ui/Button";
 import FormRow from "../ui/FormRow";
-import { useExistUser } from "../components/User/hooks/useExistUser";
+import { useAuth } from "../components/User/hooks/useAuth";
 import SpinnerMini from "../ui/SpinnerMini";
 import FormContainer from "../ui/FormContainer";
 import { useChat } from "../context/UserContext";
@@ -17,19 +17,19 @@ function LoginForm() {
     reset
   } = useForm();
 
-  const {mutate,isLoading } =useExistUser();
+  const {loginMutate,isLoading } =useAuth();
   const navigate = useNavigate(); 
   const {login}=useChat();
 
   function onSubmit(data) {
     const {Email ,Password} =data;
-    mutate({Email, Password},
+    loginMutate({email:Email,password: Password},
       {
         onSuccess: (data) => {
           if(data){
           reset();
-          navigate(`/dashboard/${data.username}`);
-          login(data);
+          navigate(`/dashboard/${data.user.username}`);
+          login(data.user);
           }
         },
         onError: (error) => {

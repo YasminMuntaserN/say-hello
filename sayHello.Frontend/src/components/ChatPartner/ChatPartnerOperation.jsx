@@ -16,10 +16,11 @@ function ChatPartnerOperation() {
   const { BlockedUser, isLoading: isBlocking, error: blockError } = useBlockedUser();
   const { unArchivedUser, isLoading: isUnArchiving, error: UnArchiveError } = useDeleteArchivedUser();
   const { unBlockedUser, isLoading: isUnBlocking, error: UnBlockError } = useDeleteBlockedUser();
-  const { isArchived } = useIsArchivedUser(userInChat?.type.userId, user.userId);
-  const { isBlocked } = useIsBlockedUser(userInChat?.type.userId, user.userId);
+  const { isArchived } = useIsArchivedUser(userInChat?.type.userId ,user.userId );
+  const { isBlocked } = useIsBlockedUser( userInChat?.type.userId ,user.userId );
   
-  console.log(`isBlocked ${isBlocked},isArchived ${isArchived}`);
+  console.log(userInChat?.type.userId, user.userId);
+  console.log(isArchived, isBlocked);
 
   const handleOperation = (operation) => {
     operation(operation===ArchivedUser?
@@ -38,7 +39,7 @@ function ChatPartnerOperation() {
         onSuccess: (data) => {
           console.log("Operation completed successfully:", data);
           setShowChatPartnerOperations((prev) => !prev);
-          setUpdatedPartnerOperations((prev) => !prev);
+          setUpdatedPartnerOperations(operation===BlockedUser?"BlockedUsers" :"ArchivedUsers");
           operation===BlockedUser && handlePreventSendMessage({name:"user" ,id:userInChat?.type.userId});
         },
       }
@@ -59,7 +60,7 @@ function ChatPartnerOperation() {
         onSuccess: (data) => {
           console.log("Operation completed successfully:", data);
           setShowChatPartnerOperations((prev) => !prev);
-          setUpdatedPartnerOperations(true);
+          setUpdatedPartnerOperations(operation===BlockedUser?"BlockedUsers" :"ArchivedUsers");
           operation === unBlockedUser && removePreventedUser("user" ,userInChat?.type.userId);
         },
       }

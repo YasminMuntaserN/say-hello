@@ -118,7 +118,7 @@ export async function IsExist(entityName, value) {
   try {
     const response = await apiClient(`${entityName}/${value}`);
     const data = await handleResponse(response);
-    return data === "true";
+    return data;
   } catch (error) {
     console.error(`Error checking if the ${entityName} Exists:`, error);
     throw error;

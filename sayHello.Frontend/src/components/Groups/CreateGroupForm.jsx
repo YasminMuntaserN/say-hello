@@ -9,7 +9,6 @@ import { useEffect, useMemo, useState } from "react";
 import AddFriendCard from "../chat/AddFriendCard";
 import { useAddGroup } from "./hooks/useGroups";
 import { useGroup } from "../../context/GroupContext";
-import { useChat } from "../../context/UserContext";
 import SearchBar from "../../ui/SearchBar";
 
 
@@ -25,8 +24,7 @@ function CreateGroupForm({onClose ,groupInfo}) {
   
   const { mutate, AllUsers } = useAllUsers();
   const { mutate: addGroup, isLoading, error }=useAddGroup();
-  const {SaveGroupMembers ,setUpdateGroupMembers}=useGroup();
-  const {setUpdatedPartnerOperations}=useChat();
+  const {SaveGroupMembers ,setUpdateGroupMembers ,setGroupJoinedOrLeft}=useGroup();
   const [filteredUsers, setFilteredUsers] = useState([]); 
   const [Users, setUsers] = useState([]); 
   const AddNewMember = !!groupInfo;
@@ -48,13 +46,13 @@ function CreateGroupForm({onClose ,groupInfo}) {
         console.log("group" ,data);
         reset();
         SaveGroupMembers(data.groupId);
-        setUpdatedPartnerOperations(true);
+        setGroupJoinedOrLeft(true);
         onClose?.();
       }
     })
     }else{
       SaveGroupMembers(groupId);
-      setUpdatedPartnerOperations(true);
+      setGroupJoinedOrLeft(true);
       setUpdateGroupMembers(true)
       onClose?.();
     } 

@@ -7,11 +7,12 @@ import AddFriend from './AddFriend';
 import AddFriendCard from './AddFriendCard';
 import { useChat } from '../../context/UserContext';
 import LoadingChattingCards from '../../ui/LoadingChatingCards';
+import { useGroup } from '../../context/GroupContext';
 
 export function Connections() {
   const { user, showUsers, refetchChats, updatedPartnerOperations, usersToShow } = useChat();
   const { mutate, isLoading, error, AllUsers: AllUsersBySenderId } = useAllUsersBySenderId();
-  
+  const {GroupJoinedOrLeft} =useGroup();
   const [filteredUsers, setFilteredUsers] = useState(AllUsersBySenderId); 
 
   const handleSearch = (query) => {
@@ -37,11 +38,11 @@ export function Connections() {
 
   useEffect(() => {
     setFilteredUsers(showUsers ? usersToShow : AllUsersBySenderId);
-  }, [showUsers, usersToShow, AllUsersBySenderId]);
+  }, [showUsers, usersToShow, AllUsersBySenderId ,GroupJoinedOrLeft]);
 
   return (
     <div className="bg-[#f8fafc] flex flex-col">
-      <QuickActions AllUsersBySenderId={AllUsersBySenderId} />
+      <QuickActions/>
       <AddFriend />
       <SearchBar onSearch={handleSearch} />
 

@@ -5,11 +5,12 @@ import SpinnerMini from "../../ui/SpinnerMini";
 import { useLeaveGroup } from "../Groups/hooks/useGroupMember";
 import { useChat } from "../../context/UserContext";
 import CreateGroup from "../Groups/CreateGroup";
+import { useGroup } from "../../context/GroupContext";
 
 function ChatGroupOperation({groupId}) {
   const[groupMemberId , setGroupMemberId] = useState(null);
   const[groupMembers , setGroupMembers] = useState([]);
-
+  const {setGroupJoinedOrLeft}=useGroup(); 
   const {setShowChatPartnerOperations ,handlePreventSendMessage } =useChat();
   const { mutate :LeaveGroup, isLoading :loadingLeaveGroup, error:ErrorLeaveGroup } =useLeaveGroup();
 
@@ -18,6 +19,7 @@ function ChatGroupOperation({groupId}) {
       onSuccess : ()=>{
         setShowChatPartnerOperations(false);
         handlePreventSendMessage({name:"group" ,id:groupId});
+        setGroupJoinedOrLeft(true);
 
   }});
   }

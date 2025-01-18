@@ -10,8 +10,7 @@ export function ChatProvider({ children }) {
   const [user, setUser] = useState(getStoredUser());
   const [refetchChats, setRefetchChats] = useState(false);
   const [showChatPartnerOperations, setShowChatPartnerOperations] = useState(false);
-  const [updatedPartnerOperations, setUpdatedPartnerOperations] = useState(false);
-  
+  const [updatedPartnerOperations, setUpdatedPartnerOperations] = useState("");
   const [usersToShow, setUsersToShow] = useState([]);
 
   const {
