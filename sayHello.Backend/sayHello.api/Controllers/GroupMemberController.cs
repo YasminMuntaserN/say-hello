@@ -2,9 +2,11 @@ using System.Net;
 using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using sayHello.api.Authorization;
 using sayHello.api.Controllers.Base;
 using sayHello.Business;
+using sayHello.DataAccess;
 using sayHello.DTOs.Group;
 
 namespace sayHello.api.Controllers;
@@ -14,11 +16,14 @@ namespace sayHello.api.Controllers;
 public class GroupMemberController : BaseController
 {
     private readonly GroupMemberService _GroupMemberService;
+    private readonly AppDbContext _context;
 
-    public GroupMemberController(GroupMemberService GroupMemberService, ILogger<GroupMemberController> logger)
+    public GroupMemberController(GroupMemberService GroupMemberService,
+        ILogger<GroupMemberController> logger ,AppDbContext context)
         : base(logger)
     {
         _GroupMemberService = GroupMemberService;
+        _context = context;
     }
 
     [HttpGet("all", Name = "GetAllGroupMember")]
@@ -39,13 +44,37 @@ public class GroupMemberController : BaseController
 
 
     [HttpPost("", Name = "CreateGroupMember")]
-    [RequirePermission(Permissions.AddGroupMember)]
+    [RequirePermission(Permissions.AuthenticateUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<GroupDetailsMemberDto>> CreateGroupMember([FromForm] CreateGroupMemberDto newGroupMemberDto)
-    => await HandleResponse(() => _GroupMemberService.AddGroupMemberAsync(newGroupMemberDto));
-    
+    public async Task<ActionResult<GroupDetailsMemberDto>> CreateGroupMember(
+        [FromForm] CreateGroupMemberDto newGroupMemberDto)
+    {
+        using var transaction = await _context.Database.BeginTransactionAsync();
+        try
+        {
+            var groupMember = await HandleResponse(() => _GroupMemberService.AddGroupMemberAsync(newGroupMemberDto));
+
+            var user = await _context.Users.FirstOrDefaultAsync(us => us.UserId == newGroupMemberDto.userId);
+            if (user != null)
+            {
+                user.Role = "GroupMember";
+                _context.Users.Update(user);
+                await _context.SaveChangesAsync();
+            }
+
+            await transaction.CommitAsync();
+            return groupMember;
+        }
+        catch
+        {
+            await transaction.RollbackAsync();
+            throw;
+        }
+    }
+
+
     [HttpGet("countGroupMembers", Name = "GetGroupMembersCount")]
     [RequirePermission(Permissions.ManageGroups)]
     [ProducesResponseType(StatusCodes.Status200OK)]

@@ -65,8 +65,12 @@ namespace sayHello.Business
 
         public async Task<bool> HardDeleteGroupMemberByUserIdAsync(int UserId)
             => await HardDeleteAsync(UserId, "UserId");
+        
         public async Task<bool> GroupMemberExistsAsync(int GroupMemberId)
             => await ExistsAsync(GroupMemberId);
+        
+        public async Task<bool> GroupMemberExistsByUserIdAsync(int UserId)
+            => await ExistsByAsync(e => EF.Property<int>(e, "UserId") == UserId);
         
         public async Task<int> GetAllGroupsContainingUserCountAsync(int UserId)
         =>await _context.GroupMembers.Where(gm => gm.UserId == UserId).CountAsync();

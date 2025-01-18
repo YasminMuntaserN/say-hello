@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("sayHello.api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2784668ce7d22bef94e9682c3996602c08a417c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9142044d5e202e22263bb8d91a9da812bfd8dc6d")]
 [assembly: System.Reflection.AssemblyProductAttribute("sayHello.api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("sayHello.api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

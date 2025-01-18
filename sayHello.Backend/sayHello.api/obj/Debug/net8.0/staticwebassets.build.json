@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FIRma2lF3/Jqn8vigpMSwkfNwTeD0tljPDPGuTR3yCs=",
+  "Hash": "n56bbPFgsev1wMEEXq3XMC36m1ci61CHMMw0kRAAkf4=",
   "Source": "sayHello.api",
   "BasePath": "_content/sayHello.api",
   "Mode": "Default",
@@ -122,6 +122,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\users\\1a226ede-4d55-40b9-9abb-b80414ddca93_g2.jpg"
     },
     {
+      "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\1aa93d49-af30-474b-8faa-2aad0ec81b95_m7.jpg",
+      "SourceId": "sayHello.api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\",
+      "BasePath": "_content/sayHello.api",
+      "RelativePath": "uploads/users/1aa93d49-af30-474b-8faa-2aad0ec81b95_m7#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ph7o2ne56d",
+      "Integrity": "7Vldb7QXM4wQHY+9pd4lNvR6YOe5JW7aps+owbtFtVI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\users\\1aa93d49-af30-474b-8faa-2aad0ec81b95_m7.jpg"
+    },
+    {
       "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\1f6cf6cf-31b3-4d8f-bcb8-61ab69ee4333_m2.jpg",
       "SourceId": "sayHello.api",
       "SourceType": "Discovered",
@@ -162,6 +183,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\users\\2bfe618b-913a-4706-ae8e-830e2e92db57_m4.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\312d4b64-2455-47a2-80da-033d4890c632_group3.jpg",
+      "SourceId": "sayHello.api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\",
+      "BasePath": "_content/sayHello.api",
+      "RelativePath": "uploads/users/312d4b64-2455-47a2-80da-033d4890c632_group3#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "hzn6yatuub",
+      "Integrity": "EycPiOC4OxP/RvyWRhTJk+Yijfc5wDKteAnbVhIp+nY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\users\\312d4b64-2455-47a2-80da-033d4890c632_group3.jpg"
     },
     {
       "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\333ee157-1779-4fe6-b4fe-8bc03bacd650_m1.jpg",
@@ -920,6 +962,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\users\\bc5f3c3e-2fa4-4717-9e5e-5d13cb645c40_m6.jpg"
     },
     {
+      "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\bd04c4d8-74d7-426c-b27a-8691795fbdc9_group5.png",
+      "SourceId": "sayHello.api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\",
+      "BasePath": "_content/sayHello.api",
+      "RelativePath": "uploads/users/bd04c4d8-74d7-426c-b27a-8691795fbdc9_group5#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qdhlk1lyhw",
+      "Integrity": "wqwz+ZdFI1XxQ8hTYjJyShHcOCJwr7ptU7+1naxcJEo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\users\\bd04c4d8-74d7-426c-b27a-8691795fbdc9_group5.png"
+    },
+    {
       "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\bf980186-7eb3-4deb-98de-85da2f4c62d9_m1.jpg",
       "SourceId": "sayHello.api",
       "SourceType": "Discovered",
@@ -1128,6 +1191,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\users\\dbb54f15-2a54-4029-9656-003778910eab_m6.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\dce98d8a-41ec-49bf-8d9e-ee52d7683c40_group2.jpg",
+      "SourceId": "sayHello.api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\",
+      "BasePath": "_content/sayHello.api",
+      "RelativePath": "uploads/users/dce98d8a-41ec-49bf-8d9e-ee52d7683c40_group2#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1svh6f4sq9",
+      "Integrity": "IV3v4IL9mLYtcnmgeEYC79Guk1+5V1znMGmXsiibFJU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\users\\dce98d8a-41ec-49bf-8d9e-ee52d7683c40_group2.jpg"
     },
     {
       "Identity": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\dd9fdd1a-26a9-47ed-a9d1-24a0a6603e76_m1.jpg",
@@ -1689,6 +1773,88 @@
       ]
     },
     {
+      "Route": "uploads/users/1aa93d49-af30-474b-8faa-2aad0ec81b95_m7.jpg",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\1aa93d49-af30-474b-8faa-2aad0ec81b95_m7.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4392"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7Vldb7QXM4wQHY+9pd4lNvR6YOe5JW7aps+owbtFtVI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 12:00:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7Vldb7QXM4wQHY+9pd4lNvR6YOe5JW7aps+owbtFtVI="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/1aa93d49-af30-474b-8faa-2aad0ec81b95_m7.ph7o2ne56d.jpg",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\1aa93d49-af30-474b-8faa-2aad0ec81b95_m7.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4392"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7Vldb7QXM4wQHY+9pd4lNvR6YOe5JW7aps+owbtFtVI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 12:00:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ph7o2ne56d"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/users/1aa93d49-af30-474b-8faa-2aad0ec81b95_m7.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7Vldb7QXM4wQHY+9pd4lNvR6YOe5JW7aps+owbtFtVI="
+        }
+      ]
+    },
+    {
       "Route": "uploads/users/1f6cf6cf-31b3-4d8f-bcb8-61ab69ee4333_m2.i1nemlkz5p.jpg",
       "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\1f6cf6cf-31b3-4d8f-bcb8-61ab69ee4333_m2.jpg",
       "Selectors": [],
@@ -1849,6 +2015,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-4b+1MYg9/oyIa2KsFvXhcBWX9Mf1Nf4ekYxAZqzzL3c="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/312d4b64-2455-47a2-80da-033d4890c632_group3.hzn6yatuub.jpg",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\312d4b64-2455-47a2-80da-033d4890c632_group3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7529"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EycPiOC4OxP/RvyWRhTJk+Yijfc5wDKteAnbVhIp+nY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 12:04:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hzn6yatuub"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/users/312d4b64-2455-47a2-80da-033d4890c632_group3.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EycPiOC4OxP/RvyWRhTJk+Yijfc5wDKteAnbVhIp+nY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/312d4b64-2455-47a2-80da-033d4890c632_group3.jpg",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\312d4b64-2455-47a2-80da-033d4890c632_group3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7529"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EycPiOC4OxP/RvyWRhTJk+Yijfc5wDKteAnbVhIp+nY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 12:04:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EycPiOC4OxP/RvyWRhTJk+Yijfc5wDKteAnbVhIp+nY="
         }
       ]
     },
@@ -4805,6 +5053,88 @@
       ]
     },
     {
+      "Route": "uploads/users/bd04c4d8-74d7-426c-b27a-8691795fbdc9_group5.png",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\bd04c4d8-74d7-426c-b27a-8691795fbdc9_group5.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8225"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wqwz+ZdFI1XxQ8hTYjJyShHcOCJwr7ptU7+1naxcJEo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 13:06:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wqwz+ZdFI1XxQ8hTYjJyShHcOCJwr7ptU7+1naxcJEo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/bd04c4d8-74d7-426c-b27a-8691795fbdc9_group5.qdhlk1lyhw.png",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\bd04c4d8-74d7-426c-b27a-8691795fbdc9_group5.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8225"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wqwz+ZdFI1XxQ8hTYjJyShHcOCJwr7ptU7+1naxcJEo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 13:06:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qdhlk1lyhw"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/users/bd04c4d8-74d7-426c-b27a-8691795fbdc9_group5.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wqwz+ZdFI1XxQ8hTYjJyShHcOCJwr7ptU7+1naxcJEo="
+        }
+      ]
+    },
+    {
       "Route": "uploads/users/bf980186-7eb3-4deb-98de-85da2f4c62d9_m1.hvq0hj8cx3.jpg",
       "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\bf980186-7eb3-4deb-98de-85da2f4c62d9_m1.jpg",
       "Selectors": [],
@@ -5621,6 +5951,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-bo0GVkOFqzbLe7d7E+5GsvNY5tUEM/FOQRE7yVaQZgk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/dce98d8a-41ec-49bf-8d9e-ee52d7683c40_group2.1svh6f4sq9.jpg",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\dce98d8a-41ec-49bf-8d9e-ee52d7683c40_group2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4212"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IV3v4IL9mLYtcnmgeEYC79Guk1+5V1znMGmXsiibFJU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 12:07:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1svh6f4sq9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/users/dce98d8a-41ec-49bf-8d9e-ee52d7683c40_group2.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IV3v4IL9mLYtcnmgeEYC79Guk1+5V1znMGmXsiibFJU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/users/dce98d8a-41ec-49bf-8d9e-ee52d7683c40_group2.jpg",
+      "AssetFile": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\wwwroot\\uploads\\users\\dce98d8a-41ec-49bf-8d9e-ee52d7683c40_group2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4212"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IV3v4IL9mLYtcnmgeEYC79Guk1+5V1znMGmXsiibFJU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 12:07:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IV3v4IL9mLYtcnmgeEYC79Guk1+5V1znMGmXsiibFJU="
         }
       ]
     },
