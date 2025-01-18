@@ -30,6 +30,7 @@ function SignupForm() {
       formData.append("Bio", data.Bio?data.Bio:"");
       formData.append("Status", "Online");
       formData.append("ProfilePictureUrl", "test");
+      formData.append("Role", "User");
       if (data.ProfilePicture && data.ProfilePicture.length > 0) {
         formData.append("photo", data.ProfilePicture[0]);
       } else {
