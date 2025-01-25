@@ -28,6 +28,7 @@ function EditUserForm({ user, onClose }) {
     formData.append("Bio", data.Bio || user.bio);
     formData.append("Status", "Online");
     formData.append("ProfilePictureUrl", "");
+    formData.append("Role", user.role);
     
     if (data.ProfilePicture?.[0]) {
       formData.append("photo", data.ProfilePicture[0]);

@@ -5,21 +5,27 @@ import SpinnerMini from "../../ui/SpinnerMini";
 import { FaCircleInfo } from "react-icons/fa6";
 import { useRestorePassword } from "./hooks/useChangePassword";
 import {useChat} from "../../context/UserContext";
+import { useAuth } from "./hooks/useAuth";
 
 function CheckEmail({onClose}) {
     const {register,formState: { errors },handleSubmit } = useForm();
-    const{mutate:changePassword ,loading}=useRestorePassword();
+    const{mutate:changePassword ,isLoading :loadingRestore}=useRestorePassword();
+      const {loginMutate,isLoading } =useAuth();
     const {login}=useChat();
     
     const onSubmit =(formData)=> {
-      console.log(formData);
       changePassword({email:formData.Email},{
         onSuccess: (data) => {
-          login(data.user);
-          onClose?.();
-        }
-    });
+          loginMutate({email:data.user.email,password: data.user.password},
+            {
+              onSuccess: (data) => {
+                login(data.user);
+                onClose?.();
+              }
+            }); 
+          }});
   }
+
   return (
     <div className="w-[700px]  p-5 ">
     <div className="border-[#6b4ca0] border-2 p-10 rounded-xl ">
@@ -38,7 +44,7 @@ function CheckEmail({onClose}) {
     </p>
       <div className=" mt-5">
       <Button variant="reset" onClick={onClose}>Cancel</Button>
-      <Button variant="save" type="submit">{loading ? <SpinnerMini /> : "Submit"}</Button>
+      <Button variant="save" type="submit">{isLoading ||loadingRestore ? <SpinnerMini /> : "Submit"}</Button>
       </div>
       </form>
     </div>

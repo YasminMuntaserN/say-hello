@@ -5,12 +5,15 @@ import Image from "../../ui/Image";
 import EditUserInfo from "../User/EditUserInfo";
 import ForgatPassword from "../User/ForgatPassword";
 import { useNavigate } from "react-router-dom";
+import { useLogout } from "../User/hooks/useAuth";
 
 function Navbar() {
   const navigation =useNavigate();
   const {user ,logout}=useChat();
+  const{logoutMutate}=useLogout();
   
   const handleLogout=()=>{
+    logoutMutate();
     logout();
     navigation("/login");
   }
