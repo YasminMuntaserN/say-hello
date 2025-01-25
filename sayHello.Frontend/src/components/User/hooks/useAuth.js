@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
-import { login } from "../../../services/authService";
+import { login, logout } from "../../../services/authService";
 
 export function useAuth() {
   const queryClient = useQueryClient();
@@ -23,4 +23,19 @@ export function useAuth() {
   });
 
   return { loginMutate, isLoading: status === "pending", error, user };
+}
+
+export function useLogout() {
+  const {
+    mutate: logoutMutate,
+    status,
+    error,
+  } = useMutation({
+    mutationFn: () => logout(),
+    onError: (err) => {
+      console.error("logout error:", err);
+    },
+  });
+
+  return { logoutMutate, isLoading: status === "pending", error };
 }
