@@ -30,12 +30,72 @@ This application supports real-time messaging for private and group conversation
   - Create groups for collaboration.
   - Block or archive chats for streamlined user experience.
 
+## Security Features
+<div>
+ <img src="https://imgur.com/kr7jzoF.jpg" alt="Security" />
+</div>
+
+### **Authentication System**
+- **JWT-Based Authentication:**
+  - Secure access tokens with configurable expiration
+  - Refresh token mechanism for seamless session management
+  - Protection against token theft and replay attacks
+
+### **Authorization Framework**
+- **Role-Based Access Control (RBAC):**
+  - Predefined roles: Admin, GroupMember, User
+  - Each role has specific permissions and access levels
+  - Hierarchical permission structure
+
+- **Permission System:**
+  - **Admin Permissions:**
+    - Full system access
+    - User management
+    - Group management
+    - Message management
+    - System configuration
+  
+  - **GroupMember Permissions:**
+    - Send messages
+    - Manage group members
+    - Block users
+    - Archive chats
+    - View chat history
+  
+  - **User Permissions:**
+    - Basic messaging
+    - Profile management
+    - Chat archiving
+    - User blocking
+
+### **Security Measures**
+- **Token Management:**
+  - Access tokens expire after 15 minutes
+  - Refresh tokens valid for 7 days
+  - Automatic token refresh mechanism
+  - Secure token storage and transmission
+
+- **Session Security:**
+  - Automatic session termination on inactivity
+  - Concurrent session handling
+  - Secure session state management
+
+- **API Security:**
+  - Protected endpoints with JWT authentication
+  - CORS policy implementation
+  - Rate limiting for API calls
+  - Request validation and sanitization
 ---
 
 ## Technical Architecture
 
 ### **Backend**
 - **Framework:** ASP.NET Core 8
+- - **Authentication & Authorization:**
+  - **JWT (JSON Web Tokens):** Secure token-based authentication
+  - **Refresh Token System:** Enhanced security with token rotation
+  - **Role-Based Access Control:** Granular permissions management
+  - **Permission-Based Authorization:** Fine-grained access control
 - **Database:** SQL Server, managed with Entity Framework Core
 - **Real-Time Communication:** 
   - Implemented using SignalR for two-way communication between server and clients.
@@ -58,14 +118,15 @@ This application supports real-time messaging for private and group conversation
 ---
 
 ## How SignalR Powers Real-Time Features
- **The SignalR library plays a critical role in enabling real-time communication for the chat application:**
-**Persistent Connection:** SignalR establishes a continuous connection between the server and clients, ensuring real-time delivery of messages.
-**Message Flow:**
-When a user sends a message, it is transmitted to the SignalR Hub on the server.
-The hub processes the message and instantly broadcasts it to the intended recipient(s).
-All participants, whether in private or group chats, receive the message in real time.
-**Group Chat Synchronization:**
-SignalR manages group communication, ensuring every group member receives messages simultaneously, maintaining consistent state across all devices.
+**The SignalR library plays a critical role in enabling real-time communication for the chat application:**
+ - **Persistent Connection:**
+   -  SignalR establishes a continuous connection between the server and clients, ensuring real-time delivery of messages.
+ - **Message Flow:**
+   - When a user sends a message, it is transmitted to the SignalR Hub on the server.
+   - The hub processes the message and instantly broadcasts it to the intended recipient(s).
+   - All participants, whether in private or group chats, receive the message in real time.
+- **Group Chat Synchronization:**
+   - SignalR manages group communication, ensuring every group member receives messages simultaneously, maintaining consistent state across all devices.
 
 **By utilizing WebSockets, SignalR guarantees efficient and seamless communication, even under varying network conditions.**
 
