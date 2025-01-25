@@ -8,7 +8,7 @@ function PasswordFormRow({register, errors ,label}) {
   register={register} 
   FieldName="Password"
   rules={{
-    required: "New password is required",
+    required: "password is required",
     validate: {
       hasUppercase: (value) =>
         /[A-Z]/.test(value) || "Password must contain at least one uppercase letter",
