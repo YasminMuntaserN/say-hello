@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CaidbbQJv9o=",
+  "dgSpecHash": "bvzMMgJ4Gxg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj",
+  "projectFilePath": "G:\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TOP\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\TOP\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

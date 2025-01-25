@@ -788,11 +788,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj",
+      "projectUniqueName": "G:\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj",
       "projectName": "sayHello.Mappers",
-      "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj",
+      "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj",
       "packagesPath": "C:\\Users\\TOP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Mappers\\obj\\",
+      "outputPath": "G:\\chat\\sayHello.Backend\\sayHello.Mappers\\obj\\",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [
@@ -814,11 +814,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
-              "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj"
+            "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
+              "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj"
             },
-            "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
-              "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
+            "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
+              "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
             }
           }
         }

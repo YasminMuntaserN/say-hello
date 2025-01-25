@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {}
+    "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
+    "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj",
+        "projectUniqueName": "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj",
         "projectName": "sayHello.DTOs",
-        "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj",
+        "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj",
         "packagesPath": "C:\\Users\\TOP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\obj\\",
+        "outputPath": "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
               }
             }
           }
@@ -105,14 +105,14 @@
         }
       }
     },
-    "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
+    "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
+        "projectUniqueName": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
         "projectName": "sayHello.Entities",
-        "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
+        "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
         "packagesPath": "C:\\Users\\TOP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\obj\\",
+        "outputPath": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [

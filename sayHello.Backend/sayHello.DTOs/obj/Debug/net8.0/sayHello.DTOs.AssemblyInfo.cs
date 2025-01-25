@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("sayHello.DTOs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0409460ea0a82f80b06d599b0c58b8a86f902cf6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c5bd5f8154a84d87c29cb196baa23011a1e0ab2")]
 [assembly: System.Reflection.AssemblyProductAttribute("sayHello.DTOs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("sayHello.DTOs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

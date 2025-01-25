@@ -84,7 +84,7 @@ public class GroupMemberController : BaseController
         => await HandleResponse(()=>_GroupMemberService.GroupMembersCountAsync(GroupId), "Group members count retrieved successfully");
     
     [HttpDelete("deleteGroupMember/{id:int}", Name = "HardDeleteGroupMember")]
-    [RequirePermission(Permissions.RemoveGroupMember)]
+    [RequirePermission(Permissions.AuthenticateUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -93,7 +93,7 @@ public class GroupMemberController : BaseController
         => await HandleResponse(()=>_GroupMemberService.HardDeleteGroupMemberAsync(id), "Group member deleting  successfully");
     
     [HttpDelete("deleteGroupMemberByUserId/{id:int}", Name = "HardDeleteGroupMemberByUserId")]
-    [RequirePermission(Permissions.RemoveGroupMember)]
+    [RequirePermission(Permissions.AuthenticateUsers)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]

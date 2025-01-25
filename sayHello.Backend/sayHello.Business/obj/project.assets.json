@@ -3180,11 +3180,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj",
+      "projectUniqueName": "G:\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj",
       "projectName": "sayHello.Business",
-      "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj",
+      "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj",
       "packagesPath": "C:\\Users\\TOP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\obj\\",
+      "outputPath": "G:\\chat\\sayHello.Backend\\sayHello.Business\\obj\\",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [
@@ -3206,14 +3206,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj"
+            "G:\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj": {
+              "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj"
             },
-            "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
-              "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj"
+            "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
+              "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj"
             },
-            "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj": {
-              "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj"
+            "G:\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj": {
+              "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj"
             }
           }
         }

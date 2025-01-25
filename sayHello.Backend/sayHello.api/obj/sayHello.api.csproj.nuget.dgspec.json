@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\sayHello.api.csproj": {}
+    "G:\\chat\\sayHello.Backend\\sayHello.api\\sayHello.api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\sayHello.api.csproj": {
+    "G:\\chat\\sayHello.Backend\\sayHello.api\\sayHello.api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\sayHello.api.csproj",
+        "projectUniqueName": "G:\\chat\\sayHello.Backend\\sayHello.api\\sayHello.api.csproj",
         "projectName": "sayHello.api",
-        "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\sayHello.api.csproj",
+        "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.api\\sayHello.api.csproj",
         "packagesPath": "C:\\Users\\TOP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\obj\\",
+        "outputPath": "G:\\chat\\sayHello.Backend\\sayHello.api\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
@@ -33,17 +33,17 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj"
               },
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj"
               },
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj"
               },
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj"
               }
             }
           }
@@ -109,14 +109,14 @@
         }
       }
     },
-    "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj": {
+    "G:\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj",
+        "projectUniqueName": "G:\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj",
         "projectName": "sayHello.Business",
-        "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj",
+        "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Business\\sayHello.Business.csproj",
         "packagesPath": "C:\\Users\\TOP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Business\\obj\\",
+        "outputPath": "G:\\chat\\sayHello.Backend\\sayHello.Business\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
@@ -138,14 +138,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj"
               },
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj"
               },
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj"
               }
             }
           }
@@ -210,14 +210,14 @@
         }
       }
     },
-    "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj": {
+    "G:\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj",
+        "projectUniqueName": "G:\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj",
         "projectName": "sayHello.DataAccess",
-        "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj",
+        "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj",
         "packagesPath": "C:\\Users\\TOP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\obj\\",
+        "outputPath": "G:\\chat\\sayHello.Backend\\sayHello.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
@@ -239,11 +239,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj"
               },
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
               }
             }
           }
@@ -336,14 +336,14 @@
         }
       }
     },
-    "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
+    "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj",
+        "projectUniqueName": "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj",
         "projectName": "sayHello.DTOs",
-        "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj",
+        "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj",
         "packagesPath": "C:\\Users\\TOP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\obj\\",
+        "outputPath": "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
@@ -365,8 +365,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
               }
             }
           }
@@ -437,14 +437,14 @@
         }
       }
     },
-    "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
+    "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
+        "projectUniqueName": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
         "projectName": "sayHello.Entities",
-        "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
+        "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
         "packagesPath": "C:\\Users\\TOP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\obj\\",
+        "outputPath": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
@@ -528,14 +528,14 @@
         }
       }
     },
-    "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj": {
+    "G:\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj",
+        "projectUniqueName": "G:\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj",
         "projectName": "sayHello.Mappers",
-        "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj",
+        "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Mappers\\sayHello.Mappers.csproj",
         "packagesPath": "C:\\Users\\TOP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Mappers\\obj\\",
+        "outputPath": "G:\\chat\\sayHello.Backend\\sayHello.Mappers\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
@@ -557,11 +557,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.DTOs\\sayHello.DTOs.csproj"
               },
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
               }
             }
           }
@@ -622,14 +622,14 @@
         }
       }
     },
-    "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj": {
+    "G:\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj",
+        "projectUniqueName": "G:\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj",
         "projectName": "sayHello.Validation",
-        "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj",
+        "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Validation\\sayHello.Validation.csproj",
         "packagesPath": "C:\\Users\\TOP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Validation\\obj\\",
+        "outputPath": "G:\\chat\\sayHello.Backend\\sayHello.Validation\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
@@ -651,11 +651,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.DataAccess\\sayHello.DataAccess.csproj"
               },
-              "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
-                "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
+              "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj": {
+                "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj"
               }
             }
           }

@@ -740,11 +740,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
+      "projectUniqueName": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
       "projectName": "sayHello.Entities",
-      "projectPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
+      "projectPath": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
       "packagesPath": "C:\\Users\\TOP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\obj\\",
+      "outputPath": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\obj\\",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [

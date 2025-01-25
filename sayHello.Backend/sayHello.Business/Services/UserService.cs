@@ -50,7 +50,8 @@ namespace sayHello.Business
                 user.ProfilePictureUrl = updatedUserDto.ProfilePictureUrl;
                 user.Password = updatedUserDto.Password;
                 user.Bio = updatedUserDto.Bio;
-
+                
+                _context.Users.Update(user);
                 await _context.SaveChangesAsync();
 
                 return _mapper.Map<UserDetailsDto>(user);

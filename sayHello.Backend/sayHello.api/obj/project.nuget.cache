@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PiY1i3ZRtO4=",
+  "dgSpecHash": "h1GYUg1tXHw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.api\\sayHello.api.csproj",
+  "projectFilePath": "G:\\chat\\sayHello.Backend\\sayHello.api\\sayHello.api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TOP\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\TOP\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

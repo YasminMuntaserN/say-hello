@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ec7KkPULALU=",
+  "dgSpecHash": "oqG63sEbMqc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\TOP\\Desktop\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
+  "projectFilePath": "G:\\chat\\sayHello.Backend\\sayHello.Entities\\sayHello.Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TOP\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\TOP\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
